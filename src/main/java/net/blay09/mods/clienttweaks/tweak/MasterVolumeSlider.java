@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class MasterVolumeSlider extends ClientTweak implements GuiPageButtonList.GuiResponder, GuiSlider.FormatHelper {
 
 	public MasterVolumeSlider() {
-		super("master_volume_slider");
+		super("Master Volume Slider");
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

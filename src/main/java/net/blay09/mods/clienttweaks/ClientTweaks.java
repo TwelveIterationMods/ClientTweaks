@@ -11,6 +11,7 @@ import net.blay09.mods.clienttweaks.tweak.NoOffhandTorchWithEmptyHand;
 import net.blay09.mods.clienttweaks.tweak.OffhandTorchWithToolOnly;
 import net.blay09.mods.clienttweaks.tweak.Screw3dAnaglyph;
 import net.blay09.mods.clienttweaks.tweak.UnderlineLooksTerribleInChat;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -48,6 +49,8 @@ public class ClientTweaks {
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
+
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Mod.EventHandler
