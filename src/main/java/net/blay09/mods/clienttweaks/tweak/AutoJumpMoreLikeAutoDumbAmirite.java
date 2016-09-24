@@ -7,8 +7,8 @@ import net.minecraft.client.gui.GuiOptionButton;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 
@@ -18,8 +18,8 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	@Override
-	public void init(FMLInitializationEvent event) {
+	@SubscribeEvent
+	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if(isEnabled()) {
 			Minecraft.getMinecraft().gameSettings.field_189989_R = false; // autoJump
 		}
