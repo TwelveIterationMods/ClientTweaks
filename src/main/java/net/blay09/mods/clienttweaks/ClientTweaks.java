@@ -63,7 +63,7 @@ public class ClientTweaks {
 				"tconstruct:stone_torch"
 		}, "Items that count as torches for the offhand-torch tweak options."));
 		for(ClientTweak tweak : tweaks.values()) {
-			config.getBoolean(tweak.getName(), "tweaks", tweak.isEnabledDefault(), tweak.getDescription());
+			tweak.setEnabled(config.getBoolean(tweak.getName(), "tweaks", tweak.isEnabledDefault(), tweak.getDescription()));
 		}
 		if (config.hasChanged()) {
 			config.save();
