@@ -1,0 +1,16 @@
+[
+{
+  "modid": "clienttweaks",
+  "name": "Client Tweaks",
+  "description": "There, I fixed Minecraft for you.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://balyware.com",
+  "updateUrl": "",
+  "authorList": ["BlayTheNinth"],
+  "credits": "BlayTheNinth",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
