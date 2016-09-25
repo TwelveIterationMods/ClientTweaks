@@ -17,7 +17,7 @@ public class HideOwnEffectParticles extends ClientTweak {
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
-		if(isEnabled()) {
+		if(event.phase == TickEvent.Phase.END && isEnabled()) {
 			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 			if (player != null) {
 				player.getDataManager().set(EntityLivingBase.HIDE_PARTICLES, true);

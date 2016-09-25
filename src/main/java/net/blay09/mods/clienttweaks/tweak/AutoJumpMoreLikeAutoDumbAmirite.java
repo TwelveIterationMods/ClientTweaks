@@ -20,7 +20,7 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
-		if(isEnabled()) {
+		if(event.phase == TickEvent.Phase.END && isEnabled()) {
 			Minecraft.getMinecraft().gameSettings.field_189989_R = false; // autoJump
 		}
 	}
