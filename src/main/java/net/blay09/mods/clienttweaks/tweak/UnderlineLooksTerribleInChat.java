@@ -10,8 +10,6 @@ public class UnderlineLooksTerribleInChat extends ClientTweak {
 
 	public UnderlineLooksTerribleInChat() {
 		super("Remove Underlines From Chat");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent

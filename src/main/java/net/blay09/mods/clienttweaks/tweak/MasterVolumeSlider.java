@@ -16,8 +16,6 @@ public class MasterVolumeSlider extends ClientTweak implements GuiPageButtonList
 
 	public MasterVolumeSlider() {
 		super("Master Volume Slider");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent

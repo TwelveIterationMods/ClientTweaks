@@ -5,7 +5,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nullable;
@@ -14,8 +13,6 @@ public class HideOffhandItem extends ClientTweak {
 
 	public HideOffhandItem() {
 		super("Hide Offhand Item");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override

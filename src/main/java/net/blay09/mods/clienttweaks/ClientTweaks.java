@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.blay09.mods.clienttweaks.tweak.AutoJumpMoreLikeAutoDumbAmirite;
+import net.blay09.mods.clienttweaks.tweak.AutoLadder;
 import net.blay09.mods.clienttweaks.tweak.HideOffhandItem;
 import net.blay09.mods.clienttweaks.tweak.HideOwnEffectParticles;
 import net.blay09.mods.clienttweaks.tweak.NoOffhandTorchWithBlock;
@@ -23,13 +24,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
@@ -65,6 +64,7 @@ public class ClientTweaks {
 		registerTweak(new HideOwnEffectParticles());
 		registerTweak(new HideOffhandItem());
 		registerTweak(new StepAssistIsAnnoying());
+		registerTweak(new AutoLadder());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();

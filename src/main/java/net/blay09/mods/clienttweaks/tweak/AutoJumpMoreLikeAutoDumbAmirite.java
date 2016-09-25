@@ -1,12 +1,10 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiControls;
 import net.minecraft.client.gui.GuiOptionButton;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -14,14 +12,12 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 
 	public AutoJumpMoreLikeAutoDumbAmirite() {
 		super("Disable Auto Jump");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if(event.phase == TickEvent.Phase.END && isEnabled()) {
-			Minecraft.getMinecraft().gameSettings.field_189989_R = false; // autoJump
+			mc.gameSettings.field_189989_R = false; // autoJump
 		}
 	}
 

@@ -1,6 +1,8 @@
 package net.blay09.mods.clienttweaks.tweak;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
@@ -9,13 +11,20 @@ import javax.annotation.Nullable;
 public abstract class ClientTweak {
 	private String name;
 	private boolean enabled = true;
+	protected Minecraft mc;
 	private KeyBinding keyBinding;
 
 	public ClientTweak(String name) {
 		this.name = name;
+
+		if(registerAsEventHandler()) {
+			MinecraftForge.EVENT_BUS.register(this);
+		}
 	}
 
-	public void init(FMLInitializationEvent event) {}
+	public final void init(FMLInitializationEvent event) {
+		mc = Minecraft.getMinecraft();
+	}
 
 	public final boolean isEnabled() {
 		return enabled;
@@ -43,6 +52,10 @@ public abstract class ClientTweak {
 	}
 
 	public abstract String getDescription();
+
+	public boolean registerAsEventHandler() {
+		return true;
+	}
 
 	@Nullable
 	public final KeyBinding registerToggleKeybind() {

@@ -12,8 +12,6 @@ public class Screw3dAnaglyph extends ClientTweak {
 
 	public Screw3dAnaglyph() {
 		super("Disable 3D Anaglyph");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent

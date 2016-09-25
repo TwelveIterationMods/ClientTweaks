@@ -4,7 +4,6 @@ import net.blay09.mods.clienttweaks.ClientTweaks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -12,8 +11,6 @@ public class NoOffhandTorchWithEmptyHand extends ClientTweak {
 
 	public NoOffhandTorchWithEmptyHand() {
 		super("No Offhand Torch With Empty Hand");
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent
