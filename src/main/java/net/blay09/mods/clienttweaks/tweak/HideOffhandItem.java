@@ -30,6 +30,6 @@ public class HideOffhandItem extends ClientTweak {
 	@Nullable
 	@Override
 	protected KeyBinding createToggleKeybind() {
-		return new KeyBinding("key.clienttweaks.hide_offhand_items", KeyConflictContext.IN_GAME, KeyModifier.NONE, 0, "key.categories.clienttweaks");
+		return new KeyBinding("key.clienttweaks.hide_offhand_item", KeyConflictContext.IN_GAME, KeyModifier.NONE, 0, "key.categories.clienttweaks");
 	}
 }
