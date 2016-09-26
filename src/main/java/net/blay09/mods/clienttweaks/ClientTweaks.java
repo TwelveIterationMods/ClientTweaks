@@ -56,6 +56,7 @@ public class ClientTweaks {
 	public void preInit(FMLPreInitializationEvent event) {
 		if(!FMLClientHandler.instance().hasOptifine()) {
 			registerTweak(new Screw3dAnaglyph());
+			registerTweak(new FixMipmapSlider());
 		}
 		registerTweak(new AutoJumpMoreLikeAutoDumbAmirite());
 		registerTweak(new MasterVolumeSlider());
@@ -68,7 +69,6 @@ public class ClientTweaks {
 		registerTweak(new StepAssistIsAnnoying());
 		registerTweak(new AutoLadder());
 		registerTweak(new DisablePotionShift());
-		registerTweak(new FixMipmapSlider());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
