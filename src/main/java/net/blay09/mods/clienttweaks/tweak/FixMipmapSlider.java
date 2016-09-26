@@ -28,7 +28,7 @@ public class FixMipmapSlider extends ClientTweak {
 
 	@SubscribeEvent
 	public void onInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
-		if (event.getGui() instanceof GuiVideoSettings) {
+		if (isEnabled() && event.getGui() instanceof GuiVideoSettings) {
 			GuiOptionsRowList optionsRowList = (GuiOptionsRowList) ((GuiVideoSettings) event.getGui()).optionsRowList;
 			for (int i = 0; i < optionsRowList.getSize(); i++) {
 				GuiOptionsRowList.Row row = optionsRowList.getListEntry(i);
