@@ -5,6 +5,8 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.blay09.mods.clienttweaks.tweak.AutoJumpMoreLikeAutoDumbAmirite;
 import net.blay09.mods.clienttweaks.tweak.AutoLadder;
+import net.blay09.mods.clienttweaks.tweak.DisablePotionShift;
+import net.blay09.mods.clienttweaks.tweak.FixMipmapSlider;
 import net.blay09.mods.clienttweaks.tweak.HideOffhandItem;
 import net.blay09.mods.clienttweaks.tweak.HideOwnEffectParticles;
 import net.blay09.mods.clienttweaks.tweak.NoOffhandTorchWithBlock;
@@ -65,6 +67,8 @@ public class ClientTweaks {
 		registerTweak(new HideOffhandItem());
 		registerTweak(new StepAssistIsAnnoying());
 		registerTweak(new AutoLadder());
+		registerTweak(new DisablePotionShift());
+		registerTweak(new FixMipmapSlider());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
