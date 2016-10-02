@@ -9,6 +9,7 @@ import net.blay09.mods.clienttweaks.tweak.DisablePotionShift;
 import net.blay09.mods.clienttweaks.tweak.FixMipmapSlider;
 import net.blay09.mods.clienttweaks.tweak.HideOffhandItem;
 import net.blay09.mods.clienttweaks.tweak.HideOwnEffectParticles;
+import net.blay09.mods.clienttweaks.tweak.HotbarTorch;
 import net.blay09.mods.clienttweaks.tweak.NoOffhandTorchWithBlock;
 import net.blay09.mods.clienttweaks.tweak.ClientTweak;
 import net.blay09.mods.clienttweaks.tweak.MasterVolumeSlider;
@@ -51,6 +52,7 @@ public class ClientTweaks {
 	private static Map<String, ClientTweak> tweaks = Maps.newHashMap();
 	private static List<ClientTweak> toggleTweaks = Lists.newArrayList();
 	public static Set<String> torchItems = Sets.newHashSet();
+	public static Set<String> torchTools = Sets.newHashSet();
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -69,6 +71,7 @@ public class ClientTweaks {
 		registerTweak(new StepAssistIsAnnoying());
 		registerTweak(new AutoLadder());
 		registerTweak(new DisablePotionShift());
+		registerTweak(new HotbarTorch());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
@@ -93,6 +96,15 @@ public class ClientTweaks {
 				"minecraft:torch",
 				"tconstruct:stone_torch"
 		}, "Items that count as torches for the offhand-torch tweak options."));
+		torchTools = Sets.newHashSet(config.getStringList("Torch Tools", "general", new String[] {
+				"minecraft:wooden_pickaxe",
+				"minecraft:stone_pickaxe",
+				"minecraft:iron_pickaxe",
+				"minecraft:golden_pickaxe",
+				"minecraft:diamond_pickaxe",
+				"tconstruct:pickaxe",
+				"tconstruct:hammer"
+		}, "Items that will place torches from your hotbar on right-click if enabled."));
 		for(ClientTweak tweak : tweaks.values()) {
 			tweak.setEnabled(config.getBoolean(tweak.getName(), "tweaks", tweak.isEnabledDefault(), tweak.getDescription()));
 		}
