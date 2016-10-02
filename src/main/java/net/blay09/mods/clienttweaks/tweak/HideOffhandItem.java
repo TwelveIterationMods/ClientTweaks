@@ -5,6 +5,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nullable;
@@ -20,10 +21,15 @@ public class HideOffhandItem extends ClientTweak {
 		return "This option will hide your offhand item. It can be toggled via an optional keybind.";
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onRenderHand(RenderSpecificHandEvent event) {
-		if(isEnabled() && event.getHand() == EnumHand.OFF_HAND) {
-			event.setCanceled(true);
+		if (isEnabled()) {
+			// TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
+			if (event.getHand() == EnumHand.OFF_HAND) {
+				if (event.getSwingProgress() == 0f) {
+					event.setCanceled(true);
+				}
+			}
 		}
 	}
 
