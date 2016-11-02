@@ -22,7 +22,8 @@ public class OffhandTorchWithToolOnly extends ClientTweak {
 				if(registryName != null) {
 					if(ClientTweaks.torchItems.contains(registryName.toString())) {
 						ItemStack mainItem = event.getEntityPlayer().getHeldItemMainhand();
-						if(mainItem == null || !(mainItem.getItem() instanceof ItemTool)) {
+						ResourceLocation mainRegistryName = mainItem != null ? mainItem.getItem().getRegistryName() : null;
+						if(mainRegistryName == null || !ClientTweaks.torchTools.contains(mainRegistryName.toString())) {
 							event.setCanceled(true);
 						}
 					}

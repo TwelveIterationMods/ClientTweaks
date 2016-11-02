@@ -6,7 +6,6 @@ import com.google.common.collect.Sets;
 import net.blay09.mods.clienttweaks.tweak.AutoJumpMoreLikeAutoDumbAmirite;
 import net.blay09.mods.clienttweaks.tweak.AutoLadder;
 import net.blay09.mods.clienttweaks.tweak.DisablePotionShift;
-import net.blay09.mods.clienttweaks.tweak.FixMipmapSlider;
 import net.blay09.mods.clienttweaks.tweak.HideOffhandItem;
 import net.blay09.mods.clienttweaks.tweak.HideOwnEffectParticles;
 import net.blay09.mods.clienttweaks.tweak.HotbarTorch;
@@ -58,7 +57,6 @@ public class ClientTweaks {
 	public void preInit(FMLPreInitializationEvent event) {
 		if(!FMLClientHandler.instance().hasOptifine()) {
 			registerTweak(new Screw3dAnaglyph());
-			registerTweak(new FixMipmapSlider());
 		}
 		registerTweak(new AutoJumpMoreLikeAutoDumbAmirite());
 		registerTweak(new MasterVolumeSlider());
