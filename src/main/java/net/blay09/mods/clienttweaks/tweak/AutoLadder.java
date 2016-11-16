@@ -12,7 +12,7 @@ public class AutoLadder extends ClientTweak {
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (event.phase == TickEvent.Phase.START && isEnabled()) {
-			if (event.player == mc.thePlayer && event.player.isOnLadder() && !event.player.isSneaking() && event.player.rotationPitch <= -50f) {
+			if (event.player == mc.player && event.player.isOnLadder() && !event.player.isSneaking() && event.player.rotationPitch <= -50f) {
 				event.player.motionY = 0.2;
 			}
 		}

@@ -25,8 +25,8 @@ public class StepAssistIsAnnoying extends ClientTweak {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if(event.phase == TickEvent.Phase.START && isEnabled()) {
-			if(mc.thePlayer != null) {
-				mc.thePlayer.stepHeight = DEFAULT_STEP_HEIGHT;
+			if(mc.player != null) {
+				mc.player.stepHeight = DEFAULT_STEP_HEIGHT;
 			}
 		}
 	}

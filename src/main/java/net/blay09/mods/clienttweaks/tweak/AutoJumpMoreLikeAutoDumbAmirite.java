@@ -17,7 +17,7 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if(event.phase == TickEvent.Phase.END && isEnabled()) {
-			mc.gameSettings.field_189989_R = false; // autoJump
+			mc.gameSettings.autoJump = false;
 		}
 	}
 

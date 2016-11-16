@@ -1,8 +1,6 @@
 package net.blay09.mods.clienttweaks;
 
 import com.google.common.collect.Lists;
-import net.blay09.mods.clienttweaks.ClientTweaks;
-import net.blay09.mods.clienttweaks.tweak.ClientTweak;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;

@@ -1,7 +1,6 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -14,8 +13,8 @@ public class HideOwnEffectParticles extends ClientTweak {
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if(event.phase == TickEvent.Phase.END && isEnabled()) {
-			if (mc.thePlayer != null) {
-				mc.thePlayer.getDataManager().set(EntityLivingBase.HIDE_PARTICLES, true);
+			if (mc.player != null) {
+				mc.player.getDataManager().set(EntityLivingBase.HIDE_PARTICLES, true);
 			}
 		}
 	}

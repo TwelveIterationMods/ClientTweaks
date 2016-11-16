@@ -5,7 +5,6 @@ import net.minecraft.client.gui.GuiOptionsRowList;
 import net.minecraft.client.gui.GuiVideoSettings;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Screw3dAnaglyph extends ClientTweak {

@@ -9,7 +9,6 @@ import net.minecraft.client.gui.GuiSlider;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class MasterVolumeSlider extends ClientTweak implements GuiPageButtonList.GuiResponder, GuiSlider.FormatHelper {

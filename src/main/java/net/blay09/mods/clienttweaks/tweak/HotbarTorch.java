@@ -4,7 +4,6 @@ import net.blay09.mods.clienttweaks.ClientTweaks;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -22,13 +21,13 @@ public class HotbarTorch extends ClientTweak {
 	@SubscribeEvent
 	public void onRightClick(PlayerInteractEvent.RightClickBlock event) {
 		if(isEnabled() && event.getHand() == EnumHand.MAIN_HAND) {
-			if(event.getItemStack() != null) {
+			if(event.getItemStack().func_190926_b()) {
 				ResourceLocation registryName = event.getItemStack().getItem().getRegistryName();
 				if(registryName != null) {
 					if(ClientTweaks.torchTools.contains(registryName.toString())) {
 						for (int i = 0; i < InventoryPlayer.getHotbarSize(); i++) {
-							ItemStack hotbarStack = event.getEntityPlayer().inventory.mainInventory[i];
-							if(hotbarStack != null) {
+							ItemStack hotbarStack = event.getEntityPlayer().inventory.mainInventory.get(i);
+							if(hotbarStack.func_190926_b()) {
 								ResourceLocation torchRegistryName = hotbarStack.getItem().getRegistryName();
 								if (ClientTweaks.torchItems.contains(torchRegistryName.toString())) {
 									int oldSelectedSlot = event.getEntityPlayer().inventory.currentItem;
@@ -38,7 +37,7 @@ public class HotbarTorch extends ClientTweak {
 										if(facing == null) {
 											facing = EnumFacing.UP;
 										}
-										mc.playerController.processRightClickBlock((EntityPlayerSP) event.getEntityPlayer(), (WorldClient) event.getWorld(), hotbarStack, event.getPos(), facing, new Vec3d(0.5, 0.5, 0.5), EnumHand.MAIN_HAND);
+										mc.playerController.processRightClickBlock((EntityPlayerSP) event.getEntityPlayer(), (WorldClient) event.getWorld(), event.getPos(), facing, new Vec3d(0.5, 0.5, 0.5), EnumHand.MAIN_HAND);
 									}
 									event.getEntityPlayer().inventory.currentItem = oldSelectedSlot;
 									event.getEntityPlayer().swingArm(EnumHand.MAIN_HAND);
