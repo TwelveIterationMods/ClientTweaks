@@ -21,13 +21,13 @@ public class HotbarTorch extends ClientTweak {
 	@SubscribeEvent
 	public void onRightClick(PlayerInteractEvent.RightClickBlock event) {
 		if(isEnabled() && event.getHand() == EnumHand.MAIN_HAND) {
-			if(event.getItemStack().func_190926_b()) {
+			if(!event.getItemStack().func_190926_b()) {
 				ResourceLocation registryName = event.getItemStack().getItem().getRegistryName();
 				if(registryName != null) {
 					if(ClientTweaks.torchTools.contains(registryName.toString())) {
 						for (int i = 0; i < InventoryPlayer.getHotbarSize(); i++) {
 							ItemStack hotbarStack = event.getEntityPlayer().inventory.mainInventory.get(i);
-							if(hotbarStack.func_190926_b()) {
+							if(!hotbarStack.func_190926_b()) {
 								ResourceLocation torchRegistryName = hotbarStack.getItem().getRegistryName();
 								if (ClientTweaks.torchItems.contains(torchRegistryName.toString())) {
 									int oldSelectedSlot = event.getEntityPlayer().inventory.currentItem;
