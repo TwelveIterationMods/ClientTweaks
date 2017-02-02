@@ -1,0 +1,7 @@
+key.clienttweaks.disable_step_assist=Schrittassistent Ein/Aus
+key.clienttweaks.hide_offhand_item=Nebenhand-Item verstecken
+key.categories.clienttweaks=Client Tweaks
+clienttweaks.on=AN
+clienttweaks.off=AUS
+gui.clienttweaks.mipmapConfirm=Willst du wirklich das Mipmap-Level ändern?
+gui.clienttweaks.mipmapWarning=Bei vielen Mods kann das einige Minuten dauern.
