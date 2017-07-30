@@ -20,13 +20,13 @@ public class Screw3dAnaglyph extends ClientTweak {
 			for(int i = 0; i < optionsRowList.getSize(); i++) {
 				GuiOptionsRowList.Row row = optionsRowList.getListEntry(i);
 				if(row.buttonA instanceof GuiOptionButton) {
-					if(((GuiOptionButton) row.buttonA).returnEnumOptions() == GameSettings.Options.ANAGLYPH) {
+					if(((GuiOptionButton) row.buttonA).getOption() == GameSettings.Options.ANAGLYPH) {
 						row.buttonA.enabled = false;
 						return;
 					}
 				}
 				if(row.buttonB instanceof GuiOptionButton) {
-					if(((GuiOptionButton) row.buttonB).returnEnumOptions() == GameSettings.Options.ANAGLYPH) {
+					if(((GuiOptionButton) row.buttonB).getOption() == GameSettings.Options.ANAGLYPH) {
 						row.buttonB.enabled = false;
 						return;
 					}

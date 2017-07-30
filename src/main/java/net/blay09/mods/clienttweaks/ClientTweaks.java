@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Mod(modid = ClientTweaks.MOD_ID, name = "ClientTweaks", acceptedMinecraftVersions = "[1.11]", clientSideOnly = true,
+@Mod(modid = ClientTweaks.MOD_ID, name = "ClientTweaks", acceptedMinecraftVersions = "[1.12]", clientSideOnly = true,
 		guiFactory = "net.blay09.mods.clienttweaks.GuiFactory")
 public class ClientTweaks {
 

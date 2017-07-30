@@ -17,12 +17,12 @@ public class NoOffhandTorchWithBlock extends ClientTweak {
 	@SubscribeEvent
 	public void onRightClick(PlayerInteractEvent.RightClickBlock event) {
 		if(isEnabled() && event.getHand() == EnumHand.OFF_HAND) {
-			if(!event.getItemStack().func_190926_b()) {
+			if(!event.getItemStack().isEmpty()) {
 				ResourceLocation registryName = event.getItemStack().getItem().getRegistryName();
 				if(registryName != null) {
 					if(ClientTweaks.torchItems.contains(registryName.toString())) {
 						ItemStack mainItem = event.getEntityPlayer().getHeldItemMainhand();
-						if(!mainItem.func_190926_b() && mainItem.getItem() instanceof ItemBlock) {
+						if(!mainItem.isEmpty() && mainItem.getItem() instanceof ItemBlock) {
 							event.setCanceled(true);
 						}
 					}

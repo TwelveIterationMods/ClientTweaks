@@ -25,7 +25,7 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
 	public void onInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		if(isEnabled() && event.getGui() instanceof GuiControls) {
 			for(GuiButton button : event.getButtonList()) {
-				if(button instanceof GuiOptionButton && ((GuiOptionButton) button).returnEnumOptions() == GameSettings.Options.AUTO_JUMP) {
+				if(button instanceof GuiOptionButton && ((GuiOptionButton) button).getOption() == GameSettings.Options.AUTO_JUMP) {
 					button.enabled = false;
 				}
 			}

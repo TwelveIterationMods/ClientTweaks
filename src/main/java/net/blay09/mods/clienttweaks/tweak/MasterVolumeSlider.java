@@ -24,8 +24,8 @@ public class MasterVolumeSlider extends ClientTweak implements GuiPageButtonList
 			int y = 0;
 			for (GuiButton guiButton : event.getButtonList()) {
 				if (guiButton instanceof GuiOptionSlider) {
-					x = guiButton.xPosition;
-					y = guiButton.yPosition;
+					x = guiButton.x;
+					y = guiButton.y;
 				}
 			}
 			event.getButtonList().add(new GuiSlider(this, -999, x, y + 27, SoundCategory.MASTER.getName(), 0f, 1f, Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MASTER), this));
