@@ -26,7 +26,7 @@ public class HotbarTorch extends ClientTweak {
 
         ItemStack otherHandItem = event.getEntityPlayer().getHeldItem(EnumHand.OFF_HAND);
         ResourceLocation otherHandRegistryName = !otherHandItem.isEmpty() ? otherHandItem.getItem().getRegistryName() : null;
-        if (event.getItemStack().isEmpty() || (otherHandRegistryName != null && !ClientTweaks.torchTools.contains(otherHandRegistryName.toString()))) {
+        if (event.getItemStack().isEmpty() || (otherHandRegistryName != null && !ClientTweaks.torchTools.contains(otherHandRegistryName.toString()) && !ClientTweaks.offhandTorchTools.contains(otherHandRegistryName.toString()))) {
             return;
         }
 

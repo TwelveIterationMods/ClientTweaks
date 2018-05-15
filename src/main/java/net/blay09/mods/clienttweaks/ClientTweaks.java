@@ -52,6 +52,7 @@ public class ClientTweaks {
 	private static List<ClientTweak> toggleTweaks = Lists.newArrayList();
 	public static Set<String> torchItems = Sets.newHashSet();
 	public static Set<String> torchTools = Sets.newHashSet();
+	public static Set<String> offhandTorchTools = Sets.newHashSet();
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -103,6 +104,10 @@ public class ClientTweaks {
 				"tconstruct:pickaxe",
 				"tconstruct:hammer"
 		}, "Items that will place torches from your hotbar on right-click if enabled."));
+		offhandTorchTools = Sets.newHashSet(config.getStringList("Offhand Torch Tools", "general", new String[] {
+				"tconstruct:shovel",
+				"tconstruct:excavator"
+		}, "Items that will not prevent offhand-torch placement while in offhand, but do not place torches by themselves"));
 		for(ClientTweak tweak : tweaks.values()) {
 			tweak.setEnabled(config.getBoolean(tweak.getName(), "tweaks", tweak.isEnabledDefault(), tweak.getDescription()));
 		}
