@@ -8,7 +8,6 @@ import net.blay09.mods.clienttweaks.tweak.AutoLadder;
 import net.blay09.mods.clienttweaks.tweak.DisablePotionShift;
 import net.blay09.mods.clienttweaks.tweak.HideOffhandItem;
 import net.blay09.mods.clienttweaks.tweak.HideOwnEffectParticles;
-import net.blay09.mods.clienttweaks.tweak.HotbarTorch;
 import net.blay09.mods.clienttweaks.tweak.NoOffhandTorchWithBlock;
 import net.blay09.mods.clienttweaks.tweak.ClientTweak;
 import net.blay09.mods.clienttweaks.tweak.MasterVolumeSlider;
@@ -70,7 +69,6 @@ public class ClientTweaks {
 		registerTweak(new StepAssistIsAnnoying());
 		registerTweak(new AutoLadder());
 		registerTweak(new DisablePotionShift());
-		registerTweak(new HotbarTorch());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
