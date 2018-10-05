@@ -58,6 +58,7 @@ public class ClientTweaks {
 		registerTweak(new AutoLadder());
 		registerTweak(new DisablePotionShift());
 		registerTweak(new HideShieldUnlessHoldingWeapon());
+		registerTweak(new DoNotUseLastTorch());
 
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		reloadConfig();
