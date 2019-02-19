@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[24,)"
+issueTrackerURL="https://github.com/blay09/ClientTweaks/issues"
+displayURL="https://minecraft.curseforge.com/projects/client-tweaks"
+authors="BlayTheNinth"
+
+[[mods]]
+modId="clienttweaks"
+version="${file.jarVersion}"
+displayName="Client Tweaks"
+description='''
+There, I fixed Minecraft for you.
+'''

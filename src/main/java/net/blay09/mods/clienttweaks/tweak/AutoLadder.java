@@ -1,12 +1,12 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class AutoLadder extends ClientTweak {
 
 	public AutoLadder() {
-		super("Auto-Climb Ladder");
+		super("autoClimbLadder");
 	}
 
 	@SubscribeEvent

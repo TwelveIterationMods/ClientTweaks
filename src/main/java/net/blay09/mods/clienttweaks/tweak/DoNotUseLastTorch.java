@@ -1,15 +1,15 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.clienttweaks.ClientTweaks;
+import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DoNotUseLastTorch extends ClientTweak {
 
     public DoNotUseLastTorch() {
-        super("Do Not Use Last Torch");
+        super("doNotUseLastTorch");
     }
 
     @SubscribeEvent
@@ -27,7 +27,7 @@ public class DoNotUseLastTorch extends ClientTweak {
             return;
         }
 
-        if (ClientTweaks.torchItems.contains(registryName.toString())) {
+        if (ClientTweaksConfig.CLIENT.torchItems.get().contains(registryName.toString())) {
             if (event.getItemStack().getCount() == 1) {
                 event.setCanceled(true);
             }

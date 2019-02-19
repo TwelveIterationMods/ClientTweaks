@@ -1,19 +1,20 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import javax.annotation.Nullable;
 
 public class HideOffhandItem extends ClientTweak {
 
 	public HideOffhandItem() {
-		super("Hide Offhand Item");
+		super("hideOffhandItem");
 	}
 
 	@Override
@@ -36,6 +37,6 @@ public class HideOffhandItem extends ClientTweak {
 	@Nullable
 	@Override
 	protected KeyBinding createToggleKeybind() {
-		return new KeyBinding("key.clienttweaks.hide_offhand_item", KeyConflictContext.IN_GAME, KeyModifier.NONE, 0, "key.categories.clienttweaks");
+		return new KeyBinding("key.clienttweaks.hide_offhand_item", KeyConflictContext.IN_GAME, KeyModifier.NONE, InputMappings.getInputByCode(-1, 0), "key.categories.clienttweaks");
 	}
 }

@@ -7,13 +7,13 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class HideShieldUnlessHoldingWeapon extends ClientTweak {
 
     public HideShieldUnlessHoldingWeapon() {
-        super("Hide Shield Unless Holding Weapon");
+        super("hideShieldUnlessHoldingWeapon");
     }
 
     @Override
@@ -27,7 +27,7 @@ public class HideShieldUnlessHoldingWeapon extends ClientTweak {
             return;
         }
 
-        EntityPlayer player = Minecraft.getMinecraft().player;
+        EntityPlayer player = Minecraft.getInstance().player;
         if (event.getHand() != EnumHand.OFF_HAND || !event.getItemStack().getItem().isShield(event.getItemStack(), player)) {
             return;
         }
