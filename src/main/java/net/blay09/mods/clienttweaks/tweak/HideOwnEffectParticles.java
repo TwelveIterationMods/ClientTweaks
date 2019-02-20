@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class HideOwnEffectParticles extends ClientTweak {
+public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public HideOwnEffectParticles() {
         super("hideOwnParticleEffects");

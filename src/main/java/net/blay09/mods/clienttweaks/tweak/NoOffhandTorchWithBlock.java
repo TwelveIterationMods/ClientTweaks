@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class NoOffhandTorchWithBlock extends ClientTweak {
+public class NoOffhandTorchWithBlock extends AbstractClientTweak {
 
     public NoOffhandTorchWithBlock() {
         super("noOffhandTorchWithBlock");

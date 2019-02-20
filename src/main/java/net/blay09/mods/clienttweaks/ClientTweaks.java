@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import net.blay09.mods.clienttweaks.tweak.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -26,14 +27,15 @@ public class ClientTweaks {
 
     public static final String MOD_ID = "clienttweaks";
 
-    private static final Map<String, ClientTweak> tweaks = Maps.newHashMap();
-    private static final List<ClientTweak> toggleableTweaks = Lists.newArrayList();
+    private static final Map<String, AbstractClientTweak> tweaks = Maps.newHashMap();
+    private static final List<AbstractClientTweak> toggleableTweaks = Lists.newArrayList();
 
     public ClientTweaks() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
         registerTweak(new AutoJumpMoreLikeAutoDumbAmirite());
-        registerTweak(new MasterVolumeSlider());
+        registerTweak(new MasterVolumeSlider("masterVolumeSlider", "This adds back the master volume slider to the options screen. Saves you a click!", SoundCategory.MASTER, 0));
+        registerTweak(new MasterVolumeSlider("musicVolumeSlider", "This adds a music volume slider to the options screen. Saves you a click!", SoundCategory.MUSIC, 160));
         registerTweak(new UnderlineLooksTerribleInChat());
         registerTweak(new NoOffhandTorchWithBlock());
         registerTweak(new NoOffhandTorchWithEmptyHand());
@@ -52,7 +54,7 @@ public class ClientTweaks {
     }
 
     private void setupClient(FMLClientSetupEvent event) {
-        for (ClientTweak tweak : tweaks.values()) {
+        for (AbstractClientTweak tweak : tweaks.values()) {
             tweak.init(event);
 
             KeyBinding keyBinding = tweak.registerToggleKeybind();
@@ -62,14 +64,15 @@ public class ClientTweaks {
         }
     }
 
-    public static Collection<ClientTweak> getTweaks() {
+    public static Collection<AbstractClientTweak> getTweaks() {
         return tweaks.values();
     }
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        // TODO Awaiting KeyInputEvent
 //        if (Keyboard.getEventKeyState()) {
-//            for (ClientTweak tweak : toggleableTweaks) {
+//            for (AbstractClientTweak tweak : toggleableTweaks) {
 //                if (tweak.getKeyBinding().isActiveAndMatches(Keyboard.getEventKey())) {
 //                    toggleTweak(tweak);
 //                }
@@ -77,7 +80,7 @@ public class ClientTweaks {
 //        }
     }
 
-    private void toggleTweak(ClientTweak tweak) {
+    private void toggleTweak(AbstractClientTweak tweak) {
         tweak.setEnabled(!tweak.isEnabled());
 
         ClientTweaksConfig.updateTweakState(tweak);
@@ -87,7 +90,7 @@ public class ClientTweaks {
         Minecraft.getInstance().ingameGUI.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
     }
 
-    private void registerTweak(ClientTweak tweak) {
+    private void registerTweak(AbstractClientTweak tweak) {
         tweaks.put(tweak.getName(), tweak);
     }
 

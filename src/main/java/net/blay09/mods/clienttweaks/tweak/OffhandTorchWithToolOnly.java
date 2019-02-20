@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class OffhandTorchWithToolOnly extends ClientTweak {
+public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     public OffhandTorchWithToolOnly() {
         super("offhandTorchWithToolOnly");

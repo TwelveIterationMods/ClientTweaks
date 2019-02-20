@@ -10,7 +10,7 @@ import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class HideShieldUnlessHoldingWeapon extends ClientTweak {
+public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     public HideShieldUnlessHoldingWeapon() {
         super("hideShieldUnlessHoldingWeapon");

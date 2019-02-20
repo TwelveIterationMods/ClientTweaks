@@ -5,7 +5,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class UnderlineLooksTerribleInChat extends ClientTweak {
+public class UnderlineLooksTerribleInChat extends AbstractClientTweak {
 
     public UnderlineLooksTerribleInChat() {
         super("removeUnderlinesFromChat");

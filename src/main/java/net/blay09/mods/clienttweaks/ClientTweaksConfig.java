@@ -1,7 +1,7 @@
 package net.blay09.mods.clienttweaks;
 
 import com.google.common.collect.Lists;
-import net.blay09.mods.clienttweaks.tweak.ClientTweak;
+import net.blay09.mods.clienttweaks.tweak.AbstractClientTweak;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,7 +50,7 @@ public class ClientTweaksConfig {
                             "tconstruct:shovel",
                             "tconstruct:excavator"));
 
-            for (ClientTweak tweak : ClientTweaks.getTweaks()) {
+            for (AbstractClientTweak tweak : ClientTweaks.getTweaks()) {
                 tweakStates.put(tweak.getName(), builder.comment(tweak.getDescription())
                         .translation("clienttweaks.config.tweak." + tweak.getName())
                         .define(tweak.getName(), tweak.isEnabledDefault()));
@@ -73,12 +73,12 @@ public class ClientTweaksConfig {
     public static void onConfigLoad(ModConfig.ModConfigEvent event) {
         config = event.getConfig();
 
-        for (ClientTweak tweak : ClientTweaks.getTweaks()) {
+        for (AbstractClientTweak tweak : ClientTweaks.getTweaks()) {
             tweak.setEnabled(CLIENT.tweakStates.get(tweak.getName()).get());
         }
     }
 
-    public static void updateTweakState(ClientTweak tweak) {
+    public static void updateTweakState(AbstractClientTweak tweak) {
         ForgeConfigSpec.BooleanValue property = ClientTweaksConfig.CLIENT.tweakStates.get(tweak.getName());
         config.getConfigData().set(property.getPath(), tweak.isEnabled());
         config.save();

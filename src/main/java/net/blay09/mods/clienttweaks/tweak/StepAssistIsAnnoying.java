@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import javax.annotation.Nullable;
 
-public class StepAssistIsAnnoying extends ClientTweak {
+public class StepAssistIsAnnoying extends AbstractClientTweak {
 
 	private static final float DEFAULT_STEP_HEIGHT = 0.6f;
 

@@ -8,13 +8,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import javax.annotation.Nullable;
 
-public abstract class ClientTweak {
+public abstract class AbstractClientTweak {
     private final String name;
     private boolean enabled = true;
     protected Minecraft mc;
     private KeyBinding keyBinding;
 
-    public ClientTweak(String name) {
+    public AbstractClientTweak(String name) {
         this.name = name;
 
         if (registerAsEventHandler()) {

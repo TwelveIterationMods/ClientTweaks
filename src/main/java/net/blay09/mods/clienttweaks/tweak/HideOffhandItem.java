@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import javax.annotation.Nullable;
 
-public class HideOffhandItem extends ClientTweak {
+public class HideOffhandItem extends AbstractClientTweak {
 
 	public HideOffhandItem() {
 		super("hideOffhandItem");

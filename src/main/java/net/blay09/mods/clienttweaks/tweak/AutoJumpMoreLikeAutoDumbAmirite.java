@@ -8,7 +8,7 @@ import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class AutoJumpMoreLikeAutoDumbAmirite extends ClientTweak {
+public class AutoJumpMoreLikeAutoDumbAmirite extends AbstractClientTweak {
 
 	public AutoJumpMoreLikeAutoDumbAmirite() {
 		super("disableAutoJump");

@@ -3,7 +3,7 @@ package net.blay09.mods.clienttweaks.tweak;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class DisablePotionShift extends ClientTweak {
+public class DisablePotionShift extends AbstractClientTweak {
 
 	public DisablePotionShift() {
 		super("disablePotionShift");
