@@ -35,6 +35,6 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
 	@Nullable
 	@Override
 	protected KeyBinding createToggleKeybind() {
-		return new KeyBinding("key.clienttweaks.disable_step_assist", KeyConflictContext.IN_GAME, KeyModifier.NONE, InputMappings.getInputByCode(-1, 0), "key.categories.clienttweaks");
+		return new KeyBinding("key.clienttweaks.disable_step_assist", KeyConflictContext.IN_GAME, KeyModifier.NONE, InputMappings.INPUT_INVALID, "key.categories.clienttweaks");
 	}
 }
