@@ -1,9 +1,9 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.minecraft.client.GameSettings;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiControls;
-import net.minecraft.client.gui.GuiOptionButton;
+import net.minecraft.client.gui.screen.ControlsScreen;
+import net.minecraft.client.gui.widget.Widget;
+import net.minecraft.client.gui.widget.button.OptionButton;
+import net.minecraft.client.settings.AbstractOption;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -23,10 +23,10 @@ public class AutoJumpMoreLikeAutoDumbAmirite extends AbstractClientTweak {
 
 	@SubscribeEvent
 	public void onInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
-		if(isEnabled() && event.getGui() instanceof GuiControls) {
-			for(GuiButton button : event.getButtonList()) {
-				if(button instanceof GuiOptionButton && ((GuiOptionButton) button).getOption() == GameSettings.Options.AUTO_JUMP) {
-					button.enabled = false;
+		if(isEnabled() && event.getGui() instanceof ControlsScreen) {
+			for(Widget widget : event.getWidgetList()) {
+				if(widget instanceof OptionButton && ((OptionButton) widget).field_146137_o == AbstractOption.field_216719_z) {
+					widget.active = false;
 				}
 			}
 		}

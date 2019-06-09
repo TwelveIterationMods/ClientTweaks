@@ -1,9 +1,9 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiOptionSlider;
-import net.minecraft.client.gui.GuiOptions;
+import net.minecraft.client.gui.screen.OptionsScreen;
+import net.minecraft.client.gui.widget.OptionSlider;
+import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -25,20 +25,22 @@ public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider
 
     @SubscribeEvent
     public void onInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (isEnabled() && event.getGui() instanceof GuiOptions) {
+        if (isEnabled() && event.getGui() instanceof OptionsScreen) {
             int x = 0;
             int y = 0;
             // Find the FOV slider on the original options screen...
-            for (GuiButton guiButton : event.getButtonList()) {
-                if (guiButton instanceof GuiOptionSlider) {
-                    x = guiButton.x;
-                    y = guiButton.y;
+            for (Widget widget : event.getWidgetList()) {
+                if (widget instanceof OptionSlider) {
+                    x = widget.x;
+                    y = widget.y;
                 }
             }
 
-            GuiSlider slider = new GuiSlider(-999, x + offsetX, y + 27, getSliderDisplayString(), 0f, 1f, Minecraft.getInstance().gameSettings.getSoundLevel(soundCategory), this);
-            slider.displayString = getSliderDisplayString();
-            event.addButton(slider);
+            float soundLevel = Minecraft.getInstance().gameSettings.getSoundLevel(soundCategory);
+            GuiSlider slider = new GuiSlider(x + offsetX, y + 27, getSliderDisplayString(), 0.0, 1.0, soundLevel, it -> {
+            }, this);
+            slider.setMessage(getSliderDisplayString());
+            event.addWidget(slider);
         }
     }
 
@@ -48,7 +50,7 @@ public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider
         mc.gameSettings.setSoundLevel(soundCategory, (float) slider.getValue());
         mc.gameSettings.saveOptions();
 
-        slider.displayString = getSliderDisplayString();
+        slider.setMessage(getSliderDisplayString());
     }
 
     private String getSliderDisplayString() {

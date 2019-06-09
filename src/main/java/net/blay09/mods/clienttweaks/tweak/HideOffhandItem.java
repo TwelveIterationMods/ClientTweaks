@@ -2,7 +2,7 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.util.InputMappings;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;
@@ -26,7 +26,7 @@ public class HideOffhandItem extends AbstractClientTweak {
 	public void onRenderHand(RenderSpecificHandEvent event) {
 		if (isEnabled()) {
 			// TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
-			if (event.getHand() == EnumHand.OFF_HAND) {
+			if (event.getHand() == Hand.OFF_HAND) {
 				if (event.getSwingProgress() == 0f) {
 					event.setCanceled(true);
 				}

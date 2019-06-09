@@ -5,18 +5,20 @@ import com.google.common.collect.Maps;
 import net.blay09.mods.clienttweaks.tweak.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.Collection;
 import java.util.List;
@@ -70,14 +72,14 @@ public class ClientTweaks {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        // TODO Awaiting KeyInputEvent
-//        if (Keyboard.getEventKeyState()) {
-//            for (AbstractClientTweak tweak : toggleableTweaks) {
-//                if (tweak.getKeyBinding().isActiveAndMatches(Keyboard.getEventKey())) {
-//                    toggleTweak(tweak);
-//                }
-//            }
-//        }
+        if (event.getAction() == GLFW.GLFW_PRESS) {
+            for (AbstractClientTweak tweak : toggleableTweaks) {
+                InputMappings.Input input = InputMappings.getInputByCode(event.getKey(), event.getScanCode());
+                if (tweak.getKeyBinding().isActiveAndMatches(input)) {
+                    toggleTweak(tweak);
+                }
+            }
+        }
     }
 
     private void toggleTweak(AbstractClientTweak tweak) {
@@ -85,9 +87,9 @@ public class ClientTweaks {
 
         ClientTweaksConfig.updateTweakState(tweak);
 
-        ITextComponent root = new TextComponentString(tweak.getName() + ": ");
-        root.appendSibling(new TextComponentTranslation(tweak.isEnabled() ? "clienttweaks.on" : "clienttweaks.off"));
-        Minecraft.getInstance().ingameGUI.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
+        ITextComponent root = new StringTextComponent(tweak.getName() + ": ");
+        root.appendSibling(new TranslationTextComponent(tweak.isEnabled() ? "clienttweaks.on" : "clienttweaks.off"));
+        Minecraft.getInstance().field_71456_v.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
     }
 
     private void registerTweak(AbstractClientTweak tweak) {

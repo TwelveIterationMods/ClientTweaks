@@ -1,7 +1,7 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -20,8 +20,8 @@ public class UnderlineLooksTerribleInChat extends AbstractClientTweak {
 
     private ITextComponent removeUnderline(ITextComponent textComponent) {
         textComponent.getStyle().setUnderlined(false);
-        if (textComponent instanceof TextComponentTranslation) {
-            for (Object arg : ((TextComponentTranslation) textComponent).getFormatArgs()) {
+        if (textComponent instanceof TranslationTextComponent) {
+            for (Object arg : ((TranslationTextComponent) textComponent).getFormatArgs()) {
                 if (arg instanceof ITextComponent) {
                     removeUnderline((ITextComponent) arg);
                 }
