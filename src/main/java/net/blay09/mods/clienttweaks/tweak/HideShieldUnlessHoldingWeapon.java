@@ -1,5 +1,6 @@
 package net.blay09.mods.clienttweaks.tweak;
 
+import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -13,12 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     public HideShieldUnlessHoldingWeapon() {
-        super("hideShieldUnlessHoldingWeapon");
-    }
-
-    @Override
-    public String getDescription() {
-        return "This option will hide your shield unless you are holding a weapon.";
+        super("hideShieldUnlessHoldingWeapon", ClientTweaksConfig.CLIENT.hideShieldUnlessHoldingWeapon);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -28,6 +24,10 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         }
 
         PlayerEntity player = Minecraft.getInstance().player;
+        if (player == null) {
+            return;
+        }
+
         if (event.getHand() != Hand.OFF_HAND || !event.getItemStack().getItem().isShield(event.getItemStack(), player)) {
             return;
         }
@@ -50,8 +50,4 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         event.setCanceled(true);
     }
 
-    @Override
-    public boolean isEnabledDefault() {
-        return true;
-    }
 }

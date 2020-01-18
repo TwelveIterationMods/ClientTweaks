@@ -7,18 +7,17 @@ import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.config.GuiSlider;
 
 public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider.ISlider {
 
-    private final String description;
     private final SoundCategory soundCategory;
     private final int offsetX;
 
-    public MasterVolumeSlider(String name, String description, SoundCategory soundCategory, int offsetX) {
-        super(name);
-        this.description = description;
+    public MasterVolumeSlider(String name, ForgeConfigSpec.BooleanValue configProperty, SoundCategory soundCategory, int offsetX) {
+        super(name, configProperty);
         this.soundCategory = soundCategory;
         this.offsetX = offsetX;
     }
@@ -59,13 +58,4 @@ public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider
         return I18n.format("soundCategory." + soundCategory.getName()) + ": " + displayVolume;
     }
 
-    @Override
-    public boolean isEnabledDefault() {
-        return true;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
 }

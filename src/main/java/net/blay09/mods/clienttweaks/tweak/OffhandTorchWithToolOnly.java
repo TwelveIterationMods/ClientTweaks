@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     public OffhandTorchWithToolOnly() {
-        super("offhandTorchWithToolOnly");
+        super("offhandTorchWithToolOnly", ClientTweaksConfig.CLIENT.offhandTorchWithToolOnly);
     }
 
     @SubscribeEvent
@@ -20,7 +20,7 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
                 ResourceLocation registryName = event.getItemStack().getItem().getRegistryName();
                 if (registryName != null) {
                     if (ClientTweaksConfig.CLIENT.torchItems.get().contains(registryName.toString())) {
-                        ItemStack mainItem = event.getEntityPlayer().getHeldItemMainhand();
+                        ItemStack mainItem = event.getPlayer().getHeldItemMainhand();
                         ResourceLocation mainRegistryName = !mainItem.isEmpty() ? mainItem.getItem().getRegistryName() : null;
                         if (mainRegistryName == null || !ClientTweaksConfig.CLIENT.torchTools.get().contains(mainRegistryName.toString())) {
                             event.setCanceled(true);
@@ -31,8 +31,4 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
         }
     }
 
-    @Override
-    public String getDescription() {
-        return "This restricts torches to be placed from the offhand only when you're holding a tool in your main hand.";
-    }
 }

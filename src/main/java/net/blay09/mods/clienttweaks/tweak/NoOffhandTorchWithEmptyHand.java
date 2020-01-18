@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class NoOffhandTorchWithEmptyHand extends AbstractClientTweak {
 
     public NoOffhandTorchWithEmptyHand() {
-        super("noOffhandTorchWithEmptyHand");
+        super("noOffhandTorchWithEmptyHand", ClientTweaksConfig.CLIENT.noOffhandTorchWithEmptyHand);
     }
 
     @SubscribeEvent
@@ -20,7 +20,7 @@ public class NoOffhandTorchWithEmptyHand extends AbstractClientTweak {
                 ResourceLocation registryName = event.getItemStack().getItem().getRegistryName();
                 if (registryName != null) {
                     if (ClientTweaksConfig.CLIENT.torchItems.get().contains(registryName.toString())) {
-                        ItemStack mainItem = event.getEntityPlayer().getHeldItemMainhand();
+                        ItemStack mainItem = event.getPlayer().getHeldItemMainhand();
                         if (mainItem.isEmpty()) {
                             event.setCanceled(true);
                         }
@@ -28,11 +28,6 @@ public class NoOffhandTorchWithEmptyHand extends AbstractClientTweak {
                 }
             }
         }
-    }
-
-    @Override
-    public String getDescription() {
-        return "This prevents torches from being placed from your off hand if you have an empty main hand.";
     }
 
 }
