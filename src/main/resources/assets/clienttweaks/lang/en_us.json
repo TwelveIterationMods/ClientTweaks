@@ -1,7 +1,8 @@
 {
-    "key.clienttweaks.disable_step_assist": "Toggle Disable Step Assist",
-    "key.clienttweaks.hide_offhand_item": "Toggle Hide Offhand Item",
+    "key.clienttweaks.disableStepAssist": "Toggle Disable Step Assist",
+    "key.clienttweaks.hideOffhandItem": "Toggle Hide Offhand Item",
     "key.categories.clienttweaks": "Client Tweaks",
-    "clienttweaks.on": "ON",
-    "clienttweaks.off": "OFF"
+    "chat.clienttweaks.on": "ON",
+    "chat.clienttweaks.off": "OFF",
+    "chat.clienttweaks.lastTorch": "Out of Torches"
 }

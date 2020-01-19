@@ -1,22 +1,13 @@
 package net.blay09.mods.clienttweaks;
 
 import net.blay09.mods.clienttweaks.tweak.*;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.client.util.InputMappings;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.lwjgl.glfw.GLFW;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +22,8 @@ public class ClientTweaks {
     public ClientTweaks() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
-        registerTweak(new MasterVolumeSlider("masterVolumeSlider", ClientTweaksConfig.CLIENT.masterVolumeSlider, SoundCategory.MASTER, 0));
-        registerTweak(new MasterVolumeSlider("musicVolumeSlider", ClientTweaksConfig.CLIENT.musicVolumeSlider, SoundCategory.MUSIC, 160));
+        registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", ClientTweaksConfig.CLIENT.masterVolumeSlider, SoundCategory.MASTER, 0));
+        registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", ClientTweaksConfig.CLIENT.musicVolumeSlider, SoundCategory.MUSIC, 160));
         registerTweak(new NoOffhandTorchWithBlock());
         registerTweak(new NoOffhandTorchWithEmptyHand());
         registerTweak(new OffhandTorchWithToolOnly());

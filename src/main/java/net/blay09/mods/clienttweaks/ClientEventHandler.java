@@ -42,7 +42,7 @@ public class ClientEventHandler {
         ClientTweaksConfig.save();
 
         ITextComponent root = new StringTextComponent(tweak.getName() + ": ");
-        root.appendSibling(new TranslationTextComponent(tweak.isEnabled() ? "clienttweaks.on" : "clienttweaks.off"));
+        root.appendSibling(new TranslationTextComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
         Minecraft.getInstance().ingameGUI.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
     }
 

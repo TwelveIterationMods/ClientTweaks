@@ -17,7 +17,7 @@ public class HideOffhandItem extends AbstractClientTweak {
         if (isEnabled()) {
             // TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
             if (event.getHand() == Hand.OFF_HAND) {
-                if (event.getSwingProgress() == 0f) {
+                if (event.getSwingProgress() <= 0f) {
                     event.setCanceled(true);
                 }
             }

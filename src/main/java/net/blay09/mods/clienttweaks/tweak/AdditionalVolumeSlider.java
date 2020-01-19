@@ -3,6 +3,7 @@ package net.blay09.mods.clienttweaks.tweak;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.OptionsScreen;
 import net.minecraft.client.gui.widget.OptionSlider;
+import net.minecraft.client.gui.widget.SoundSlider;
 import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.SoundCategory;
@@ -11,12 +12,12 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.config.GuiSlider;
 
-public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider.ISlider {
+public class AdditionalVolumeSlider extends AbstractClientTweak implements GuiSlider.ISlider {
 
     private final SoundCategory soundCategory;
     private final int offsetX;
 
-    public MasterVolumeSlider(String name, ForgeConfigSpec.BooleanValue configProperty, SoundCategory soundCategory, int offsetX) {
+    public AdditionalVolumeSlider(String name, ForgeConfigSpec.BooleanValue configProperty, SoundCategory soundCategory, int offsetX) {
         super(name, configProperty);
         this.soundCategory = soundCategory;
         this.offsetX = offsetX;
@@ -35,9 +36,7 @@ public class MasterVolumeSlider extends AbstractClientTweak implements GuiSlider
                 }
             }
 
-            float soundLevel = Minecraft.getInstance().gameSettings.getSoundLevel(soundCategory);
-            GuiSlider slider = new GuiSlider(x + offsetX, y + 27, getSliderDisplayString(), 0.0, 1.0, soundLevel, it -> {
-            }, this);
+            SoundSlider slider = new SoundSlider(Minecraft.getInstance(), x + offsetX, y + 27, soundCategory, 150);
             slider.setMessage(getSliderDisplayString());
             event.addWidget(slider);
         }
