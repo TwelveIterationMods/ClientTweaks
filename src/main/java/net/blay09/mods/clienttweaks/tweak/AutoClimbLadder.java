@@ -15,7 +15,7 @@ public class AutoClimbLadder extends AbstractClientTweak {
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (isEnabled() && event.phase == TickEvent.Phase.START) {
-			if (event.side == LogicalSide.CLIENT && event.player.isOnLadder() && !event.player.func_225608_bj_() && event.player.rotationPitch <= -50f) {
+			if (event.side == LogicalSide.CLIENT && event.player.isOnLadder() && !event.player.isShiftKeyDown() && event.player.rotationPitch <= -50f) {
 				Vec3d motion = event.player.getMotion();
 				event.player.setMotion(motion.x, 0.2f, motion.z);
 			}

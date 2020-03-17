@@ -10,9 +10,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.config.GuiSlider;
 
-public class AdditionalVolumeSlider extends AbstractClientTweak implements GuiSlider.ISlider {
+public class AdditionalVolumeSlider extends AbstractClientTweak {
 
     private final SoundCategory soundCategory;
     private final int offsetX;
@@ -40,15 +39,6 @@ public class AdditionalVolumeSlider extends AbstractClientTweak implements GuiSl
             slider.setMessage(getSliderDisplayString());
             event.addWidget(slider);
         }
-    }
-
-    @Override
-    public void onChangeSliderValue(GuiSlider slider) {
-        Minecraft mc = Minecraft.getInstance();
-        mc.gameSettings.setSoundLevel(soundCategory, (float) slider.getValue());
-        mc.gameSettings.saveOptions();
-
-        slider.setMessage(getSliderDisplayString());
     }
 
     private String getSliderDisplayString() {

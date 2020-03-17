@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.util.Hand;
-import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -18,7 +18,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void onRenderHand(RenderSpecificHandEvent event) {
+    public void onRenderHand(RenderHandEvent event) {
         if (!isEnabled()) {
             return;
         }
