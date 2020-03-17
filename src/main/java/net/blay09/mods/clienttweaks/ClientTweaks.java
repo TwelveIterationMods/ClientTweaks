@@ -21,7 +21,9 @@ public class ClientTweaks {
 
     public ClientTweaks() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+    }
 
+    private void setupClient(FMLClientSetupEvent event) {
         registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", ClientTweaksConfig.CLIENT.masterVolumeSlider, SoundCategory.MASTER, 0));
         registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", ClientTweaksConfig.CLIENT.musicVolumeSlider, SoundCategory.MUSIC, 160));
         registerTweak(new NoOffhandTorchWithBlock());
@@ -38,9 +40,7 @@ public class ClientTweaks {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientTweaksConfig.clientSpec);
 
         MinecraftForge.EVENT_BUS.register(this);
-    }
 
-    private void setupClient(FMLClientSetupEvent event) {
         ClientEventHandler.setupKeyBindings(tweaks.values());
     }
 
