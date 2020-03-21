@@ -20,6 +20,8 @@ public class ClientTweaks {
     private static final Map<String, AbstractClientTweak> tweaks = new HashMap<>();
 
     public ClientTweaks() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientTweaksConfig.clientSpec);
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
     }
 
@@ -36,8 +38,6 @@ public class ClientTweaks {
         registerTweak(new DisablePotionShift());
         registerTweak(new HideShieldUnlessHoldingWeapon());
         registerTweak(new DoNotUseLastTorch());
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientTweaksConfig.clientSpec);
 
         MinecraftForge.EVENT_BUS.register(this);
 
