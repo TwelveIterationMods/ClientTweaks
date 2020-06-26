@@ -28,7 +28,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
                 if (ClientTweaksConfig.CLIENT.torchItems.get().contains(Objects.toString(registryName))) {
                     if (heldItem.getCount() == 1) {
                         TranslationTextComponent chatComponent = new TranslationTextComponent("chat.clienttweaks.lastTorch");
-                        chatComponent.getStyle().setColor(TextFormatting.RED);
+                        chatComponent.getStyle().func_240712_a_(TextFormatting.RED); // setColor
                         mc.player.sendStatusMessage(chatComponent, true);
                         event.setCanceled(true);
                     }

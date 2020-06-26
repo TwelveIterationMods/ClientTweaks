@@ -4,8 +4,8 @@ import net.blay09.mods.clienttweaks.tweak.AbstractClientTweak;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.util.InputMappings;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -41,8 +41,8 @@ public class ClientEventHandler {
         tweak.setEnabled(!tweak.isEnabled());
         ClientTweaksConfig.save();
 
-        ITextComponent root = new StringTextComponent(tweak.getName() + ": ");
-        root.appendSibling(new TranslationTextComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
+        TextComponent root = new StringTextComponent(tweak.getName() + ": ");
+        root.func_230529_a_(new TranslationTextComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off")); // appendSibling
         Minecraft.getInstance().ingameGUI.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
     }
 

@@ -7,6 +7,9 @@ import net.minecraft.client.gui.widget.SoundSlider;
 import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,21 +33,26 @@ public class AdditionalVolumeSlider extends AbstractClientTweak {
             // Find the FOV slider on the original options screen...
             for (Widget widget : event.getWidgetList()) {
                 if (widget instanceof OptionSlider) {
-                    x = widget.x;
-                    y = widget.y;
+                    final int widgetX = widget.field_230690_l_;
+                    final int widgetY = widget.field_230691_m_;
+                    x = widgetX;
+                    y = widgetY;
                 }
             }
 
             SoundSlider slider = new SoundSlider(Minecraft.getInstance(), x + offsetX, y + 27, soundCategory, 150);
-            slider.setMessage(getSliderDisplayString());
+            slider.func_238482_a_(getSliderDisplayString()); // setMessage
             event.addWidget(slider);
         }
     }
 
-    private String getSliderDisplayString() {
+    private ITextComponent getSliderDisplayString() {
         float volume = Minecraft.getInstance().gameSettings.getSoundLevel(soundCategory);
         String displayVolume = volume == 0f ? I18n.format("options.off") : (int) (volume * 100f) + "%";
-        return I18n.format("soundCategory." + soundCategory.getName()) + ": " + displayVolume;
+
+        final TranslationTextComponent volumeText = new TranslationTextComponent("soundCategory." + soundCategory.getName());
+        volumeText.func_230529_a_(new StringTextComponent(": " + displayVolume)); // appendSibling
+        return volumeText;
     }
 
 }
