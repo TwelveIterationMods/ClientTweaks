@@ -47,6 +47,10 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return;
         }
 
+        if (ClientTweaksConfig.CLIENT.shieldWeapons.get().contains(mainItem.getItem().getRegistryName().toString())) {
+            return;
+        }
+
         event.setCanceled(true);
     }
 
