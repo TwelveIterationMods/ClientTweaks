@@ -29,6 +29,7 @@ public class ClientTweaksConfig {
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> torchItems;
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> torchTools;
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> offhandTorchTools;
+        public final ForgeConfigSpec.ConfigValue<List<? extends String>> shieldWeapons;
 
         Client(ForgeConfigSpec.Builder builder) {
             builder.comment("Configuration for Client Tweaks").push("client");
@@ -122,6 +123,13 @@ public class ClientTweaksConfig {
                     .defineList("offhandTorchTools", Lists.newArrayList(
                             "tconstruct:shovel",
                             "tconstruct:excavator"), it -> it instanceof String);
+
+            shieldWeapons = builder
+                    .comment("Items that count as weapons for the offhand-shield hiding tweak options.")
+                    .translation("clienttweaks.config.shieldWeapons")
+                    .defineList("shieldWeapons", Lists.newArrayList(
+                            "tetra:modular_sword"
+                    ), it -> it instanceof String);
         }
     }
 
