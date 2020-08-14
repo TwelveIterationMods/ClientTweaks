@@ -33,15 +33,13 @@ public class AdditionalVolumeSlider extends AbstractClientTweak {
             // Find the FOV slider on the original options screen...
             for (Widget widget : event.getWidgetList()) {
                 if (widget instanceof OptionSlider) {
-                    final int widgetX = widget.field_230690_l_;
-                    final int widgetY = widget.field_230691_m_;
-                    x = widgetX;
-                    y = widgetY;
+                    x = widget.x;
+                    y = widget.y;
                 }
             }
 
             SoundSlider slider = new SoundSlider(Minecraft.getInstance(), x + offsetX, y + 27, soundCategory, 150);
-            slider.func_238482_a_(getSliderDisplayString()); // setMessage
+            slider.setMessage(getSliderDisplayString());
             event.addWidget(slider);
         }
     }
@@ -51,7 +49,7 @@ public class AdditionalVolumeSlider extends AbstractClientTweak {
         String displayVolume = volume == 0f ? I18n.format("options.off") : (int) (volume * 100f) + "%";
 
         final TranslationTextComponent volumeText = new TranslationTextComponent("soundCategory." + soundCategory.getName());
-        volumeText.func_230529_a_(new StringTextComponent(": " + displayVolume)); // appendSibling
+        volumeText.append(new StringTextComponent(": " + displayVolume));
         return volumeText;
     }
 

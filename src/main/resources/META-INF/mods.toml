@@ -3,6 +3,7 @@ loaderVersion="[24,)"
 issueTrackerURL="https://github.com/blay09/ClientTweaks/issues"
 displayURL="https://minecraft.curseforge.com/projects/client-tweaks"
 authors="BlayTheNinth"
+license="MIT"
 
 [[mods]]
 modId="clienttweaks"

@@ -42,8 +42,8 @@ public class ClientEventHandler {
         ClientTweaksConfig.save();
 
         TextComponent root = new StringTextComponent(tweak.getName() + ": ");
-        root.func_230529_a_(new TranslationTextComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off")); // appendSibling
-        Minecraft.getInstance().ingameGUI.getChatGUI().printChatMessageWithOptionalDeletion(root, 5);
+        root.append(new TranslationTextComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
+        Minecraft.getInstance().player.sendStatusMessage(root, true);
     }
 
     public static void setupKeyBindings(Collection<AbstractClientTweak> tweaks) {
