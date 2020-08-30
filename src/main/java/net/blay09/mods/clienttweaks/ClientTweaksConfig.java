@@ -114,6 +114,7 @@ public class ClientTweaksConfig {
                             "minecraft:iron_pickaxe",
                             "minecraft:golden_pickaxe",
                             "minecraft:diamond_pickaxe",
+                            "minecraft:netherite_pickaxe",
                             "tconstruct:pickaxe",
                             "tconstruct:hammer"), it -> it instanceof String);
 
