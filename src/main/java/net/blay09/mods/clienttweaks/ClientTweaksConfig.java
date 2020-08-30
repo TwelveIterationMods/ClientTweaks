@@ -106,7 +106,7 @@ public class ClientTweaksConfig {
                             "tconstruct:stone_torch"), it -> it instanceof String);
 
             torchTools = builder
-                    .comment("Items that will place torches from your hotbar on right-click if enabled.")
+                    .comment("Items that are allowed to place torches from the offhand if offhandTorchWithToolOnly is enabled.")
                     .translation("clienttweaks.config.torchTools")
                     .defineList("torchTools", Lists.newArrayList(
                             "minecraft:wooden_pickaxe",
