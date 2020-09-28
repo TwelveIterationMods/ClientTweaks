@@ -1,0 +1,8 @@
+{
+    "key.clienttweaks.disableStepAssist": "ステップアシスト無効化の切り替え",
+    "key.clienttweaks.hideOffhandItem": "オフハンドアイテム非表示の切り替え",
+    "key.categories.clienttweaks": "Client Tweaks",
+    "chat.clienttweaks.on": "オン",
+    "chat.clienttweaks.off": "オフ",
+    "chat.clienttweaks.lastTorch": "松明が足りません"
+}
