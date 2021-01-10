@@ -19,6 +19,7 @@ public class ClientTweaksConfig {
         public final ForgeConfigSpec.BooleanValue hideOffhandItem;
         public final ForgeConfigSpec.BooleanValue hideOwnParticleEffects;
         public final ForgeConfigSpec.BooleanValue hideShieldUnlessHoldingWeapon;
+        public final ForgeConfigSpec.BooleanValue noOffhandTorchAtAll;
         public final ForgeConfigSpec.BooleanValue noOffhandTorchWithBlock;
         public final ForgeConfigSpec.BooleanValue noOffhandTorchWithEmptyHand;
         public final ForgeConfigSpec.BooleanValue offhandTorchWithToolOnly;
@@ -65,6 +66,11 @@ public class ClientTweaksConfig {
                     .comment("This option will hide your shield unless you are holding a weapon.")
                     .translation("config.clienttweaks.hideShieldUnlessHoldingWeapon")
                     .define("hideShieldUnlessHoldingWeapon", true);
+
+            noOffhandTorchAtAll = builder
+                    .comment("This prevents torches from being placed from your offhand at all.")
+                    .translation("config.clienttweaks.noOffhandTorchAtAll")
+                    .define("noOffhandTorchAtAll", false);
 
             noOffhandTorchWithBlock = builder
                     .comment("This prevents torches from being placed from your offhand if you have a block in your main hand.")

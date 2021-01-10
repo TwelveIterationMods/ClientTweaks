@@ -28,6 +28,7 @@ public class ClientTweaks {
     private void setupClient(FMLClientSetupEvent event) {
         registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", ClientTweaksConfig.CLIENT.masterVolumeSlider, SoundCategory.MASTER, 0));
         registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", ClientTweaksConfig.CLIENT.musicVolumeSlider, SoundCategory.MUSIC, 160));
+        registerTweak(new NoOffhandTorchAtAll());
         registerTweak(new NoOffhandTorchWithBlock());
         registerTweak(new NoOffhandTorchWithEmptyHand());
         registerTweak(new OffhandTorchWithToolOnly());
