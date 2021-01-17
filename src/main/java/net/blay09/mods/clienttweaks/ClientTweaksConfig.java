@@ -109,6 +109,7 @@ public class ClientTweaksConfig {
                     .translation("clienttweaks.config.torchItems")
                     .defineList("torchItems", Lists.newArrayList(
                             "minecraft:torch",
+                            "minecraft:soul_torch",
                             "tconstruct:stone_torch"), it -> it instanceof String);
 
             torchTools = builder
