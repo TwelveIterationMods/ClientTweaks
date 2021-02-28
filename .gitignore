@@ -19,6 +19,5 @@ build
 
 # other
 eclipse
-run
-classes
+run classes
 logs
