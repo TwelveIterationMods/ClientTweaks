@@ -1,0 +1,65 @@
+package net.blay09.mods.clienttweaks;
+
+import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.client.BalmClient;
+import net.blay09.mods.clienttweaks.tweak.*;
+import net.minecraft.sounds.SoundSource;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ClientTweaks {
+
+    public static final String MOD_ID = "clienttweaks";
+
+    private static final Map<String, AbstractClientTweak> tweaks = new HashMap<>();
+
+    public static void initialize() {
+        ClientTweaksConfig.initialize();
+
+        registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", SoundSource.MASTER, 0) {
+            @Override
+            public boolean isEnabled() {
+                return ClientTweaksConfig.getActive().tweaks.masterVolumeSlider;
+            }
+
+            @Override
+            public void setEnabled(boolean enabled) {
+                Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
+            }
+        });
+
+        registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", SoundSource.MUSIC, 160) {
+            @Override
+            public boolean isEnabled() {
+                return ClientTweaksConfig.getActive().tweaks.musicVolumeSlider;
+            }
+
+            @Override
+            public void setEnabled(boolean enabled) {
+                Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
+            }
+        });
+
+        registerTweak(new NoOffhandTorchAtAll());
+        registerTweak(new NoOffhandTorchWithBlock());
+        registerTweak(new NoOffhandTorchWithEmptyHand());
+        registerTweak(new OffhandTorchWithToolOnly());
+        registerTweak(new HideOwnEffectParticles());
+        registerTweak(new HideOffhandItem());
+        registerTweak(new StepAssistIsAnnoying());
+        registerTweak(new AutoClimbLadder());
+        registerTweak(new DisablePotionShift());
+        registerTweak(new HideShieldUnlessHoldingWeapon());
+        registerTweak(new DoNotUseLastTorch());
+
+        ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
+
+        Balm.initialize(MOD_ID);
+    }
+
+    private static void registerTweak(AbstractClientTweak tweak) {
+        tweaks.put(tweak.getName(), tweak);
+    }
+
+}
