@@ -1,26 +1,28 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.event.TickPhase;
+import net.blay09.mods.balm.api.event.TickType;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraft.world.entity.player.Player;
 
 public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public HideOwnEffectParticles() {
         super("hideOwnParticleEffects");
+
+        Balm.getEvents().onTickEvent(TickType.Client, TickPhase.End, this::onClientTick);
     }
 
-    @SubscribeEvent
-    public void onClientTick(TickEvent.ClientTickEvent event) {
-        Minecraft mc = Minecraft.getInstance();
-        if (event.phase == TickEvent.Phase.END && isEnabled()) {
-            if (mc.player != null) {
-                mc.player.getEntityData().set(LivingEntity.DATA_EFFECT_AMBIENCE_ID, true);
-                mc.player.getEntityData().set(LivingEntity.DATA_EFFECT_COLOR_ID, 0);
+    public void onClientTick(Minecraft client) {
+        if (isEnabled()) {
+            Player player = client.player;
+            if (player != null) {
+                player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
+                player.getEntityData().set(LivingEntityAccessor.getDataEffectColorId(), 0);
             }
         }
     }

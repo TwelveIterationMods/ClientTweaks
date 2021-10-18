@@ -4,5 +4,7 @@
     "key.categories.clienttweaks": "Client Tweaks",
     "chat.clienttweaks.on": "ON",
     "chat.clienttweaks.off": "OFF",
-    "chat.clienttweaks.lastTorch": "Out of Torches"
+    "chat.clienttweaks.lastTorch": "Out of Torches",
+    "clienttweaks.hideOffhandItem": "Hide Offhand Item: %s",
+    "clienttweaks.disableStepAssist": "Disable Step Assist: %s"
 }

@@ -1,6 +1,8 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.event.EventPriority;
+import net.blay09.mods.balm.api.event.client.RenderHandEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
@@ -10,18 +12,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraftforge.client.event.RenderHandEvent;
-import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     public HideShieldUnlessHoldingWeapon() {
         super("hideShieldUnlessHoldingWeapon");
+
+        Balm.getEvents().onEvent(RenderHandEvent.class, this::onRenderHand, EventPriority.Highest);
     }
 
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onRenderHand(RenderHandEvent event) {
         if (!isEnabled()) {
             return;
@@ -32,7 +31,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return;
         }
 
-        if (event.getHand() != InteractionHand.OFF_HAND || !event.getItemStack().getItem().canPerformAction(event.getItemStack(), ToolActions.SHIELD_BLOCK)) {
+        if (event.getHand() != InteractionHand.OFF_HAND || !Balm.getHooks().isShield(event.getItemStack())) {
             return;
         }
 

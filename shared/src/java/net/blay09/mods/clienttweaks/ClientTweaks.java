@@ -17,6 +17,8 @@ public class ClientTweaks {
     public static void initialize() {
         ClientTweaksConfig.initialize();
 
+        BalmClient.initialize(MOD_ID);
+
         registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", SoundSource.MASTER, 0) {
             @Override
             public boolean isEnabled() {

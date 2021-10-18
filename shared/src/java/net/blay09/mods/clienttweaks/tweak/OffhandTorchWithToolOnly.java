@@ -1,23 +1,23 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.event.InputEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     public OffhandTorchWithToolOnly() {
         super("offhandTorchWithToolOnly");
+
+        Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }
 
-    @SubscribeEvent
-    public void onRightClick(InputEvent.ClickInputEvent event) {
+    public void onRightClick(UseItemInputEvent event) {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
             Minecraft mc = Minecraft.getInstance();
             ItemStack heldItem = mc.player != null ? mc.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;

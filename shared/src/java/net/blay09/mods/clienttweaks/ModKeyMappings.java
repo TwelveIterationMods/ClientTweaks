@@ -1,17 +1,18 @@
 package net.blay09.mods.clienttweaks;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import net.blay09.mods.balm.api.Balm;
 import net.blay09.mods.balm.api.client.BalmClient;
 import net.blay09.mods.balm.api.client.keymappings.BalmKeyMappings;
 import net.blay09.mods.balm.api.client.keymappings.KeyConflictContext;
 import net.blay09.mods.balm.api.client.keymappings.KeyModifier;
+import net.blay09.mods.balm.api.event.client.KeyInputEvent;
 import net.blay09.mods.clienttweaks.tweak.AbstractClientTweak;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.client.event.InputEvent;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Collection;
@@ -30,10 +31,10 @@ public class ModKeyMappings {
             }
         }
 
-        // TODO key input event
+        Balm.getEvents().onEvent(KeyInputEvent.class, ModKeyMappings::onKeyInput);
     }
 
-    public static void onKeyInput(InputEvent.KeyInputEvent event) {
+    public static void onKeyInput(KeyInputEvent event) {
         if (event.getAction() == GLFW.GLFW_PRESS) {
             for (Map.Entry<KeyMapping, AbstractClientTweak> entry : toggleableTweaks.entrySet()) {
                 if (BalmClient.getKeyMappings().isActiveAndMatches(entry.getKey(), event.getKey(), event.getScanCode())) {
@@ -48,9 +49,8 @@ public class ModKeyMappings {
 
         Player player = Minecraft.getInstance().player;
         if (player != null) {
-            TextComponent root = new TextComponent(tweak.getName() + ": ");
-            root.append(new TranslatableComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
-            player.displayClientMessage(root, true);
+            TranslatableComponent component = new TranslatableComponent("clienttweaks." + tweak.getName(), new TranslatableComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
+            player.displayClientMessage(component, true);
         }
     }
 }

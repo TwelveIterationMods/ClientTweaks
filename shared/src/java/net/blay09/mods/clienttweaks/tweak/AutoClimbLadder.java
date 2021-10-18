@@ -1,25 +1,28 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.event.TickPhase;
+import net.blay09.mods.balm.api.event.TickType;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
 
 public class AutoClimbLadder extends AbstractClientTweak {
 
 	public AutoClimbLadder() {
 		super("autoClimbLadder");
+
+		Balm.getEvents().onTickEvent(TickType.Client, TickPhase.Start, this::onPlayerTick);
 	}
 
-	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		if (isEnabled() && event.phase == TickEvent.Phase.START) {
-			if (event.side == LogicalSide.CLIENT && event.player.onClimbable() && !event.player.isShiftKeyDown() && event.player.getXRot() <= -50f) {
-				Vec3 motion = event.player.getDeltaMovement();
-				event.player.setDeltaMovement(motion.x, 0.2f, motion.z);
+	public void onPlayerTick(Minecraft client) {
+		if (isEnabled()) {
+			Player player = client.player;
+			if (player != null && player.onClimbable() && !player.isShiftKeyDown() && player.getXRot() <= -50f) {
+				Vec3 motion = player.getDeltaMovement();
+				player.setDeltaMovement(motion.x, 0.2f, motion.z);
 			}
 		}
 	}

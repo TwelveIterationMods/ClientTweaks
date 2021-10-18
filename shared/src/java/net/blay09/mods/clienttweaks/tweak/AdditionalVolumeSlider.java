@@ -1,5 +1,9 @@
 package net.blay09.mods.clienttweaks.tweak;
 
+import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.client.BalmClient;
+import net.blay09.mods.balm.api.event.client.screen.ScreenInitEvent;
+import net.blay09.mods.balm.mixin.ScreenAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.SliderButton;
 import net.minecraft.client.gui.components.VolumeSlider;
@@ -10,8 +14,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
 
@@ -22,15 +24,16 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
         super(name);
         this.soundSource = soundSource;
         this.offsetX = offsetX;
+
+        Balm.getEvents().onEvent(ScreenInitEvent.Post.class, this::onInitGui);
     }
 
-    @SubscribeEvent
-    public void onInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (isEnabled() && event.getGui() instanceof OptionsScreen) {
+    public void onInitGui(ScreenInitEvent.Post event) {
+        if (isEnabled() && event.getScreen() instanceof OptionsScreen) {
             int x = 0;
             int y = 0;
             // Find the FOV slider on the original options screen...
-            for (GuiEventListener widget : event.getWidgetList()) {
+            for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).getChildren()) {
                 if (widget instanceof SliderButton slider) {
                     x = slider.x;
                     y = slider.y;
@@ -39,7 +42,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
 
             VolumeSlider slider = new VolumeSlider(Minecraft.getInstance(), x + offsetX, y + 27, soundSource, 150);
             slider.setMessage(getSliderDisplayString());
-            event.addWidget(slider);
+            BalmClient.getScreens().addRenderableWidget(event.getScreen(), slider);
         }
     }
 
