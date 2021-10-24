@@ -2,6 +2,7 @@ modLoader="javafml"
 loaderVersion="[37,)"
 license="All rights reserved"
 issueTrackerURL="https://github.com/ModdingForBlockheads/ClientTweaks/issues"
+
 [[mods]]
 modId="clienttweaks"
 version="${file.jarVersion}"
@@ -11,8 +12,9 @@ logoFile="clienttweaks-icon.png"
 credits="BlayTheNinth"
 authors="BlayTheNinth"
 description='''
-
+There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Quality of Life.
 '''
+
 [[dependencies.clienttweaks]]
     modId="forge"
     mandatory=true
@@ -28,6 +30,6 @@ description='''
 [[dependencies.clienttweaks]]
     modId="balm"
     mandatory=true
-    versionRange="[1.6.0,)"
+    versionRange="[1.7.0,)"
     ordering="NONE"
     side="BOTH"
