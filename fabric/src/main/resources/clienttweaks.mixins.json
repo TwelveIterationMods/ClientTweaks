@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.blay09.mods.cookingforblockheads.mixin",
+  "package": "net.blay09.mods.clienttweaks.mixin",
   "compatibilityLevel": "JAVA_16",
+  "refmap": "refmap.clienttweaks.json",
   "mixins": [
+    "LivingEntityAccessor"
   ],
   "client": [
   ],

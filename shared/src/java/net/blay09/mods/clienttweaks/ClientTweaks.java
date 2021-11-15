@@ -14,11 +14,11 @@ public class ClientTweaks {
 
     private static final Map<String, AbstractClientTweak> tweaks = new HashMap<>();
 
-    public static void initialize() {
+    public static void initializeCommon() {
         ClientTweaksConfig.initialize();
+    }
 
-        BalmClient.initialize(MOD_ID);
-
+    public static void initializeClient() {
         registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", SoundSource.MASTER, 0) {
             @Override
             public boolean isEnabled() {
@@ -56,8 +56,6 @@ public class ClientTweaks {
         registerTweak(new DoNotUseLastTorch());
 
         ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
-
-        Balm.initialize(MOD_ID);
     }
 
     private static void registerTweak(AbstractClientTweak tweak) {

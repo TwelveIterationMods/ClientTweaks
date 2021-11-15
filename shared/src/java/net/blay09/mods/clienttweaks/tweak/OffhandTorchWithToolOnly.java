@@ -26,7 +26,7 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
                 if (registryName != null) {
                     if (ClientTweaksConfig.getActive().customization.torchItems.contains(registryName.toString())) {
                         ItemStack mainItem = mc.player.getMainHandItem();
-                        ResourceLocation mainRegistryName = !mainItem.isEmpty() ? mainItem.getItem().getRegistryName() : null;
+                        ResourceLocation mainRegistryName = !mainItem.isEmpty() ? Balm.getRegistries().getKey(mainItem.getItem()) : null;
                         if (mainRegistryName == null || !ClientTweaksConfig.getActive().customization.torchTools.contains(mainRegistryName.toString())) {
                             event.setCanceled(true);
                         }

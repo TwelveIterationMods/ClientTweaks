@@ -26,7 +26,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
             Minecraft mc = Minecraft.getInstance();
             ItemStack heldItem = mc.player != null ? mc.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
             if (!heldItem.isEmpty()) {
-                ResourceLocation registryName = heldItem.getItem().getRegistryName();
+                ResourceLocation registryName = Balm.getRegistries().getKey(heldItem.getItem());
                 if (ClientTweaksConfig.getActive().customization.torchItems.contains(Objects.toString(registryName))) {
                     if (heldItem.getCount() == 1) {
                         TranslatableComponent chatComponent = new TranslatableComponent("chat.clienttweaks.lastTorch");

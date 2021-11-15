@@ -1,44 +1,40 @@
 {
   "schemaVersion": 1,
-  "id": "cookingforblockheads",
+  "id": "clienttweaks",
   "version": "${version}",
 
-  "name": "Cooking for Blockheads",
-  "description": "Adds a cooking book and multiblock kitchens that only shows recipes you can make with what you currently have in your inventory.",
+  "name": "Client Tweaks",
+  "description": "There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Quality of Life.",
   "authors": [
-    "BlayTheNinth",
-    "ZerotS"
+    "BlayTheNinth"
   ],
   "contact": {
-    "homepage": "https://blay09.net/mods/cookingforblockheads",
-    "sources": "https://github.com/ModdingForBlockheads/CookingForBlockheads",
-    "issues": "https://github.com/ModdingForBlockheads/CookingForBlockheads/issues"
+    "homepage": "https://blay09.net/mods/clienttweaks",
+    "sources": "https://github.com/ModdingForBlockheads/ClientTweaks",
+    "issues": "https://github.com/ModdingForBlockheads/ClientTweaks/issues"
   },
 
   "license": "All Rights Reserved",
-  "icon": "cookingforblockheads-icon.png",
+  "icon": "clienttweaks-icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.blay09.mods.craftingtweaks.FabricCookingForBlockheads"
+      "net.blay09.mods.clienttweaks.FabricClientTweaks"
     ],
     "client": [
-      "net.blay09.mods.craftingtweaks.client.FabricCookingForBlockheadsClient"
+      "net.blay09.mods.clienttweaks.client.FabricClientTweaksClient"
     ],
     "modmenu": [
-      "net.blay09.mods.craftingtweaks.compat.ModMenuIntegration"
-    ],
-    "rei_plugins": [
-      "net.blay09.mods.craftingtweaks.compat.RoughlyEnoughItemsIntegration"
+      "net.blay09.mods.clienttweaks.compat.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "cookingforblockheads.mixins.json"
+    "clienttweaks.mixins.json"
   ],
   "depends": {
     "cloth-config2": ">=5.0.34",
-    "balm-fabric": ">=1.1.0",
+    "balm-fabric": ">=1.8.0",
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.17.x",
