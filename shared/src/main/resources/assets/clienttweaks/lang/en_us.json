@@ -10,7 +10,6 @@
     "text.autoconfig.clienttweaks.title": "Client Tweaks",
     "text.autoconfig.clienttweaks.option.tweaks": "Tweaks",
     "text.autoconfig.clienttweaks.option.tweaks.autoClimbLadder": "Auto Climb Ladder",
-    "text.autoconfig.clienttweaks.option.tweaks.disablePotionShift": "Disable Potion Shift",
     "text.autoconfig.clienttweaks.option.tweaks.doNotUseLastTorch": "Do Not Use Last Torch",
     "text.autoconfig.clienttweaks.option.tweaks.hideOffhandItem": "Hide Offhand Item",
     "text.autoconfig.clienttweaks.option.tweaks.hideOwnParticleEffects": "Hide Own Particle Effects",

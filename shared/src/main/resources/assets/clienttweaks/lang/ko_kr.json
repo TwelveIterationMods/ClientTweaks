@@ -10,7 +10,6 @@
   "text.autoconfig.clienttweaks.title": "클라이언트 트윅스",
   "text.autoconfig.clienttweaks.option.tweaks": "트윅스",
   "text.autoconfig.clienttweaks.option.tweaks.autoClimbLadder": "자동 상승 사다리",
-  "text.autoconfig.clienttweaks.option.tweaks.disablePotionShift": "물약 이동 사용 안 함",
   "text.autoconfig.clienttweaks.option.tweaks.doNotUseLastTorch": "마지막 횃불 사용 안 함",
   "text.autoconfig.clienttweaks.option.tweaks.hideOffhandItem": "보조 손 아이템 숨기기",
   "text.autoconfig.clienttweaks.option.tweaks.hideOwnParticleEffects": "자체 입자 효과 숨기기",

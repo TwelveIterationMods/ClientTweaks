@@ -20,9 +20,6 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will let you climb ladders automatically by just looking upwards, rather than requiring a key to be held down.")
         public boolean autoClimbLadder = false;
 
-        @Comment("This option disables the shifting of the inventory to the right when potion effects are active.")
-        public boolean disablePotionShift = true;
-
         @Comment("This prevents the last torch in the offhand from being placed.")
         public boolean doNotUseLastTorch = false;
 
