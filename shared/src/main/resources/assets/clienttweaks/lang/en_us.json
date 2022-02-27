@@ -25,6 +25,7 @@
     "text.autoconfig.clienttweaks.option.tweaks.disableLogStripping": "Disable Log Stripping",
     "text.autoconfig.clienttweaks.option.tweaks.masterVolumeSlider": "Master Volume Slider",
     "text.autoconfig.clienttweaks.option.tweaks.musicVolumeSlider": "Music Volume Slider",
+    "text.autoconfig.clienttweaks.option.tweaks.paneBuildingSupport": "Pane Building Support",
     "text.autoconfig.clienttweaks.option.customization": "Customization",
     "text.autoconfig.clienttweaks.option.customization.torchItems": "Torch Items",
     "text.autoconfig.clienttweaks.option.customization.torchTools": "Torch Tools",

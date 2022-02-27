@@ -61,6 +61,8 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This adds back the music volume slider to the options screen. Saves you a click!")
         public boolean musicVolumeSlider = true;
 
+        @Comment("This option will make iron fences and glass panes have a bigger hitbox while placing them, making it easier to aim.")
+        public boolean paneBuildingSupport = true;
     }
 
     public static class Customization {
