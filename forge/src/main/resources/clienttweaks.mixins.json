@@ -8,7 +8,8 @@
     "LivingEntityAccessor"
   ],
   "client": [
-    "CrossCollisionBlockMixin"
+    "CrossCollisionBlockMixin",
+    "RecipeBookComponentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

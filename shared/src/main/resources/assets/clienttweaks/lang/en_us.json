@@ -26,9 +26,11 @@
     "text.autoconfig.clienttweaks.option.tweaks.masterVolumeSlider": "Master Volume Slider",
     "text.autoconfig.clienttweaks.option.tweaks.musicVolumeSlider": "Music Volume Slider",
     "text.autoconfig.clienttweaks.option.tweaks.paneBuildingSupport": "Pane Building Support",
+    "text.autoconfig.clienttweaks.option.tweaks.noRecipeBookShifting": "No Recipe Book Shifting",
     "text.autoconfig.clienttweaks.option.customization": "Customization",
     "text.autoconfig.clienttweaks.option.customization.torchItems": "Torch Items",
     "text.autoconfig.clienttweaks.option.customization.torchTools": "Torch Tools",
     "text.autoconfig.clienttweaks.option.customization.offhandTorchTools": "Offhand Torch Tools",
-    "text.autoconfig.clienttweaks.option.customization.shieldWeapons": "Shield Weapons"
+    "text.autoconfig.clienttweaks.option.customization.shieldWeapons": "Shield Weapons",
+    "text.autoconfig.clienttweaks.option.customization.shieldItems": "Shield Items"
 }

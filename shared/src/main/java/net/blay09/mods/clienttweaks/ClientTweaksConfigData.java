@@ -63,6 +63,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
         @Comment("This option will make iron fences and glass panes have a bigger hitbox while placing them, making it easier to aim.")
         public boolean paneBuildingSupport = true;
+
+        @Comment("This option makes the recipe book not shift the inventory when opened. Works best with fixed GUI scales.")
+        public boolean noRecipeBookShifting = false;
     }
 
     public static class Customization {
