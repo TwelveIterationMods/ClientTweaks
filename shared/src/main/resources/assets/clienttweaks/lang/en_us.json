@@ -1,5 +1,6 @@
 {
     "key.clienttweaks.disableStepAssist": "Toggle Disable Step Assist",
+    "key.clienttweaks.disableLogStripping": "Toggle Log Stripping",
     "key.clienttweaks.hideOffhandItem": "Toggle Hide Offhand Item",
     "key.categories.clienttweaks": "Client Tweaks",
     "chat.clienttweaks.on": "ON",
@@ -7,6 +8,7 @@
     "chat.clienttweaks.lastTorch": "Out of Torches",
     "clienttweaks.hideOffhandItem": "Hide Offhand Item: %s",
     "clienttweaks.disableStepAssist": "Disable Step Assist: %s",
+    "clienttweaks.disableLogStripping": "Disable Log Stripping: %s",
     "text.autoconfig.clienttweaks.title": "Client Tweaks",
     "text.autoconfig.clienttweaks.option.tweaks": "Tweaks",
     "text.autoconfig.clienttweaks.option.tweaks.autoClimbLadder": "Auto Climb Ladder",
@@ -19,6 +21,7 @@
     "text.autoconfig.clienttweaks.option.tweaks.noOffhandTorchWithEmptyHand": "No Offhand Torch With Empty Hand",
     "text.autoconfig.clienttweaks.option.tweaks.offhandTorchWithToolOnly": "Offhand Torch With Tool Only",
     "text.autoconfig.clienttweaks.option.tweaks.disableStepAssist": "Disable Step Assist",
+    "text.autoconfig.clienttweaks.option.tweaks.disableLogStripping": "Disable Log Stripping",
     "text.autoconfig.clienttweaks.option.tweaks.masterVolumeSlider": "Master Volume Slider",
     "text.autoconfig.clienttweaks.option.tweaks.musicVolumeSlider": "Music Volume Slider",
     "text.autoconfig.clienttweaks.option.customization": "Customization",

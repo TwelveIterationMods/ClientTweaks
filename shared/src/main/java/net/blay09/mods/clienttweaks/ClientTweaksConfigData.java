@@ -47,6 +47,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will disable step assist added by other mods.")
         public boolean disableStepAssist = false;
 
+        @Comment("This option will disable log stripping.")
+        public boolean disableLogStripping = false;
+
         @Comment("This adds back the master volume slider to the options screen. Saves you a click!")
         public boolean masterVolumeSlider = true;
 

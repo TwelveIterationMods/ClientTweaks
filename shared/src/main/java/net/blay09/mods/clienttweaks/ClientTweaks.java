@@ -53,6 +53,7 @@ public class ClientTweaks {
         registerTweak(new AutoClimbLadder());
         registerTweak(new HideShieldUnlessHoldingWeapon());
         registerTweak(new DoNotUseLastTorch());
+        registerTweak(new DisableLogStripping());
 
         ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
     }
