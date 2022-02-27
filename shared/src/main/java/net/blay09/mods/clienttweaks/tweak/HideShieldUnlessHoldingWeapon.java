@@ -22,7 +22,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
     }
 
     public void onRenderHand(RenderHandEvent event) {
-        if (!isEnabled()) {
+        if (!isEnabled() || event.getHand() != InteractionHand.OFF_HAND) {
             return;
         }
 
@@ -31,31 +31,31 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return;
         }
 
-        if (event.getHand() != InteractionHand.OFF_HAND || !Balm.getHooks().isShield(event.getItemStack())) {
+        ResourceLocation registryName = Balm.getRegistries().getKey(event.getItemStack().getItem());
+        boolean isShield = Balm.getHooks().isShield(event.getItemStack()) || ClientTweaksConfig.getActive().customization.shieldItems.contains(registryName.toString());
+        if (!isShield) {
             return;
         }
 
-        if (player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking()) {
-            return;
+        boolean isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
+        if (!hasWeaponInHand(player) && !isBlocking) {
+            event.setCanceled(true);
         }
+    }
 
+    private boolean hasWeaponInHand(Player player) {
         ItemStack mainItem = player.getItemInHand(InteractionHand.MAIN_HAND);
-
         if (mainItem.getItem() instanceof SwordItem) {
-            return;
+            return true;
         }
 
         float attackDamage = mainItem.getItem() instanceof DiggerItem ? ((DiggerItem) mainItem.getItem()).getAttackDamage() : 0;
         if (attackDamage >= 3) {
-            return;
+            return true;
         }
 
-        ResourceLocation registryName = Balm.getRegistries().getKey(mainItem.getItem());
-        if (ClientTweaksConfig.getActive().customization.shieldWeapons.contains(registryName.toString())) {
-            return;
-        }
-
-        event.setCanceled(true);
+        ResourceLocation mainItemRegistryName = Balm.getRegistries().getKey(mainItem.getItem());
+        return ClientTweaksConfig.getActive().customization.shieldWeapons.contains(mainItemRegistryName.toString());
     }
 
     @Override

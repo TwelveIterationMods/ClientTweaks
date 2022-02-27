@@ -5,6 +5,8 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.blay09.mods.balm.api.config.BalmConfigData;
 import net.blay09.mods.balm.api.config.Comment;
+import net.blay09.mods.balm.api.config.ExpectedType;
+
 import java.util.List;
 
 @Config(name = ClientTweaks.MOD_ID)
@@ -60,6 +62,7 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
     public static class Customization {
         @Comment("Items that count as torches for the offhand-torch tweak options.")
+        @ExpectedType(String.class)
         public List<String> torchItems = Lists.newArrayList(
                 "minecraft:torch",
                 "minecraft:soul_torch",
@@ -67,6 +70,7 @@ public class ClientTweaksConfigData implements BalmConfigData {
         );
 
         @Comment("Items that are allowed to place torches from the offhand if offhandTorchWithToolOnly is enabled.")
+        @ExpectedType(String.class)
         public List<String> torchTools = Lists.newArrayList(
                 "minecraft:wooden_pickaxe",
                 "minecraft:stone_pickaxe",
@@ -78,16 +82,19 @@ public class ClientTweaksConfigData implements BalmConfigData {
                 "tconstruct:hammer"
         );
 
-        @Comment("Items that will not prevent offhand-torch placement while in offhand, but do not place torches by themselves")
-        public List<String> offhandTorchTools = Lists.newArrayList(
-                "tconstruct:shovel",
-                "tconstruct:excavator"
-        );
-
         @Comment("Items that count as weapons for the offhand-shield hiding tweak options.")
+        @ExpectedType(String.class)
         public List<String> shieldWeapons = Lists.newArrayList(
                 "tetra:modular_sword"
-        ) ;
-    }
+        );
 
+        @Comment("Items that count as shields for the offhand-shield hiding tweak options.")
+        @ExpectedType(String.class)
+        public List<String> shieldItems = Lists.newArrayList(
+                "basicshields:wooden_shield",
+                "basicshields:golden_shield",
+                "basicshields:diamond_shield",
+                "basicshields:netherite_shield"
+        );
+    }
 }
