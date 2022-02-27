@@ -40,6 +40,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This prevents torches from being placed from your offhand if you have a block in your main hand.")
         public boolean noOffhandTorchWithBlock = true;
 
+        @Comment("This prevents torches from being placed from your offhand if you have food in your main hand.")
+        public boolean noOffhandTorchWithFood = true;
+
         @Comment("This prevents torches from being placed from your off hand if you have an empty main hand.")
         public boolean noOffhandTorchWithEmptyHand = false;
 

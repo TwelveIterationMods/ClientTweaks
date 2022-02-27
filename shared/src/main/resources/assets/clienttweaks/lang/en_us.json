@@ -18,6 +18,7 @@
     "text.autoconfig.clienttweaks.option.tweaks.hideShieldUnlessHoldingWeapon": "Hide Shield Unless Holding Weapon",
     "text.autoconfig.clienttweaks.option.tweaks.noOffhandTorchAtAll": "No Offhand Torch At All",
     "text.autoconfig.clienttweaks.option.tweaks.noOffhandTorchWithBlock": "No Offhand Torch With Block",
+    "text.autoconfig.clienttweaks.option.tweaks.noOffhandTorchWithFood": "No Offhand Torch With Food",
     "text.autoconfig.clienttweaks.option.tweaks.noOffhandTorchWithEmptyHand": "No Offhand Torch With Empty Hand",
     "text.autoconfig.clienttweaks.option.tweaks.offhandTorchWithToolOnly": "Offhand Torch With Tool Only",
     "text.autoconfig.clienttweaks.option.tweaks.disableStepAssist": "Disable Step Assist",
