@@ -5,14 +5,13 @@ import net.blay09.mods.balm.api.client.BalmClient;
 import net.blay09.mods.balm.api.event.client.screen.ScreenInitEvent;
 import net.blay09.mods.balm.mixin.ScreenAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.SliderButton;
+import net.minecraft.client.gui.components.AbstractOptionSliderButton;
 import net.minecraft.client.gui.components.VolumeSlider;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundSource;
 
 public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
@@ -34,7 +33,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
             int y = 0;
             // Find the FOV slider on the original options screen...
             for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
-                if (widget instanceof SliderButton slider) {
+                if (widget instanceof AbstractOptionSliderButton slider) {
                     x = slider.x;
                     y = slider.y;
                 }
@@ -50,8 +49,8 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
         float volume = Minecraft.getInstance().options.getSoundSourceVolume(soundSource);
         String displayVolume = volume == 0f ? I18n.get("options.off") : (int) (volume * 100f) + "%";
 
-        final TranslatableComponent volumeText = new TranslatableComponent("soundCategory." + soundSource.getName());
-        volumeText.append(new TextComponent(": " + displayVolume));
+        final MutableComponent volumeText = Component.translatable("soundCategory." + soundSource.getName());
+        volumeText.append(Component.literal(": " + displayVolume));
         return volumeText;
     }
 

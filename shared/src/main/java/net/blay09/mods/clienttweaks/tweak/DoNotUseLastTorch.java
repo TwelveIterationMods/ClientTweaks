@@ -6,7 +6,8 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +30,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
                 ResourceLocation registryName = Balm.getRegistries().getKey(heldItem.getItem());
                 if (ClientTweaksConfig.getActive().customization.torchItems.contains(Objects.toString(registryName))) {
                     if (heldItem.getCount() == 1) {
-                        TranslatableComponent chatComponent = new TranslatableComponent("chat.clienttweaks.lastTorch");
+                        MutableComponent chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
                         chatComponent.withStyle(ChatFormatting.RED);
                         mc.player.displayClientMessage(chatComponent, true);
                         event.setCanceled(true);

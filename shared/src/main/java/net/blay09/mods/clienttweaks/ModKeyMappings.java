@@ -10,8 +10,8 @@ import net.blay09.mods.balm.api.event.client.KeyInputEvent;
 import net.blay09.mods.clienttweaks.tweak.AbstractClientTweak;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.player.Player;
 import org.lwjgl.glfw.GLFW;
 
@@ -49,7 +49,7 @@ public class ModKeyMappings {
 
         Player player = Minecraft.getInstance().player;
         if (player != null) {
-            TranslatableComponent component = new TranslatableComponent("clienttweaks." + tweak.getName(), new TranslatableComponent(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
+            MutableComponent component = Component.translatable("clienttweaks." + tweak.getName(), Component.translatable(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
             player.displayClientMessage(component, true);
         }
     }
