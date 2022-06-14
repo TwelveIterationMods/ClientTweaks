@@ -22,7 +22,7 @@ dependencies {
 
 	modImplementation "net.blay09.mods:balm-fabric:${balm_fabric_version}"
 
-	modApi("me.shedaniel.cloth:cloth-config-fabric:5.0.34") {
+	modApi("me.shedaniel.cloth:cloth-config-fabric:7.0.72") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
@@ -122,6 +122,7 @@ modrinth {
 	token = project.findProperty("modrinth.token") ?: System.getenv("MODRINTH_TOKEN") ?: "none"
 	projectId = project.modrinth_fabric_project_id
 	versionType = project.modrinth_release_type
+	versionNumber = project.version + "-fabric"
 	uploadFile = remapJar
 	changelog = rootProject.file("changelog.md").text
 	gameVersions = [project.minecraft_version]

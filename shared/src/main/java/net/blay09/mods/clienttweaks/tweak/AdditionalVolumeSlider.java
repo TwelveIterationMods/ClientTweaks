@@ -33,7 +33,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
             int y = 0;
             // Find the FOV slider on the original options screen...
             for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
-                if (widget instanceof AbstractOptionSliderButton slider) {
+                if (widget instanceof AbstractOptionSliderButton slider && !(widget instanceof VolumeSlider)) {
                     x = slider.x;
                     y = slider.y;
                 }
