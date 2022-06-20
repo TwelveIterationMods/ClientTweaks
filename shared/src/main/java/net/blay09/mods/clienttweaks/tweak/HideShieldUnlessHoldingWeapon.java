@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.AxeItem;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
@@ -45,14 +46,14 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     private boolean hasWeaponInHand(Player player) {
         ItemStack mainItem = player.getItemInHand(InteractionHand.MAIN_HAND);
-        if (mainItem.getItem() instanceof SwordItem) {
+        if (mainItem.getItem() instanceof SwordItem || mainItem.getItem() instanceof AxeItem) {
             return true;
         }
 
-        float attackDamage = mainItem.getItem() instanceof DiggerItem ? ((DiggerItem) mainItem.getItem()).getAttackDamage() : 0;
+        /* float attackDamage = mainItem.getItem() instanceof DiggerItem ? ((DiggerItem) mainItem.getItem()).getAttackDamage() : 0;
         if (attackDamage >= 3) {
             return true;
-        }
+        } */
 
         ResourceLocation mainItemRegistryName = Balm.getRegistries().getKey(mainItem.getItem());
         return ClientTweaksConfig.getActive().customization.shieldWeapons.contains(mainItemRegistryName.toString());
