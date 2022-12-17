@@ -1,7 +1,7 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[44,)"
 license="All rights reserved"
-issueTrackerURL="https://github.com/ModdingForBlockheads/ClientTweaks/issues"
+issueTrackerURL="https://github.com/TwelveIterationMods/ClientTweaks/issues"
 
 [[mods]]
 modId="clienttweaks"
@@ -18,18 +18,18 @@ There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Q
 [[dependencies.clienttweaks]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[44,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.clienttweaks]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.clienttweaks]]
     modId="balm"
     mandatory=true
-    versionRange="[4.0.0,)"
+    versionRange="[5.0.0,)"
     ordering="NONE"
     side="BOTH"

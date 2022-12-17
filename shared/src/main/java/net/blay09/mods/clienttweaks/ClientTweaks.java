@@ -31,7 +31,7 @@ public class ClientTweaks {
             }
         });
 
-        registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", SoundSource.MUSIC, 160) {
+        registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", SoundSource.MUSIC, 1) {
             @Override
             public boolean isEnabled() {
                 return ClientTweaksConfig.getActive().tweaks.musicVolumeSlider;
