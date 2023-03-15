@@ -23,7 +23,7 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
         if (isEnabled()) {
             Player player = client.player;
             if (player != null) {
-                player.maxUpStep = DEFAULT_STEP_HEIGHT;
+                player.setMaxUpStep(DEFAULT_STEP_HEIGHT);
             }
         }
     }

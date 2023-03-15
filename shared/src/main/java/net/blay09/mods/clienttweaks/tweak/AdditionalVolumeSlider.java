@@ -7,9 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.GridWidget;
-import net.minecraft.client.gui.components.LayoutSettings;
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.layouts.GridLayout;
 import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.sounds.SoundSource;
 
@@ -30,12 +29,12 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
         if (isEnabled() && event.getScreen() instanceof OptionsScreen) {
             // Find the grid on the original options screen, then inject our volume slider into the specific cell
             for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
-                if (widget instanceof GridWidget grid) {
+                if (widget instanceof GridLayout grid) {
                     Options options = Minecraft.getInstance().options;
                     OptionInstance<Double> option = options.getSoundSourceOptionInstance(soundSource);
                     AbstractWidget slider = option.createButton(options, 0, 0, 150);
                     grid.addChild(slider, 1, column, 1, 1, grid.newCellSettings().paddingTop(3));
-                    grid.pack();
+                    grid.arrangeElements();
                     break;
                 }
             }
