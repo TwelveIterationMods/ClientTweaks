@@ -131,6 +131,7 @@ dependencies {
     implementation fg.deobf("net.blay09.mods:balm-forge:${balm_forge_version}")
 
     compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:5.0.38")
+    testCompileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:5.0.38")
 
     implementation "org.jetbrains:annotations:22.0.0"
 }
@@ -151,7 +152,6 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId = mod_id + "-forge"
-            version = project.version + (!project.version.endsWith("SNAPSHOT") ? "+" + minecraft_version : "")
 
             artifact jar
         }
@@ -176,7 +176,7 @@ curseforge {
         changelogType = 'markdown'
         changelog = rootProject.file('CHANGELOG.md')
         project.minecraft_versions.split(',').each {
-            addGameVersion minecraft_version
+            addGameVersion it
         }
         addGameVersion 'Forge'
 

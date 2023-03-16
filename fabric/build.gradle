@@ -71,7 +71,6 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			artifactId = mod_id + "-fabric"
-			version = project.version + (!project.version.endsWith("SNAPSHOT") ? "+" + minecraft_version : "")
 
 			from components.java
 		}
@@ -96,7 +95,7 @@ curseforge {
 		changelogType = 'markdown'
 		changelog = rootProject.file('CHANGELOG.md')
 		project.minecraft_versions.split(',').each {
-			addGameVersion minecraft_version
+			addGameVersion it
 		}
 		addGameVersion 'Fabric'
 
