@@ -10,7 +10,8 @@
   "client": [
     "CrossCollisionBlockMixin",
     "RecipeBookComponentMixin",
-    "AxeItemAccessor"
+    "AxeItemAccessor",
+    "ItemInHandRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
