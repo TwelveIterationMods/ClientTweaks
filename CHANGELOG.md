@@ -1,3 +1,1 @@
-- Updated to Minecraft 1.19.4
-- Fixed Disable Log Stripping tweak also disabling other interaction while holding an axe
-- Fixed Recipe Book closing when an item is clicked if No Recipe Book Shifting is enabled
+- Fixed master and music volume sliders in options menu no longer showing up
