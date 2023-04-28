@@ -5,7 +5,9 @@ import net.blay09.mods.balm.api.event.EventPriority;
 import net.blay09.mods.balm.api.event.client.RenderHandEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -14,6 +16,8 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.AxeItem;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
+
+    private boolean wasWeaponInHand;
 
     public HideShieldUnlessHoldingWeapon() {
         super("hideShieldUnlessHoldingWeapon");
@@ -38,9 +42,18 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         }
 
         boolean isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
-        if (!hasWeaponInHand(player) && !isBlocking) {
+        boolean weaponInHand = hasWeaponInHand(player);
+        if (!weaponInHand && !isBlocking) {
             event.setCanceled(true);
+        } else if(weaponInHand && !wasWeaponInHand) {
+            ItemInHandRenderer itemInHandRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer();
+            if(itemInHandRenderer instanceof ItemInHandRendererAccessor accessor) {
+                accessor.setOOffHandHeight(0f);
+                accessor.setOffHandHeight(0f);
+            }
+            event.setCanceled(true); // we skip the first frame so the offset can update since this event fires after tick()
         }
+        wasWeaponInHand = weaponInHand;
     }
 
     private boolean hasWeaponInHand(Player player) {
