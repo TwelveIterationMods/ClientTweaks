@@ -1,2 +1,1 @@
-- Fixed Disable Log Stripping tweak also disabling other interaction while holding an axe
-- Fixed Recipe Book closing when an item is clicked if No Recipe Book Shifting is enabled
+- Fixed equip animation for shields not displaying when hideShieldUnlessHoldingWeapon is enabled
