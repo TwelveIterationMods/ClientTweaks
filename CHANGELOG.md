@@ -1,1 +1,2 @@
 - Fixed master and music volume sliders in options menu no longer showing up
+- Fixed equip animation for shields not displaying when hideShieldUnlessHoldingWeapon is enabled
