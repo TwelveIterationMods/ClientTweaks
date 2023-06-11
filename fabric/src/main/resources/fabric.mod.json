@@ -9,7 +9,7 @@
     "BlayTheNinth"
   ],
   "contact": {
-    "homepage": "https://blay09.net/mods/clienttweaks",
+    "homepage": "https://mods.twelveiterations.com/mc/clienttweaks",
     "sources": "https://github.com/TwelveIterationMods/ClientTweaks",
     "issues": "https://github.com/TwelveIterationMods/ClientTweaks/issues"
   },
@@ -32,11 +32,10 @@
     "clienttweaks.mixins.json"
   ],
   "depends": {
-    "cloth-config": ">=9.0.0",
-    "balm-fabric": ">=5.0.0",
-    "fabricloader": ">=0.14.7",
+    "balm-fabric": ">=7.0.0",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
-    "minecraft": ">=1.19.4",
+    "minecraft": ">=1.20",
     "java": ">=17"
   },
   "suggests": {

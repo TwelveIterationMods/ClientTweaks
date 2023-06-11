@@ -1,13 +1,13 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="${forge_loader_version_range}"
 license="All rights reserved"
 issueTrackerURL="https://github.com/TwelveIterationMods/ClientTweaks/issues"
 
 [[mods]]
 modId="clienttweaks"
-version="${file.jarVersion}"
+version="${mod_version}"
 displayName="Client Tweaks"
-displayURL="https://blay09.net/mods/clienttweaks"
+displayURL="https://mods.twelveiterations.com/mc/clienttweaks"
 logoFile="clienttweaks-icon.png"
 credits="BlayTheNinth"
 authors="BlayTheNinth"
@@ -18,18 +18,18 @@ There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Q
 [[dependencies.clienttweaks]]
     modId="forge"
     mandatory=true
-    versionRange="[45,)"
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.clienttweaks]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.4,1.20)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.clienttweaks]]
     modId="balm"
     mandatory=true
-    versionRange="[6.0.0,)"
+    versionRange="${balm_version_range}"
     ordering="NONE"
     side="BOTH"
