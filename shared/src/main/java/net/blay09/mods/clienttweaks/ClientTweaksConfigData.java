@@ -1,21 +1,18 @@
 package net.blay09.mods.clienttweaks;
 
 import com.google.common.collect.Lists;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.blay09.mods.balm.api.config.BalmConfigData;
 import net.blay09.mods.balm.api.config.Comment;
+import net.blay09.mods.balm.api.config.Config;
 import net.blay09.mods.balm.api.config.ExpectedType;
 
 import java.util.List;
 
-@Config(name = ClientTweaks.MOD_ID)
+@Config(ClientTweaks.MOD_ID)
 public class ClientTweaksConfigData implements BalmConfigData {
 
-    @ConfigEntry.Gui.CollapsibleObject
     public Tweaks tweaks = new Tweaks();
 
-    @ConfigEntry.Gui.CollapsibleObject
     public Customization customization = new Customization();
 
     public static class Tweaks {
