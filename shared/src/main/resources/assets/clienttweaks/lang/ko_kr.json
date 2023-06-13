@@ -24,6 +24,5 @@
   "config.clienttweaks.customization": "사용자 정의",
   "config.clienttweaks.customization.torchItems": "횃불 아이템",
   "config.clienttweaks.customization.torchTools": "횃불 도구",
-  "config.clienttweaks.customization.offhandTorchTools": "보조 손 횃불 도구",
   "config.clienttweaks.customization.shieldWeapons": "방패 무기"
 }
