@@ -46,6 +46,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This restricts torches to be placed from the offhand only when you're holding a tool in your main hand.")
         public boolean offhandTorchWithToolOnly = false;
 
+        @Comment("This prevents fireworks from being launched from your off hand if you are wearing an Elytra, unless you're flying.")
+        public boolean noOffhandFireworksWithElytra = true;
+
         @Comment("This option will disable step assist added by other mods.")
         public boolean disableStepAssist = false;
 
@@ -100,6 +103,12 @@ public class ClientTweaksConfigData implements BalmConfigData {
                 "basicshields:golden_shield",
                 "basicshields:diamond_shield",
                 "basicshields:netherite_shield"
+        );
+
+        @Comment("Items that count as fireworks for the offhand-firework tweak options.")
+        @ExpectedType(String.class)
+        public List<String> fireworkItems = Lists.newArrayList(
+                "minecraft:firework_rocket"
         );
     }
 }
