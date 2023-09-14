@@ -30,6 +30,6 @@ There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Q
 [[dependencies.clienttweaks]]
     modId="balm"
     mandatory=true
-    versionRange="[4.0.0,)"
+    versionRange="[4.6.0,)"
     ordering="NONE"
     side="BOTH"
