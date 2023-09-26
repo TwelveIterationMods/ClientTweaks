@@ -45,7 +45,7 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
                 if (stepHeightAttribute != null) {
                     AttributeInstance attributeInstance = player.getAttribute(stepHeightAttribute);
                     if (attributeInstance != null) {
-                        attributeInstance.removeModifier(disableStepAssistModifier);
+                        attributeInstance.removeModifier(disableStepAssistModifier.getId());
                     }
                 }
             }
