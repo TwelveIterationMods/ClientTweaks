@@ -8,6 +8,7 @@
   ],
   "client": [
     "CrossCollisionBlockMixin",
+    "ChainBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
     "ItemInHandRendererAccessor"

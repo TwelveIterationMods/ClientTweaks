@@ -41,6 +41,8 @@
     "config.clienttweaks.tweaks.musicVolumeSlider.tooltip":  "This adds back the music volume slider to the options screen. Saves you a click!",
     "config.clienttweaks.tweaks.paneBuildingSupport": "Pane Building Support",
     "config.clienttweaks.tweaks.paneBuildingSupport.tooltip":  "This option will make iron fences and glass panes have a bigger hitbox while placing them, making it easier to aim.",
+    "config.clienttweaks.tweaks.chainBuildingSupport": "Chain Building Support",
+    "config.clienttweaks.tweaks.chainBuildingSupport.tooltip":  "This option will make chains have a bigger hitbox while placing them, making it easier to aim.",
     "config.clienttweaks.tweaks.noRecipeBookShifting": "No Recipe Book Shifting",
     "config.clienttweaks.tweaks.noRecipeBookShifting.tooltip":  "This option makes the recipe book not shift the inventory when opened. Works best with smaller GUI scales / bigger resolutions.",
     "config.clienttweaks.customization": "Customization",
