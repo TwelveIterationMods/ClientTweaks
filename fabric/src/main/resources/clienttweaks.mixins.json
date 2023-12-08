@@ -10,7 +10,8 @@
     "CrossCollisionBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
-    "ItemInHandRendererAccessor"
+    "ItemInHandRendererAccessor",
+    "SignEditionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

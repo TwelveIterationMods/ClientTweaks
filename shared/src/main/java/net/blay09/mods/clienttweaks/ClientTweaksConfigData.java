@@ -66,6 +66,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
         @Comment("This option makes the recipe book not shift the inventory when opened. Works best with smaller GUI scales / bigger resolutions.")
         public boolean noRecipeBookShifting = false;
+
+        @Comment("This option forces the player to sneak to edit a sign")
+        public boolean sneakSignEdit = true;
     }
 
     public static class Customization {
