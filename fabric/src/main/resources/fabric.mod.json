@@ -1,45 +1,46 @@
 {
   "schemaVersion": 1,
-  "id": "clienttweaks",
+  "id": "${mod_id}",
   "version": "${version}",
 
-  "name": "Client Tweaks",
-  "description": "There, I fixed Minecraft for you. Various optional tweaks to improve Minecraft Quality of Life.",
+  "name": "${mod_name}",
+  "description": "${description}",
   "authors": [
     "BlayTheNinth"
   ],
   "contact": {
-    "homepage": "https://mods.twelveiterations.com/mc/clienttweaks",
-    "sources": "https://github.com/TwelveIterationMods/ClientTweaks",
-    "issues": "https://github.com/TwelveIterationMods/ClientTweaks/issues"
+    "homepage": "${homepage}",
+    "sources": "${sources}",
+    "issues": "${issues}"
   },
 
-  "license": "All Rights Reserved",
-  "icon": "clienttweaks-icon.png",
+  "license": "${license}",
+  "icon": "${mod_id}.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
     ],
     "client": [
-      "net.blay09.mods.clienttweaks.client.FabricClientTweaksClient"
+      "net.blay09.mods.${mod_id}.fabric.client.Fabric${mod_main}Client"
     ],
     "modmenu": [
-      "net.blay09.mods.clienttweaks.compat.ModMenuIntegration"
+      "net.blay09.mods.${mod_id}.fabric.compat.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "clienttweaks.mixins.json"
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
   ],
+
   "depends": {
-    "balm-fabric": ">=8.0.0",
-    "fabricloader": ">=0.14.22",
-    "fabric": "*",
+    "fabricloader": ">=0.14",
+    "fabric-api": "*",
+    "balm-fabric": "*",
     "minecraft": ">=1.20.2",
     "java": ">=17"
   },
   "suggests": {
-    "modmenu": "*"
   },
   "custom": {
     "modmenu": {

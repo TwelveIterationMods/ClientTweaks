@@ -1,4 +1,4 @@
-package net.blay09.mods.clienttweaks.client;
+package net.blay09.mods.clienttweaks.fabric.client;
 
 import net.blay09.mods.balm.api.Balm;
 import net.blay09.mods.balm.api.client.BalmClient;
