@@ -24,11 +24,16 @@ public class CrossCollisionBlockMixin {
 
     @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
     void getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
-        Player player = Minecraft.getInstance().player;
+        final var minecraft = Minecraft.getInstance();
+        @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         boolean isHoldingCrossCollisionBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof CrossCollisionBlock;
         if (isHoldingCrossCollisionBlock && ClientTweaksConfig.getActive().tweaks.paneBuildingSupport) {
-            boolean isPillarSection = !state.getValue(CrossCollisionBlock.EAST) && !state.getValue(CrossCollisionBlock.WEST) && !state.getValue(CrossCollisionBlock.NORTH) && !state.getValue(CrossCollisionBlock.SOUTH);
-            boolean isThinSection = isOnlyOneTrue(state.getValue(CrossCollisionBlock.EAST), state.getValue(CrossCollisionBlock.WEST), state.getValue(CrossCollisionBlock.NORTH), state.getValue(CrossCollisionBlock.SOUTH));
+            boolean isPillarSection = !state.getValue(CrossCollisionBlock.EAST) && !state.getValue(CrossCollisionBlock.WEST) && !state.getValue(
+                    CrossCollisionBlock.NORTH) && !state.getValue(CrossCollisionBlock.SOUTH);
+            boolean isThinSection = isOnlyOneTrue(state.getValue(CrossCollisionBlock.EAST),
+                    state.getValue(CrossCollisionBlock.WEST),
+                    state.getValue(CrossCollisionBlock.NORTH),
+                    state.getValue(CrossCollisionBlock.SOUTH));
             if (isThinSection || isPillarSection) {
                 VoxelShape originalShape = callbackInfo.getReturnValue();
                 VoxelShape modifiedShape = Shapes.create(originalShape.bounds()
