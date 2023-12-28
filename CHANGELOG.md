@@ -1,1 +1,1 @@
-- Added chain building support; similar to pane building support but for chains
+- Updated to Minecraft 1.20.4
