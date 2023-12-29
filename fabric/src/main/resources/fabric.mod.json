@@ -22,15 +22,15 @@
     "main": [
     ],
     "client": [
-      "net.blay09.mods.${mod_id}.fabric.client.Fabric${mod_main}Client"
+      "net.blay09.mods.clienttweaks.fabric.client.FabricClientTweaksClient"
     ],
     "modmenu": [
-      "net.blay09.mods.${mod_id}.fabric.compat.ModMenuIntegration"
+      "net.blay09.mods.clienttweaks.fabric.compat.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "${mod_id}.mixins.json",
-    "${mod_id}.fabric.mixins.json"
+    "clienttweaks.mixins.json",
+    "clienttweaks.fabric.mixins.json"
   ],
 
   "depends": {
