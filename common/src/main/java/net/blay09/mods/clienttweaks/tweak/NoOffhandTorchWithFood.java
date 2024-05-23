@@ -5,6 +5,7 @@ import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.BlockItem;
@@ -27,7 +28,7 @@ public class NoOffhandTorchWithFood extends AbstractClientTweak {
                 if (registryName != null) {
                     if (ClientTweaksConfig.getActive().customization.torchItems.contains(registryName.toString())) {
                         ItemStack mainItem = mc.player.getMainHandItem();
-                        if (!mainItem.isEmpty() && mainItem.getItem().isEdible()) {
+                        if (!mainItem.isEmpty() && mainItem.has(DataComponents.FOOD)) {
                             event.setCanceled(true);
                         }
                     }

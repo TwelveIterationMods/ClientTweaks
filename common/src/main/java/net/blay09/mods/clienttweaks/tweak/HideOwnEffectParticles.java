@@ -9,6 +9,8 @@ import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 
+import java.util.Collections;
+
 public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public HideOwnEffectParticles() {
@@ -22,7 +24,7 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
             Player player = client.player;
             if (player != null) {
                 player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
-                player.getEntityData().set(LivingEntityAccessor.getDataEffectColorId(), 0);
+                player.getEntityData().set(LivingEntityAccessor.getDataEffectParticles(), Collections.emptyList());
             }
         }
     }

@@ -1,2 +1,4 @@
+Updated to Minecraft 1.20.6
+
 - Fixed ModMenu integration not working
 - Updated to Minecraft 1.20.4

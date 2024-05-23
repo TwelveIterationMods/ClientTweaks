@@ -2,20 +2,18 @@ package net.blay09.mods.clienttweaks;
 
 import net.blay09.mods.balm.api.Balm;
 import net.blay09.mods.balm.api.client.BalmClient;
+import net.blay09.mods.balm.neoforge.NeoForgeLoadContext;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.DistExecutor;
-import net.neoforged.fml.IExtensionPoint;
-import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 
-@Mod(ClientTweaks.MOD_ID)
+@Mod(value = ClientTweaks.MOD_ID, dist = Dist.CLIENT)
 public class NeoForgeClientTweaks {
 
-    public NeoForgeClientTweaks() {
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> Balm.initialize(ClientTweaks.MOD_ID, ClientTweaks::initializeCommon));
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> BalmClient.initialize(ClientTweaks.MOD_ID, ClientTweaks::initializeClient));
-
-        ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> IExtensionPoint.DisplayTest.IGNORESERVERONLY, (a, b) -> true));
+    public NeoForgeClientTweaks(IEventBus modEventBus) {
+        final var context = new NeoForgeLoadContext(modEventBus);
+        Balm.initialize(ClientTweaks.MOD_ID, context, ClientTweaks::initializeCommon);
+        BalmClient.initialize(ClientTweaks.MOD_ID, context, ClientTweaks::initializeClient);
     }
 
 }

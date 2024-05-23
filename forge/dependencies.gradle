@@ -1,2 +1,5 @@
 dependencies {
+    implementation("net.blay09.mods:balm-forge:${balm_version}") {
+        changing = balm_version.contains("SNAPSHOT")
+    }
 }
