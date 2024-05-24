@@ -9,6 +9,7 @@
   ],
   "client": [
     "CrossCollisionBlockMixin",
+    "BlockBehaviourMixin",
     "ChainBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
