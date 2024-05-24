@@ -5,8 +5,10 @@ import net.blay09.mods.balm.api.config.BalmConfigData;
 import net.blay09.mods.balm.api.config.Comment;
 import net.blay09.mods.balm.api.config.Config;
 import net.blay09.mods.balm.api.config.ExpectedType;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
+import java.util.Set;
 
 @Config(ClientTweaks.MOD_ID)
 public class ClientTweaksConfigData implements BalmConfigData {
@@ -69,6 +71,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
         @Comment("This option makes the recipe book not shift the inventory when opened. Works best with smaller GUI scales / bigger resolutions.")
         public boolean noRecipeBookShifting = false;
+
+        @Comment("Prevents accidental mining of certain fragile blocks like budding amethysts.")
+        public boolean preventAccidentalMining = false;
     }
 
     public static class Customization {
@@ -112,6 +117,15 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @ExpectedType(String.class)
         public List<String> fireworkItems = Lists.newArrayList(
                 "minecraft:firework_rocket"
+        );
+
+        @Comment("Blocks that should be protected in the prevent accidental mining tweak.")
+        @ExpectedType(ResourceLocation.class)
+        public Set<ResourceLocation> fragileBlocks = Set.of(
+                new ResourceLocation("budding_amethyst"),
+                new ResourceLocation("small_amethyst_bud"),
+                new ResourceLocation("medium_amethyst_bud"),
+                new ResourceLocation("large_amethyst_bud")
         );
     }
 }
