@@ -4,8 +4,6 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -17,13 +15,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(BlockBehaviour.class)
-public class BlockBehaviourMixin {
-
-    @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
-    void getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
+@Mixin(BlockBehaviour.BlockStateBase.class)
+public class BlockStateBaseMixin {
+    @SuppressWarnings("UnreachableCode")
+    @Inject(method = "getShape(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
+    void getShape(BlockGetter blockGetter, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
+        @SuppressWarnings("DataFlowIssue") final var state = (BlockState) (Object) this;
         final var minecraft = Minecraft.getInstance();
-        @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
+        final var player = minecraft != null ? minecraft.player : null;
         boolean isCreative = player != null && player.getAbilities().instabuild;
         if (isCreative && ClientTweaksConfig.getActive().tweaks.creativeBreakingSupport && state.hasOffsetFunction()) {
             VoxelShape originalShape = callbackInfo.getReturnValue();
@@ -35,5 +34,4 @@ public class BlockBehaviourMixin {
             callbackInfo.setReturnValue(modifiedShape);
         }
     }
-
 }
