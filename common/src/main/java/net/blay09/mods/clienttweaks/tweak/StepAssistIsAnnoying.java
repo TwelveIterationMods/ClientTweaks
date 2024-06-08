@@ -6,6 +6,7 @@ import net.blay09.mods.balm.api.event.TickType;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -13,7 +14,8 @@ import net.minecraft.world.entity.player.Player;
 
 public class StepAssistIsAnnoying extends AbstractClientTweak {
 
-    private final AttributeModifier disableStepAssistModifier = new AttributeModifier("Disable step assist",
+    private final ResourceLocation disableStepAssistModifierId = ResourceLocation.fromNamespaceAndPath("clienttweaks", "disable_step_assist");
+    private final AttributeModifier disableStepAssistModifier = new AttributeModifier(disableStepAssistModifierId,
             -1,
             AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
@@ -29,7 +31,7 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
         if (player != null) {
             if (isEnabled()) {
                 AttributeInstance attributeInstance = player.getAttribute(Attributes.STEP_HEIGHT);
-                if (attributeInstance != null && !attributeInstance.hasModifier(disableStepAssistModifier)) {
+                if (attributeInstance != null && !attributeInstance.hasModifier(disableStepAssistModifierId)) {
                     attributeInstance.addTransientModifier(disableStepAssistModifier);
                 }
             } else {

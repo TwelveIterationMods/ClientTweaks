@@ -125,10 +125,10 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("Blocks that should be protected in the prevent accidental mining tweak.")
         @ExpectedType(ResourceLocation.class)
         public Set<ResourceLocation> fragileBlocks = Set.of(
-                new ResourceLocation("budding_amethyst"),
-                new ResourceLocation("small_amethyst_bud"),
-                new ResourceLocation("medium_amethyst_bud"),
-                new ResourceLocation("large_amethyst_bud")
+                ResourceLocation.withDefaultNamespace("budding_amethyst"),
+                ResourceLocation.withDefaultNamespace("small_amethyst_bud"),
+                ResourceLocation.withDefaultNamespace("medium_amethyst_bud"),
+                ResourceLocation.withDefaultNamespace("large_amethyst_bud")
         );
     }
 }
