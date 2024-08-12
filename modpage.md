@@ -1,25 +1,20 @@
-<p>
-    <a style="text-decoration: none;" href="https://modrinth.com/mod/balm"> 
-        <img src="https://blay09.net/files/brand/requires_balm.png" alt="Requires Balm" width="217" height="51" /> 
-    </a>
-    <img src="https://blay09.net/files/brand/spacer.png" alt="" width="20" height="51" />
-    <a style="text-decoration: none;" href="https://www.patreon.com/blay09"> 
-        <img src="https://blay09.net/files/brand/patreon.png" alt="Become a Patron" width="217" height="51" /> 
-    </a> 
-    <img src="https://blay09.net/files/brand/spacer.png" alt="" width="21" height="51" /> 
-    <a style="text-decoration: none;" href="https://twitter.com/BlayTheNinth">
-        <img src="https://blay09.net/files/brand/twitter.png" alt="Follow me on Twitter" width="51" height="51" />
-    </a>
-    <a style="text-decoration: none;" href="https://discord.gg/VAfZ2Nau6j">
-        <img src="https://blay09.net/files/brand/discord.png" alt="Join our Discord" width="51" height="51" />
-    </a>
-</p>
-
 ![](https://blay09.net/files/brand/clienttweaks.png)
+
+[![](https://mods.twelveiterations.com/img/sponsor.png)](https://mods.twelveiterations.com/sponsor)
 
 Good news everyone, I've found the secrets to fixing your Minecraft experience. I've bundled them in this mod.
 
 This mod adds a bunch of optional tweaks to improve the Quality of Life during gameplay. Tweaks can be individually enabled or disabled and configured. Many of the tweaks are disabled by default, so make sure to enable the features you want for the most bestest experience possible.
+
+<p>
+    <a style="text-decoration: none;" href="https://modrinth.com/mod/balm"> 
+        <img src="https://blay09.net/files/brand/requires_balm.png" alt="Requires Balm" width="217" height="51" /> 
+    </a>
+    <img src="https://blay09.net/files/brand/spacer.png" alt="" width="21" height="51" /> 
+    <a style="text-decoration: none;" href="https://discord.gg/VAfZ2Nau6j">
+        <img src="https://blay09.net/files/brand/discord.png" alt="Join our Discord" width="51" height="51" />
+    </a>
+</p>
 
 ## Features
 
@@ -29,11 +24,20 @@ This option will refuse to place a torch if you're holding a block in your main 
 ### No Offhand Torch With Empty Hand
 You know that feeling when you're tired, try to open the chest but misclicked the block next to it? And of course you still had a torch in your offhand. And of course it placed it. And now you have to break it again. Ugh. This option only allows torches to be placed when your main hand is not empty. This can be enabled additionally to the above.
 
+### No Offhand Torch With Food
+This option prevents you from placing a torch from your offhand when you have food in your hand.
+
+### No Offhand Torch At All
+This option completely disables placing torches from your offhand. Useful if you only carry a torch in your offhand for things like dynamic lighting.
+
 ### Offhand Torch With Tools Only
 This is the option I consider best, but it changes vanilla behaviour too much to be the default. This will only allow placing torches from the offhand when you're holding a tool. No more accidental torch placement, ever again.
 
 ### Do Not Use Last Torch
 This option is useful when using dynamic lights such as OptiFine. The last torch in your offhand will not be placeable, so you always have a light to carry around with you secured.
+
+### No Offhand Fireworks with Elytra while Grounded
+This option prevents you from shooting fireworks when you're wearing an Elytra and not currently flying.
 
 ### Hide Own Effect Particles
 This option will make your own potion effect particles a lot less obtrusive for your client. Other players will see them normally. No more annoying particles blocking your view.
@@ -50,6 +54,9 @@ I often make really long ladders down to my mine, and it's a pain having to hold
 ### Disable Potion Shift
 Prevents the inventory from being shifted to the right when potion effects are active. You probably never noticed because NEI did it in 1.7.10 and now Quark does it in 1.10.2 and then there's also a mod called No Potion Shift that does it, but in case you have none of these, you now have this!
 
+### Toggle Log Stripping
+This option adds a keybind that lets you toggle the ability to strip logs. Useful when you build using wood and have an axe-like tool in your hand a lot to prevent accidental strippings.
+
 ### Toggle Off Step Assist
 There's people who hate step assist, but sometimes those step-assist granting items add some other cool perks that we want. So this option lets you disable the step-assist part only. With optional keybind to toggle.
 
@@ -58,5 +65,17 @@ Yes, the new volume settings screen is cool. But couldn't you have kept the Mast
 
 ### Music Volume Slider in Options Screen
 Made up user studies have shown that the average player will much more frequently want to turn off the music than change the master volume, so our team of highly experienced quantum programmers have also brought the music slider back to the main settings screen
+
+### Pane Building Support
+This option increases the hitbox of iron fences and glass panes when you're holding a matching block, making it easier to place them against each other.
+
+### Chain Building Support
+This option increases the hitbox of chains when you're holding a chain block, making it easier to place them against each other.
+
+### Creative Breaking Support
+This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.
+
+### Prevent Accidental Mining
+This option will prevent the accidental mining of certain fragile blocks like budding amethysts.
 
 ![](https://blay09.net/files/brand/clienttweaks_settings.png)
