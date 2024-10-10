@@ -8,10 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
@@ -35,7 +33,7 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
                 if (registryName != null) {
                     if (ClientTweaksConfig.getActive().customization.fireworkItems.contains(registryName.toString())) {
                         ItemStack wornChestItem = mc.player != null ? mc.player.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY;
-                        if (wornChestItem.is(Items.ELYTRA) && ElytraItem.isFlyEnabled(wornChestItem)) {
+                        if (wornChestItem.is(Items.ELYTRA) && !mc.player.isFallFlying()) {
                             event.setCanceled(true);
                         }
                     }
