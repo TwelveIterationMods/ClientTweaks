@@ -19,6 +19,8 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
     private final SoundSource soundSource;
     private final int column;
 
+    private AbstractWidget slider;
+
     public AdditionalVolumeSlider(String name, SoundSource soundSource, int column) {
         super(name);
         this.soundSource = soundSource;
@@ -33,6 +35,14 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
             int y = 0;
             final var offsetX = column == 0 ? 0 : 160;
             // Find the FOV slider on the original options screen...
+
+            if (slider != null) {
+                final var accessor = (ScreenAccessor) event.getScreen();
+                accessor.balm_getChildren().removeIf(widget -> widget == slider);
+                accessor.balm_getRenderables().removeIf(widget -> widget == slider);
+                accessor.balm_getNarratables().removeIf(widget -> widget == slider);
+            }
+
             for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
                 if (widget instanceof AbstractOptionSliderButton slider) {
                     x = slider.getX();
@@ -41,9 +51,9 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
                 }
             }
 
-            Options options = Minecraft.getInstance().options;
-            OptionInstance<Double> option = options.getSoundSourceOptionInstance(soundSource);
-            AbstractWidget slider = option.createButton(options, x + offsetX, y + 27, 150);
+            final var options = Minecraft.getInstance().options;
+            final var option = options.getSoundSourceOptionInstance(soundSource);
+            slider = option.createButton(options, x + offsetX, y + 27, 150);
             BalmClient.getScreens().addRenderableWidget(event.getScreen(), slider);
         }
     }
