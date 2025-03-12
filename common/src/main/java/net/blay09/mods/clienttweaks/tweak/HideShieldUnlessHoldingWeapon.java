@@ -8,10 +8,9 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemInHandRenderer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.AxeItem;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
@@ -56,8 +55,9 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
     }
 
     private boolean hasWeaponInHand(Player player) {
-        ItemStack mainItem = player.getItemInHand(InteractionHand.MAIN_HAND);
-        if (mainItem.getItem() instanceof SwordItem || mainItem.getItem() instanceof AxeItem) {
+        final var mainItem = player.getItemInHand(InteractionHand.MAIN_HAND);
+        final var weaponComponent = player.get(DataComponents.WEAPON);
+        if (weaponComponent != null || mainItem.getItem() instanceof AxeItem) {
             return true;
         }
 

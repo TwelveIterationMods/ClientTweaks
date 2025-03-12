@@ -1,1 +1,1 @@
-- Fixed master and music sliders not resetting properly when resizing window
+- Updated to Minecraft 1.21.5
