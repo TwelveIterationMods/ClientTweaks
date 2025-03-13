@@ -18,10 +18,10 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     public void onRightClick(UseItemInputEvent event) {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
-            Minecraft mc = Minecraft.getInstance();
-            ItemStack heldItem = mc.player != null ? mc.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
+            final var client = Minecraft.getInstance();
+            final var heldItem = client.player != null ? client.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
-                ItemStack mainItem = mc.player.getMainHandItem();
+                final var mainItem = client.player.getMainHandItem();
                 if (!ClientTweaksConfig.isTorchTool(mainItem)) {
                     event.setCanceled(true);
                 }

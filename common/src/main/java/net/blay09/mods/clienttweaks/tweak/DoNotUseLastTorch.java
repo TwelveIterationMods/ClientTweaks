@@ -7,7 +7,6 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 
@@ -21,13 +20,13 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
 
     public void onRightClick(UseItemInputEvent event) {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
-            Minecraft mc = Minecraft.getInstance();
-            ItemStack heldItem = mc.player != null ? mc.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
+            final var client = Minecraft.getInstance();
+            final var heldItem = client.player != null ? client.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
                 if (heldItem.getCount() == 1) {
-                    MutableComponent chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
+                    final var chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
                     chatComponent.withStyle(ChatFormatting.RED);
-                    mc.player.displayClientMessage(chatComponent, true);
+                    client.player.displayClientMessage(chatComponent, true);
                     event.setCanceled(true);
                 }
             }

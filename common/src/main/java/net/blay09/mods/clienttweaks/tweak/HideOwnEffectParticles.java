@@ -7,7 +7,6 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.player.Player;
 
 import java.util.Collections;
 
@@ -21,7 +20,7 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public void onClientTick(Minecraft client) {
         if (isEnabled()) {
-            Player player = client.player;
+            final var player = client.player;
             if (player != null) {
                 player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
                 player.getEntityData().set(LivingEntityAccessor.getDataEffectParticles(), Collections.emptyList());

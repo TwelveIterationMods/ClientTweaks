@@ -5,9 +5,7 @@ import net.blay09.mods.balm.api.event.TickPhase;
 import net.blay09.mods.balm.api.event.TickType;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
-import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
 public class AutoClimbLadder extends AbstractClientTweak {
@@ -20,7 +18,7 @@ public class AutoClimbLadder extends AbstractClientTweak {
 
 	public void onPlayerTick(Minecraft client) {
 		if (isEnabled()) {
-			Player player = client.player;
+			final var player = client.player;
 			if (player != null && player.onClimbable() && !player.isSuppressingSlidingDownLadder() && player.getXRot() <= -50f) {
 				player.resetFallDistance();
 				Vec3 motion = player.getDeltaMovement();

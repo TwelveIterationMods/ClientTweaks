@@ -22,13 +22,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ChainBlockMixin {
 
     @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
-    void getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
+    void getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
         final var minecraft = Minecraft.getInstance();
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
-        boolean isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
+        final var isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
         if (isHoldingChainBlock && ClientTweaksConfig.getActive().tweaks.chainBuildingSupport) {
-            VoxelShape originalShape = callbackInfo.getReturnValue();
-            VoxelShape modifiedShape = Shapes.create(originalShape.bounds()
+            final var originalShape = callbackInfo.getReturnValue();
+            final var modifiedShape = Shapes.create(originalShape.bounds()
                     .expandTowards(0.25, 0.25, 0.25)
                     .expandTowards(-0.25, -0.25, -0.25)
                     .intersect(new AABB(0, 0, 0, 1, 1, 1))

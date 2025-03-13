@@ -5,8 +5,6 @@ import net.blay09.mods.balm.api.client.BalmClient;
 import net.blay09.mods.balm.api.event.client.screen.ScreenInitEvent;
 import net.blay09.mods.balm.mixin.ScreenAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.OptionInstance;
-import net.minecraft.client.Options;
 import net.minecraft.client.gui.components.AbstractOptionSliderButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -18,7 +16,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
     private final SoundSource soundSource;
     private final int column;
 
-    private AbstractWidget slider;
+    private AbstractWidget lastSlider;
 
     public AdditionalVolumeSlider(String name, SoundSource soundSource, int column) {
         super(name);
@@ -35,11 +33,11 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
             final var offsetX = column == 0 ? 0 : 160;
             // Find the FOV slider on the original options screen...
 
-            if (slider != null) {
+            if (lastSlider != null) {
                 final var accessor = (ScreenAccessor) event.getScreen();
-                accessor.balm_getChildren().removeIf(widget -> widget == slider);
-                accessor.balm_getRenderables().removeIf(widget -> widget == slider);
-                accessor.balm_getNarratables().removeIf(widget -> widget == slider);
+                accessor.balm_getChildren().removeIf(widget -> widget == lastSlider);
+                accessor.balm_getRenderables().removeIf(widget -> widget == lastSlider);
+                accessor.balm_getNarratables().removeIf(widget -> widget == lastSlider);
             }
 
             for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
@@ -52,8 +50,8 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
 
             final var options = Minecraft.getInstance().options;
             final var option = options.getSoundSourceOptionInstance(soundSource);
-            slider = option.createButton(options, x + offsetX, y + 27, 150);
-            BalmClient.getScreens().addRenderableWidget(event.getScreen(), slider);
+            lastSlider = option.createButton(options, x + offsetX, y + 27, 150);
+            BalmClient.getScreens().addRenderableWidget(event.getScreen(), lastSlider);
         }
     }
 

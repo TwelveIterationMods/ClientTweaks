@@ -28,19 +28,19 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return;
         }
 
-        Player player = Minecraft.getInstance().player;
+        final var player = Minecraft.getInstance().player;
         if (player == null) {
             return;
         }
 
-        boolean isShield = Balm.getHooks().isShield(event.getItemStack())
+        final var isShield = Balm.getHooks().isShield(event.getItemStack())
                 || ClientTweaksConfig.isShieldItem(event.getItemStack());
         if (!isShield) {
             return;
         }
 
-        boolean isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
-        boolean weaponInHand = hasWeaponInHand(player);
+        final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
+        final var weaponInHand = hasWeaponInHand(player);
         if (!weaponInHand && !isBlocking) {
             event.setCanceled(true);
         } else if (weaponInHand && !wasWeaponInHand) {
