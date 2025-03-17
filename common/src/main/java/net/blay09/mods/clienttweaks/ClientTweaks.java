@@ -27,7 +27,7 @@ public class ClientTweaks {
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
+                Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
             }
         });
 
@@ -39,7 +39,7 @@ public class ClientTweaks {
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
+                Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
             }
         });
 

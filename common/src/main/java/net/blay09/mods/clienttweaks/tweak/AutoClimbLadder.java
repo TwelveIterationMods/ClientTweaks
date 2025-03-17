@@ -34,6 +34,6 @@ public class AutoClimbLadder extends AbstractClientTweak {
 
 	@Override
 	public void setEnabled(boolean enabled) {
-		Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.autoClimbLadder = enabled);
+		Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.autoClimbLadder = enabled);
 	}
 }

@@ -36,6 +36,6 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.offhandTorchWithToolOnly = enabled);
+        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.offhandTorchWithToolOnly = enabled);
     }
 }

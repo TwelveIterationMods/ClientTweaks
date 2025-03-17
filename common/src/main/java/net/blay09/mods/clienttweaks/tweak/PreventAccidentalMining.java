@@ -31,6 +31,6 @@ public class PreventAccidentalMining extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.preventAccidentalMining = enabled);
+        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.preventAccidentalMining = enabled);
     }
 }
