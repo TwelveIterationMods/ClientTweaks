@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     public OffhandTorchWithToolOnly() {
-        super("offhandTorchWithToolOnly");
+        super("offhand_torch_with_tool_only");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }

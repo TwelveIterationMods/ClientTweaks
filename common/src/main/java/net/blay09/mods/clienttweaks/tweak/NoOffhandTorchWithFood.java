@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 public class NoOffhandTorchWithFood extends AbstractClientTweak {
 
     public NoOffhandTorchWithFood() {
-        super("noOffhandTorchWithFood");
+        super("no_offhand_torch_with_food");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }

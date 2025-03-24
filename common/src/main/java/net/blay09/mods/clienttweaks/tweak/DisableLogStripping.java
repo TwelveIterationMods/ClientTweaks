@@ -13,7 +13,7 @@ import net.minecraft.world.phys.HitResult;
 public class DisableLogStripping extends AbstractClientTweak {
 
     public DisableLogStripping() {
-        super("disableLogStripping");
+        super("disable_log_stripping");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }

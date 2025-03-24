@@ -8,7 +8,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 
 public class PreventAccidentalMining extends AbstractClientTweak {
     public PreventAccidentalMining() {
-        super("preventAccidentalMining");
+        super("prevent_accidental_mining");
 
         Balm.getEvents().onEvent(DigSpeedEvent.class, this::onDigSpeed);
     }

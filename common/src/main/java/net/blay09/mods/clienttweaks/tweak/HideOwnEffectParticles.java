@@ -13,7 +13,7 @@ import java.util.Collections;
 public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public HideOwnEffectParticles() {
-        super("hideOwnParticleEffects");
+        super("hide_own_particle_effects");
 
         Balm.getEvents().onTickEvent(TickType.Client, TickPhase.End, this::onClientTick);
     }

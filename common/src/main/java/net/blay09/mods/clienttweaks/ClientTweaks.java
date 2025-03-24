@@ -1,8 +1,8 @@
 package net.blay09.mods.clienttweaks;
 
 import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.client.BalmClient;
 import net.blay09.mods.clienttweaks.tweak.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class ClientTweaks {
     }
 
     public static void initializeClient() {
-        registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", SoundSource.MASTER, 0) {
+        registerTweak(new AdditionalVolumeSlider("master_volume_slider", SoundSource.MASTER, 0) {
             @Override
             public boolean isEnabled() {
                 return ClientTweaksConfig.getActive().tweaks.masterVolumeSlider;
@@ -31,7 +31,7 @@ public class ClientTweaks {
             }
         });
 
-        registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", SoundSource.MUSIC, 1) {
+        registerTweak(new AdditionalVolumeSlider("music_volume_slider", SoundSource.MUSIC, 1) {
             @Override
             public boolean isEnabled() {
                 return ClientTweaksConfig.getActive().tweaks.musicVolumeSlider;
@@ -58,11 +58,14 @@ public class ClientTweaks {
         registerTweak(new NoOffhandFireworksWithElytra());
         registerTweak(new PreventAccidentalMining());
 
-        ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
+        ModKeyMappings.initialize(tweaks.values());
     }
 
     private static void registerTweak(AbstractClientTweak tweak) {
         tweaks.put(tweak.getName(), tweak);
     }
 
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 }

@@ -10,7 +10,7 @@ import net.minecraft.world.InteractionHand;
 public class HideOffhandItem extends AbstractClientTweak {
 
     public HideOffhandItem() {
-        super("hideOffhandItem");
+        super("hide_offhand_item");
 
         Balm.getEvents().onEvent(RenderHandEvent.class, this::onRenderHand, EventPriority.Highest);
     }

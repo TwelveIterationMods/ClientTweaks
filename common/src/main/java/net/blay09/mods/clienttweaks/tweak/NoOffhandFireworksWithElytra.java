@@ -13,7 +13,7 @@ import net.minecraft.world.phys.HitResult;
 public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
 
     public NoOffhandFireworksWithElytra() {
-        super("noOffhandFireworksWithElytra");
+        super("no_offhand_fireworks_with_elytra");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }

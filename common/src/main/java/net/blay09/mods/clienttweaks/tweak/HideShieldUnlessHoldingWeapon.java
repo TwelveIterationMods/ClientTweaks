@@ -18,7 +18,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
     private boolean wasWeaponInHand;
 
     public HideShieldUnlessHoldingWeapon() {
-        super("hideShieldUnlessHoldingWeapon");
+        super("hide_shield_unless_holding_weapon");
 
         Balm.getEvents().onEvent(RenderHandEvent.class, this::onRenderHand, EventPriority.Highest);
     }
@@ -33,8 +33,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return;
         }
 
-        final var isShield = Balm.getHooks().isShield(event.getItemStack())
-                || ClientTweaksConfig.isShieldItem(event.getItemStack());
+        final var isShield = event.getItemStack().get(DataComponents.BLOCKS_ATTACKS) != null || ClientTweaksConfig.isShieldItem(event.getItemStack());
         if (!isShield) {
             return;
         }

@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 public class DoNotUseLastTorch extends AbstractClientTweak {
 
     public DoNotUseLastTorch() {
-        super("doNotUseLastTorch");
+        super("do_not_use_last_torch");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }

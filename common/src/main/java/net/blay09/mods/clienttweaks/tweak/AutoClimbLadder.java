@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3;
 public class AutoClimbLadder extends AbstractClientTweak {
 
 	public AutoClimbLadder() {
-		super("autoClimbLadder");
+		super("auto_climb_ladder");
 
 		Balm.getEvents().onTickEvent(TickType.Client, TickPhase.Start, this::onPlayerTick);
 	}

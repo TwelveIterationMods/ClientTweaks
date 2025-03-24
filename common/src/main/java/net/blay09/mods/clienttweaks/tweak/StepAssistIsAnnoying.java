@@ -18,7 +18,7 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
             AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
     public StepAssistIsAnnoying() {
-        super("disableStepAssist");
+        super("disable_step_assist");
 
         // TODO might have to add prio to tick event handlers since this used to run on Lowest
         Balm.getEvents().onTickEvent(TickType.Client, TickPhase.Start, this::onPlayerTick);

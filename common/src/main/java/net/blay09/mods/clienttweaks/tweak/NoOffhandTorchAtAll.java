@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 public class NoOffhandTorchAtAll extends AbstractClientTweak {
 
     public NoOffhandTorchAtAll() {
-        super("noOffhandTorchAtAll");
+        super("no_offhand_torch_at_all");
 
         Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
     }
