@@ -1,6 +1,6 @@
 {
-    "key.clienttweaks.disableStepAssist": "ステップアシスト無効化の切り替え",
-    "key.clienttweaks.hideOffhandItem": "オフハンドアイテム非表示の切り替え",
+    "key.clienttweaks.disable_step_assist": "ステップアシスト無効化の切り替え",
+    "key.clienttweaks.hide_offhand_item": "オフハンドアイテム非表示の切り替え",
     "key.categories.clienttweaks": "Client Tweaks",
     "chat.clienttweaks.on": "オン",
     "chat.clienttweaks.off": "オフ",
