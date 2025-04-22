@@ -29,7 +29,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
     }
 
     public void onInitGui(ScreenInitEvent.Post event) {
-        if (isEnabled() && event.getScreen() instanceof OptionsScreen) {
+        if (event.getScreen() instanceof OptionsScreen && isEnabled()) {
             int x = 0;
             int y = 0;
             final var offsetX = column == 0 ? 0 : 160;

@@ -19,9 +19,9 @@ public class AutoClimbLadder extends AbstractClientTweak {
 	}
 
 	public void onPlayerTick(Minecraft client) {
-		if (isEnabled()) {
-			Player player = client.player;
-			if (player != null && player.onClimbable() && !player.isSuppressingSlidingDownLadder() && player.getXRot() <= -50f) {
+		final var player = client.player;
+		if (player != null && isEnabled()) {
+			if (player.onClimbable() && !player.isSuppressingSlidingDownLadder() && player.getXRot() <= -50f) {
 				player.resetFallDistance();
 				Vec3 motion = player.getDeltaMovement();
 				player.setDeltaMovement(motion.x, player.getSpeed(), motion.z);

@@ -22,7 +22,8 @@ public class ClientTweaks {
         registerTweak(new AdditionalVolumeSlider("masterVolumeSlider", SoundSource.MASTER, 0) {
             @Override
             public boolean isEnabled() {
-                return ClientTweaksConfig.getActive().tweaks.masterVolumeSlider;
+                final var config = ClientTweaksConfig.getActive();
+                return config != null && config.tweaks.masterVolumeSlider;
             }
 
             @Override
@@ -34,7 +35,8 @@ public class ClientTweaks {
         registerTweak(new AdditionalVolumeSlider("musicVolumeSlider", SoundSource.MUSIC, 1) {
             @Override
             public boolean isEnabled() {
-                return ClientTweaksConfig.getActive().tweaks.musicVolumeSlider;
+                final var config = ClientTweaksConfig.getActive();
+                return config != null && config.tweaks.musicVolumeSlider;
             }
 
             @Override
