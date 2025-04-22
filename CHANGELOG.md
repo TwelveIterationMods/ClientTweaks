@@ -1,1 +1,1 @@
-- Fixed master and music sliders not resetting properly when resizing window
+- Fixed crash on recent Balm versions
