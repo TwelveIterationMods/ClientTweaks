@@ -19,12 +19,10 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
     }
 
     public void onClientTick(Minecraft client) {
-        if (isEnabled()) {
-            final var player = client.player;
-            if (player != null) {
-                player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
-                player.getEntityData().set(LivingEntityAccessor.getDataEffectParticles(), Collections.emptyList());
-            }
+        final var player = client.player;
+        if (player != null && isEnabled()) {
+            player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
+            player.getEntityData().set(LivingEntityAccessor.getDataEffectParticles(), Collections.emptyList());
         }
     }
 
