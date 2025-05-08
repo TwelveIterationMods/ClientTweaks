@@ -7,7 +7,7 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 public class StepAssistIsAnnoying extends AbstractClientTweak {
 
     public StepAssistIsAnnoying() {
-        super("disableStepAssist");
+        super("disable_step_assist");
     }
 
     @Override
