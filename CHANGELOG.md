@@ -1,1 +1,2 @@
+- Fixed crash due to invalid key mapping id
 - Fixed disable step assist preventing even vanilla step-up 
