@@ -1,1 +1,1 @@
-- Fixed crash on recent Balm versions
+- Fixed disable step assist preventing even vanilla step-up 
