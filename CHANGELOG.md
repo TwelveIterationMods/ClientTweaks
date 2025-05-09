@@ -1,1 +1,3 @@
+- Fixed crash when the mod is present on servers
+---
 - Fixed disable step assist preventing even vanilla step-up 
