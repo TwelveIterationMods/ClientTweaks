@@ -10,7 +10,7 @@ public class FabricClientTweaksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        Balm.initialize(ClientTweaks.MOD_ID, EmptyLoadContext.INSTANCE, ClientTweaks::initializeCommon);
-        BalmClient.initialize(ClientTweaks.MOD_ID, EmptyLoadContext.INSTANCE, ClientTweaks::initializeClient);
+        Balm.initializeMod(ClientTweaks.MOD_ID, EmptyLoadContext.INSTANCE, ClientTweaks::initializeCommon);
+        BalmClient.initializeMod(ClientTweaks.MOD_ID, EmptyLoadContext.INSTANCE, ClientTweaks::initializeClient);
     }
 }

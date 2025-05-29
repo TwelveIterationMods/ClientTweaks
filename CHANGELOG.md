@@ -1,5 +1,1 @@
-- Fixed crash when the mod is present on servers 
----
-- Fixed crash due to invalid key mapping id
----
-- Fixed disable step assist preventing even vanilla step-up 
+- Updated to Minecraft 1.21.6
