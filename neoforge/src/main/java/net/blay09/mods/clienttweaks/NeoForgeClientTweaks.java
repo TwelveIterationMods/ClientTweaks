@@ -12,7 +12,7 @@ public class NeoForgeClientTweaks {
 
     public NeoForgeClientTweaks(IEventBus modEventBus) {
         final var context = new NeoForgeLoadContext(modEventBus);
-        Balm.initialize(ClientTweaks.MOD_ID, context, ClientTweaks::initializeCommon);
+        Balm.initializeMod(ClientTweaks.MOD_ID, context, ClientTweaks::initializeCommon);
         BalmClient.initialize(ClientTweaks.MOD_ID, context, ClientTweaks::initializeClient);
     }
 

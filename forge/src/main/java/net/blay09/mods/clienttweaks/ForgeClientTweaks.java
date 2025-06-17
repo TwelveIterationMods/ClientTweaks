@@ -14,7 +14,7 @@ public class ForgeClientTweaks {
     public ForgeClientTweaks(FMLJavaModLoadingContext context) {
         final var loadContext = new ForgeLoadContext(context.getModEventBus());
         if (FMLEnvironment.dist.isClient()) {
-            Balm.initialize(ClientTweaks.MOD_ID, loadContext, ClientTweaks::initializeCommon);
+            Balm.initializeMod(ClientTweaks.MOD_ID, loadContext, ClientTweaks::initializeCommon);
             BalmClient.initialize(ClientTweaks.MOD_ID, loadContext, ClientTweaks::initializeClient);
         }
 
