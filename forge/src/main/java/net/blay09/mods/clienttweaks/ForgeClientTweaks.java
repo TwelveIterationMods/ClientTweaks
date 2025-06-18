@@ -12,7 +12,7 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 public class ForgeClientTweaks {
 
     public ForgeClientTweaks(FMLJavaModLoadingContext context) {
-        final var loadContext = new ForgeLoadContext(context.getModEventBus());
+        final var loadContext = new ForgeLoadContext(context.getModBusGroup());
         if (FMLEnvironment.dist.isClient()) {
             Balm.initializeMod(ClientTweaks.MOD_ID, loadContext, ClientTweaks::initializeCommon);
             BalmClient.initializeMod(ClientTweaks.MOD_ID, loadContext, ClientTweaks::initializeClient);
