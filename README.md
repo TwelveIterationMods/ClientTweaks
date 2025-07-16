@@ -4,15 +4,10 @@ Minecraft Mod. There, I fixed Minecraft for you. Various optional tweaks to impr
 
 - [Modpack Permissions](https://mods.twelveiterations.com/permissions)
 
-#### Forge
+#### Downloads
 
 [![Versions](http://cf.way2muchnoise.eu/versions/251407_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/client-tweaks)
 [![Downloads](http://cf.way2muchnoise.eu/full_251407_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/client-tweaks)
-
-#### Fabric
-
-[![Versions](http://cf.way2muchnoise.eu/versions/547692_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/client-tweaks-fabric)
-[![Downloads](http://cf.way2muchnoise.eu/full_547692_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/client-tweaks-fabric)
 
 ## Contributing
 
