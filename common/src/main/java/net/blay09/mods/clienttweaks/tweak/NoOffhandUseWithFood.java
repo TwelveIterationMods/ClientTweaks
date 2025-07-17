@@ -5,6 +5,7 @@ import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 
@@ -20,7 +21,7 @@ public class NoOffhandUseWithFood extends AbstractClientTweak {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
             Minecraft mc = Minecraft.getInstance();
             ItemStack mainItem = mc.player.getMainHandItem();
-            if (!mainItem.isEmpty() && mainItem.getItem().isEdible()) {
+            if (!mainItem.isEmpty() && mainItem.has(DataComponents.FOOD)) {
                 event.setCanceled(true);
             }
         }
