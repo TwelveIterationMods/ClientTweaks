@@ -29,8 +29,8 @@ public class DoNotUseLastMending extends AbstractClientTweak {
         if (isEnabled()) {
             final var minecraft = Minecraft.getInstance();
             final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
-            final var enchantments = minecraft.player.level().registryAccess().registry(Registries.ENCHANTMENT).orElseThrow();
-            final var mending = enchantments.getHolderOrThrow(Enchantments.MENDING);
+            final var enchantments = minecraft.player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            final var mending = enchantments.getOrThrow(Enchantments.MENDING);
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
@@ -43,8 +43,8 @@ public class DoNotUseLastMending extends AbstractClientTweak {
     public void onDigSpeed(DigSpeedEvent event) {
         if (isEnabled()) {
             final var heldItem = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-            final var enchantments = event.getPlayer().level().registryAccess().registry(Registries.ENCHANTMENT).orElseThrow();
-            final var mending = enchantments.getHolderOrThrow(Enchantments.MENDING);
+            final var enchantments = event.getPlayer().level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            final var mending = enchantments.getOrThrow(Enchantments.MENDING);
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 event.setSpeedOverride(0f);
                 event.setCanceled(true);
@@ -59,7 +59,7 @@ public class DoNotUseLastMending extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
+        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
     }
 
 }

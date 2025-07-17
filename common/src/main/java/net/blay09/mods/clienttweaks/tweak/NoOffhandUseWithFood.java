@@ -34,7 +34,7 @@ public class NoOffhandUseWithFood extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandUseWithFood = enabled);
+        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandUseWithFood = enabled);
     }
 
 }
