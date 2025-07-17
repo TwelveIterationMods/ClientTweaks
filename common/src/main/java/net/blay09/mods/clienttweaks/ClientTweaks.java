@@ -58,6 +58,7 @@ public class ClientTweaks {
         registerTweak(new DisableLogStripping());
         registerTweak(new NoOffhandTorchWithFood());
         registerTweak(new NoOffhandFireworksWithElytra());
+        registerTweak(new NoOffhandUseWithFood());
 
         ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
     }

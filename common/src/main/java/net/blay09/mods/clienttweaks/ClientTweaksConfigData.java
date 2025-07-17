@@ -40,13 +40,16 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This prevents torches from being placed from your offhand if you have food in your main hand.")
         public boolean noOffhandTorchWithFood = true;
 
-        @Comment("This prevents torches from being placed from your off hand if you have an empty main hand.")
+        @Comment("This prevents torches from being placed from your offhand if you have an empty main hand.")
         public boolean noOffhandTorchWithEmptyHand = false;
+
+        @Comment("This prevents items from being used from your offhand if you have food in your main hand.")
+        public boolean noOffhandUseWithFood = false;
 
         @Comment("This restricts torches to be placed from the offhand only when you're holding a tool in your main hand.")
         public boolean offhandTorchWithToolOnly = false;
 
-        @Comment("This prevents fireworks from being launched from your off hand if you are wearing an Elytra, unless you're flying.")
+        @Comment("This prevents fireworks from being launched from your offhand if you are wearing an Elytra, unless you're flying.")
         public boolean noOffhandFireworksWithElytra = true;
 
         @Comment("This option will disable step assist added by other mods.")
