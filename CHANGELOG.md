@@ -1,3 +1,2 @@
-- Fixed crash when the mod is present on servers
----
-- Fixed disable step assist preventing even vanilla step-up 
+- Added `doNotUseLastMending` option for preventing using or breaking with a Mending-enchanted item that is about to break
+- Added `noOffhandUseWithFood` option for preventing items in offhand from being used while holding food
