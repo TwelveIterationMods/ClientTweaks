@@ -60,6 +60,7 @@ public class ClientTweaks {
         registerTweak(new NoOffhandFireworksWithElytra());
         registerTweak(new PreventAccidentalMining());
         registerTweak(new NoOffhandUseWithFood());
+        registerTweak(new DoNotUseLastMending());
 
         ModKeyMappings.initialize(tweaks.values());
     }
