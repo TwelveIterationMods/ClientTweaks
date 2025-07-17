@@ -31,6 +31,8 @@
     "clienttweaks.configuration.tweaks.noOffhandTorchWithEmptyHand.tooltip":  "This prevents torches from being placed from your off hand if you have an empty main hand.",
     "clienttweaks.configuration.tweaks.noOffhandFireworksWithElytra": "No Offhand Fireworks With Elytra Unless Airborne",
     "clienttweaks.configuration.tweaks.noOffhandFireworksWithElytra.tooltip": "This prevents fireworks from being launched from your off hand if you are wearing an Elytra, unless you're flying.",
+    "config.clienttweaks.tweaks.noOffhandUseWithFood": "No Offhand Use With Food",
+    "config.clienttweaks.tweaks.noOffhandUseWithFood.tooltip":  "This prevents items from being used from your offhand if you have food in your main hand.",
     "clienttweaks.configuration.tweaks.offhandTorchWithToolOnly": "Offhand Torch With Tool Only",
     "clienttweaks.configuration.tweaks.offhandTorchWithToolOnly.tooltip":  "This restricts torches to be placed from the offhand only when you're holding a tool in your main hand.",
     "clienttweaks.configuration.tweaks.disableStepAssist": "Disable Step Assist",
