@@ -1,1 +1,3 @@
-- Fixed crash with other mods that extend CrossCollisionBlock but do not use its block state properties
+- Added `doNotUseLastMending` option for preventing using or breaking with a Mending-enchanted item that is about to break
+- Added `noOffhandUseWithFood` option for preventing items in offhand from being used while holding food
+- Added `preventAccidentalMining` and `fragileBlocks` options from 1.21.1+
