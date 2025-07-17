@@ -24,6 +24,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This prevents the last torch in the offhand from being placed.")
         public boolean doNotUseLastTorch = false;
 
+        @Comment("This prevents the last durability from being used up.")
+        public boolean doNotUseLastMending = false;
+
         @Comment("This option will hide your offhand item. It can be toggled via an optional key binding.")
         public boolean hideOffhandItem = false;
 
