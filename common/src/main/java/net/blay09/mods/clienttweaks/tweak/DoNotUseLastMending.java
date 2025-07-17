@@ -8,6 +8,7 @@ import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
@@ -28,7 +29,9 @@ public class DoNotUseLastMending extends AbstractClientTweak {
         if (isEnabled()) {
             final var minecraft = Minecraft.getInstance();
             final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
-            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MENDING, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
+            final var enchantments = minecraft.player.level().registryAccess().registry(Registries.ENCHANTMENT).orElseThrow();
+            final var mending = enchantments.getHolderOrThrow(Enchantments.MENDING);
+            if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
                 minecraft.player.displayClientMessage(chatComponent, true);
@@ -40,7 +43,9 @@ public class DoNotUseLastMending extends AbstractClientTweak {
     public void onDigSpeed(DigSpeedEvent event) {
         if (isEnabled()) {
             final var heldItem = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MENDING, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
+            final var enchantments = event.getPlayer().level().registryAccess().registry(Registries.ENCHANTMENT).orElseThrow();
+            final var mending = enchantments.getHolderOrThrow(Enchantments.MENDING);
+            if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 event.setSpeedOverride(0f);
                 event.setCanceled(true);
             }
