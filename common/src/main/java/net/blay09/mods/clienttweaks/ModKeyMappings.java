@@ -29,7 +29,7 @@ public class ModKeyMappings {
 
         final var player = Minecraft.getInstance().player;
         if (player != null) {
-            final var component = Component.translatable("clienttweaks." + tweak.getName(),
+            final var component = Component.translatable("chat.clienttweaks." + tweak.getName() + ".toggled",
                     Component.translatable(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
             player.displayClientMessage(component, true);
         }
