@@ -1,1 +1,1 @@
-- Fixed message that pops up whne toggling a tweak
+- Fixed `Out of Torches` showing even when not aiming at a block
