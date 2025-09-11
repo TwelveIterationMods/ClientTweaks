@@ -9,6 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class DoNotUseLastTorch extends AbstractClientTweak {
 
@@ -21,6 +23,10 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
     public void onRightClick(UseItemInputEvent event) {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
             final var client = Minecraft.getInstance();
+            if (client.hitResult == null || client.hitResult.getType() != HitResult.Type.BLOCK) {
+                return;
+            }
+
             final var heldItem = client.player != null ? client.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
                 if (heldItem.getCount() == 1) {
