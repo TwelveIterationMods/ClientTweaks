@@ -1,1 +1,1 @@
-- Fixed message that pops up whne toggling a tweak
+- Updated to Minecraft 1.21.9
