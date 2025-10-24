@@ -2,7 +2,7 @@
     "key.clienttweaks.disable_step_assist": "Alternar o auxílio da etapa de desativação",
     "key.clienttweaks.disable_log_stripping": "Alternar a remoção do log",
     "key.clienttweaks.hide_offhand_item": "Alternar o itens de oculto",
-    "key.categories.clienttweaks": "Ajustes do cliente",
+    "key.categories.clienttweaks.default": "Ajustes do cliente",
     "chat.clienttweaks.on": "SOBRE",
     "chat.clienttweaks.off": "DESLIGADA",
     "chat.clienttweaks.lastTorch": "Fora das tochas",

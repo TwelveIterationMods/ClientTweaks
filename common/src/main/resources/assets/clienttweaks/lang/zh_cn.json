@@ -2,7 +2,7 @@
     "key.clienttweaks.disable_step_assist": "切换台阶助手",
     "key.clienttweaks.disable_log_stripping": "切换原木去皮",
     "key.clienttweaks.hide_offhand_item": "切换隐藏副手物品",
-    "key.categories.clienttweaks": "客户端微调",
+    "key.categories.clienttweaks.default": "客户端微调",
     "chat.clienttweaks.on": "开",
     "chat.clienttweaks.off": "关",
     "chat.clienttweaks.lastTorch": "火把已用尽",

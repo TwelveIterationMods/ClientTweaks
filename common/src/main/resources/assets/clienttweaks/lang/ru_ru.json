@@ -2,7 +2,7 @@
     "key.clienttweaks.disable_step_assist": "Отключить пошаговую помощь",
     "key.clienttweaks.disable_log_stripping": "Включить зачистку журнала",
     "key.clienttweaks.hide_offhand_item": "Переключить скрытие предмета для второй руки",
-    "key.categories.clienttweaks": "Клиентские хитрости",
+    "key.categories.clienttweaks.default": "Клиентские хитрости",
     "chat.clienttweaks.on": "Вкл",
     "chat.clienttweaks.off": "Выкл",
     "chat.clienttweaks.lastTorch": "Нет факелов",

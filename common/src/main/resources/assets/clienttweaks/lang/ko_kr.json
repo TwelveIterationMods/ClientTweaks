@@ -1,7 +1,7 @@
 {
   "key.clienttweaks.disable_step_assist": "자동 점프 비활성화",
   "key.clienttweaks.hide_offhand_item": "보조 손 아이템 숨기기",
-  "key.categories.clienttweaks": "클라이언트 수정",
+  "key.categories.clienttweaks.default": "클라이언트 수정",
   "chat.clienttweaks.on": "켜기",
   "chat.clienttweaks.off": "끄기",
   "chat.clienttweaks.lastTorch": "횃불 없음",
