@@ -25,13 +25,15 @@ public class BlockStateBaseMixin {
         final var player = minecraft != null ? minecraft.player : null;
         boolean isCreative = player != null && player.getAbilities().instabuild;
         if (isCreative && ClientTweaksConfig.getActive().tweaks.creativeBreakingSupport && state.hasOffsetFunction()) {
-            VoxelShape originalShape = callbackInfo.getReturnValue();
-            VoxelShape modifiedShape = Shapes.create(originalShape.bounds()
-                    .expandTowards(-1, 0, -1)
-                    .expandTowards(1, 0, 1)
-                    .intersect(new AABB(0, 0, 0, 1, 1, 1))
-            );
-            callbackInfo.setReturnValue(modifiedShape);
+            final var originalShape = callbackInfo.getReturnValue();
+            if (!originalShape.isEmpty()) {
+                final var modifiedShape = Shapes.create(originalShape.bounds()
+                        .expandTowards(-1, 0, -1)
+                        .expandTowards(1, 0, 1)
+                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                );
+                callbackInfo.setReturnValue(modifiedShape);
+            }
         }
     }
 }
