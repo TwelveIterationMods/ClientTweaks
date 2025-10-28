@@ -1,1 +1,1 @@
-- Updated to Minecraft 1.21.10
+- Fixed crash on blocks with empty shapes
