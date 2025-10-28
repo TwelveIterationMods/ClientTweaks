@@ -3,11 +3,8 @@ package net.blay09.mods.clienttweaks.mixin;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -42,12 +39,14 @@ public class CrossCollisionBlockMixin {
                     state.getValue(CrossCollisionBlock.SOUTH));
             if (isThinSection || isPillarSection) {
                 final var originalShape = callbackInfo.getReturnValue();
-                final var modifiedShape = Shapes.create(originalShape.bounds()
-                        .expandTowards(0.25, 0, 0.25)
-                        .expandTowards(-0.25, 0, -0.25)
-                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
-                );
-                callbackInfo.setReturnValue(modifiedShape);
+                if (!originalShape.isEmpty()) {
+                    final var modifiedShape = Shapes.create(originalShape.bounds()
+                            .expandTowards(0.25, 0, 0.25)
+                            .expandTowards(-0.25, 0, -0.25)
+                            .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                    );
+                    callbackInfo.setReturnValue(modifiedShape);
+                }
             }
         }
     }

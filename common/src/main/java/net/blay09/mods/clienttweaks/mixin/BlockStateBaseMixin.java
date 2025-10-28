@@ -26,12 +26,14 @@ public class BlockStateBaseMixin {
         final var isCreative = player != null && player.getAbilities().instabuild;
         if (isCreative && ClientTweaksConfig.getActive().tweaks.creativeBreakingSupport && state.hasOffsetFunction()) {
             final var originalShape = callbackInfo.getReturnValue();
-            final var modifiedShape = Shapes.create(originalShape.bounds()
-                    .expandTowards(-1, 0, -1)
-                    .expandTowards(1, 0, 1)
-                    .intersect(new AABB(0, 0, 0, 1, 1, 1))
-            );
-            callbackInfo.setReturnValue(modifiedShape);
+            if (!originalShape.isEmpty()) {
+                final var modifiedShape = Shapes.create(originalShape.bounds()
+                        .expandTowards(-1, 0, -1)
+                        .expandTowards(1, 0, 1)
+                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                );
+                callbackInfo.setReturnValue(modifiedShape);
+            }
         }
     }
 }
