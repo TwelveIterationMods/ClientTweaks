@@ -1,10 +1,10 @@
 package net.blay09.mods.clienttweaks;
 
 import com.google.common.collect.Lists;
-import net.blay09.mods.balm.api.config.reflection.Comment;
-import net.blay09.mods.balm.api.config.reflection.Config;
-import net.blay09.mods.balm.api.config.reflection.NestedType;
-import net.minecraft.resources.ResourceLocation;
+import net.blay09.mods.balm.platform.config.reflection.Comment;
+import net.blay09.mods.balm.platform.config.reflection.Config;
+import net.blay09.mods.balm.platform.config.reflection.NestedType;
+import net.minecraft.resources.Identifier;
 
 import java.util.List;
 import java.util.Set;
@@ -131,12 +131,12 @@ public class ClientTweaksConfigData {
         );
 
         @Comment("Blocks that should be protected in the prevent accidental mining tweak.")
-        @NestedType(ResourceLocation.class)
-        public Set<ResourceLocation> fragileBlocks = Set.of(
-                ResourceLocation.withDefaultNamespace("budding_amethyst"),
-                ResourceLocation.withDefaultNamespace("small_amethyst_bud"),
-                ResourceLocation.withDefaultNamespace("medium_amethyst_bud"),
-                ResourceLocation.withDefaultNamespace("large_amethyst_bud")
+        @NestedType(Identifier.class)
+        public Set<Identifier> fragileBlocks = Set.of(
+                Identifier.withDefaultNamespace("budding_amethyst"),
+                Identifier.withDefaultNamespace("small_amethyst_bud"),
+                Identifier.withDefaultNamespace("medium_amethyst_bud"),
+                Identifier.withDefaultNamespace("large_amethyst_bud")
         );
     }
 }

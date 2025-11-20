@@ -1,8 +1,10 @@
 package net.blay09.mods.clienttweaks;
 
-import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.BalmClientRegistrars;
+import net.blay09.mods.balm.core.BalmRegistrars;
 import net.blay09.mods.clienttweaks.tweak.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 
 import java.util.HashMap;
@@ -14,11 +16,11 @@ public class ClientTweaks {
 
     private static final Map<String, AbstractClientTweak> tweaks = new HashMap<>();
 
-    public static void initializeCommon() {
+    public static void initializeCommon(BalmRegistrars registrars) {
         ClientTweaksConfig.initialize();
     }
 
-    public static void initializeClient() {
+    public static void initializeClient(BalmClientRegistrars registrars) {
         registerTweak(new AdditionalVolumeSlider("master_volume_slider", SoundSource.MASTER, 0) {
             @Override
             public boolean isEnabled() {
@@ -28,7 +30,7 @@ public class ClientTweaks {
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
+                Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
             }
         });
 
@@ -41,7 +43,7 @@ public class ClientTweaks {
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
+                Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
             }
         });
 
@@ -69,7 +71,7 @@ public class ClientTweaks {
         tweaks.put(tweak.getName(), tweak);
     }
 
-    public static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 }

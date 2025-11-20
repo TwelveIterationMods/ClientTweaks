@@ -1,7 +1,7 @@
 package net.blay09.mods.clienttweaks;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.config.schema.BalmConfigSchema;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.platform.config.schema.BalmConfigSchema;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
 
@@ -12,11 +12,11 @@ public class ClientTweaksConfig {
     public static BalmConfigSchema schema;
 
     public static ClientTweaksConfigData getActive() {
-        return Balm.getConfig().getActiveConfig(ClientTweaksConfigData.class);
+        return Balm.config().getActiveConfig(ClientTweaksConfigData.class);
     }
 
     public static void initialize() {
-        schema = Balm.getConfig().registerConfig(ClientTweaksConfigData.class);
+        schema = Balm.config().registerConfig(ClientTweaksConfigData.class);
     }
 
     public static boolean isTorchItem(ItemStack itemStack) {

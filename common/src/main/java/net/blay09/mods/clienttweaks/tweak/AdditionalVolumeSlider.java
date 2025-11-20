@@ -1,13 +1,13 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.client.BalmClient;
-import net.blay09.mods.balm.api.event.client.screen.ScreenInitEvent;
+import net.blay09.mods.balm.client.gui.screens.BalmScreenUtils;
+import net.blay09.mods.balm.client.platform.event.callback.ScreenCallback;
 import net.blay09.mods.balm.mixin.ScreenAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractOptionSliderButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.OptionsScreen;
 import net.minecraft.sounds.SoundSource;
 
@@ -23,24 +23,24 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
         this.soundSource = soundSource;
         this.column = column;
 
-        Balm.getEvents().onEvent(ScreenInitEvent.Post.class, this::onInitGui);
+        ScreenCallback.Init.AFTER.register(this::onInitGui);
     }
 
-    public void onInitGui(ScreenInitEvent.Post event) {
-        if (event.getScreen() instanceof OptionsScreen && isEnabled()) {
+    public void onInitGui(Screen screen) {
+        if (screen instanceof OptionsScreen && isEnabled()) {
             int x = 0;
             int y = 0;
             final var offsetX = column == 0 ? 0 : 160;
             // Find the FOV slider on the original options screen...
 
             if (lastSlider != null) {
-                final var accessor = (ScreenAccessor) event.getScreen();
-                accessor.balm_getChildren().removeIf(widget -> widget == lastSlider);
-                accessor.balm_getRenderables().removeIf(widget -> widget == lastSlider);
-                accessor.balm_getNarratables().removeIf(widget -> widget == lastSlider);
+                final var accessor = (ScreenAccessor) screen;
+                accessor.balm$getChildren().removeIf(widget -> widget == lastSlider);
+                accessor.balm$getRenderables().removeIf(widget -> widget == lastSlider);
+                accessor.balm$getNarratables().removeIf(widget -> widget == lastSlider);
             }
 
-            for (GuiEventListener widget : ((ScreenAccessor) event.getScreen()).balm_getChildren()) {
+            for (GuiEventListener widget : ((ScreenAccessor) screen).balm$getChildren()) {
                 if (widget instanceof AbstractOptionSliderButton slider) {
                     x = slider.getX();
                     y = slider.getY();
@@ -51,7 +51,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
             final var options = Minecraft.getInstance().options;
             final var option = options.getSoundSourceOptionInstance(soundSource);
             lastSlider = option.createButton(options, x + offsetX, y + 27, 150);
-            BalmClient.getScreens().addRenderableWidget(event.getScreen(), lastSlider);
+            BalmScreenUtils.addRenderableWidget(screen, lastSlider);
         }
     }
 

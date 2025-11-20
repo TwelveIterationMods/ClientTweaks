@@ -1,8 +1,7 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.event.TickPhase;
-import net.blay09.mods.balm.api.event.TickType;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.platform.event.callback.ClientTickCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
@@ -15,7 +14,7 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
     public HideOwnEffectParticles() {
         super("hide_own_particle_effects");
 
-        Balm.getEvents().onTickEvent(TickType.Client, TickPhase.End, this::onClientTick);
+        ClientTickCallback.AFTER.register(this::onClientTick);
     }
 
     public void onClientTick(Minecraft client) {
@@ -33,7 +32,7 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideOwnParticleEffects = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideOwnParticleEffects = enabled);
     }
 
 }

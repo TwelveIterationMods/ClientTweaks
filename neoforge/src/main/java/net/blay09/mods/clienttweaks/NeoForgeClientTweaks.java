@@ -1,8 +1,8 @@
 package net.blay09.mods.clienttweaks;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.client.BalmClient;
-import net.blay09.mods.balm.neoforge.NeoForgeLoadContext;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.BalmClient;
+import net.blay09.mods.balm.neoforge.platform.runtime.NeoForgeLoadContext;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;

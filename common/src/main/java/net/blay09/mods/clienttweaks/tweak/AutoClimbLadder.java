@@ -1,8 +1,7 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.event.TickPhase;
-import net.blay09.mods.balm.api.event.TickType;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.platform.event.callback.ClientTickCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
@@ -13,7 +12,7 @@ public class AutoClimbLadder extends AbstractClientTweak {
 	public AutoClimbLadder() {
 		super("auto_climb_ladder");
 
-		Balm.getEvents().onTickEvent(TickType.Client, TickPhase.Start, this::onPlayerTick);
+        ClientTickCallback.BEFORE.register(this::onPlayerTick);
 	}
 
 	public void onPlayerTick(Minecraft client) {
@@ -34,6 +33,6 @@ public class AutoClimbLadder extends AbstractClientTweak {
 
 	@Override
 	public void setEnabled(boolean enabled) {
-		Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.autoClimbLadder = enabled);
+		Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.autoClimbLadder = enabled);
 	}
 }

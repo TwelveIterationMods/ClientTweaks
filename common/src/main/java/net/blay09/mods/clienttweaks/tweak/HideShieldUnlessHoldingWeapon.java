@@ -1,8 +1,9 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.event.EventPriority;
-import net.blay09.mods.balm.api.event.client.RenderHandEvent;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
+import net.blay09.mods.balm.platform.event.EventHandling;
+import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
@@ -12,6 +13,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
@@ -20,37 +22,40 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
     public HideShieldUnlessHoldingWeapon() {
         super("hide_shield_unless_holding_weapon");
 
-        Balm.getEvents().onEvent(RenderHandEvent.class, this::onRenderHand, EventPriority.Highest);
+        RenderCallback.Hand.EVENT.register(EventPhases.HIGHEST, this::onRenderHand);
     }
 
-    public void onRenderHand(RenderHandEvent event) {
-        if (!isEnabled() || event.getHand() != InteractionHand.OFF_HAND) {
-            return;
+    public EventHandling onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
+        if (!isEnabled() || hand != InteractionHand.OFF_HAND) {
+            return EventHandling.RESUME;
         }
 
         final var player = Minecraft.getInstance().player;
         if (player == null) {
-            return;
+            return EventHandling.RESUME;
         }
 
-        final var isShield = event.getItemStack().get(DataComponents.BLOCKS_ATTACKS) != null || ClientTweaksConfig.isShieldItem(event.getItemStack());
+        final var isShield = itemStack.get(DataComponents.BLOCKS_ATTACKS) != null || ClientTweaksConfig.isShieldItem(itemStack);
         if (!isShield) {
-            return;
+            return EventHandling.RESUME;
         }
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
         final var weaponInHand = hasWeaponInHand(player);
+        wasWeaponInHand = weaponInHand;
         if (!weaponInHand && !isBlocking) {
-            event.setCanceled(true);
+            return EventHandling.CANCEL;
         } else if (weaponInHand && !wasWeaponInHand) {
             ItemInHandRenderer itemInHandRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer();
             if (itemInHandRenderer instanceof ItemInHandRendererAccessor accessor) {
                 accessor.setOOffHandHeight(0f);
                 accessor.setOffHandHeight(0f);
             }
-            event.setCanceled(true); // we skip the first frame so the offset can update since this event fires after tick()
+            // we skip the first frame so the offset can update since this event fires after tick()
+            return EventHandling.CANCEL;
         }
-        wasWeaponInHand = weaponInHand;
+
+        return EventHandling.RESUME;
     }
 
     private boolean hasWeaponInHand(Player player) {
@@ -70,7 +75,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideShieldUnlessHoldingWeapon = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideShieldUnlessHoldingWeapon = enabled);
     }
 
 }

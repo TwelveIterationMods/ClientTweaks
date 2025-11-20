@@ -1,55 +1,60 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.event.DigSpeedEvent;
-import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
+import net.blay09.mods.balm.platform.event.callback.BlockCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class DoNotUseLastMending extends AbstractClientTweak {
 
     public DoNotUseLastMending() {
         super("doNotUseLastMending");
 
-        Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
-        Balm.getEvents().onEvent(DigSpeedEvent.class, this::onDigSpeed);
+        ClientItemCallback.Use.EVENT.register(this::onRightClick);
+        BlockCallback.DigSpeed.EVENT.register(this::onDigSpeed);
     }
 
-    public void onRightClick(UseItemInputEvent event) {
+    public InteractionResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled()) {
             final var minecraft = Minecraft.getInstance();
-            final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
+            final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(hand) : ItemStack.EMPTY;
             final var enchantments = minecraft.player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             final var mending = enchantments.getOrThrow(Enchantments.MENDING);
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
                 minecraft.player.displayClientMessage(chatComponent, true);
-                event.setCanceled(true);
+                return InteractionResult.FAIL;
             }
         }
+
+        return InteractionResult.PASS;
     }
 
-    public void onDigSpeed(DigSpeedEvent event) {
+    public float onDigSpeed(BlockGetter blockGetter, BlockPos pos, BlockState state, Player player, float speed) {
         if (isEnabled()) {
-            final var heldItem = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-            final var enchantments = event.getPlayer().level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            final var heldItem = player.getItemInHand(InteractionHand.MAIN_HAND);
+            final var enchantments = player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             final var mending = enchantments.getOrThrow(Enchantments.MENDING);
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
-                event.setSpeedOverride(0f);
-                event.setCanceled(true);
+                return 0f;
             }
         }
+        return speed;
     }
 
     @Override
@@ -59,7 +64,7 @@ public class DoNotUseLastMending extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
     }
 
 }
