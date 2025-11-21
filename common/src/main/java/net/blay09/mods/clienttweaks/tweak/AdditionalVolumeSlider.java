@@ -23,7 +23,7 @@ public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
         this.soundSource = soundSource;
         this.column = column;
 
-        ScreenCallback.Init.AFTER.register(this::onInitGui);
+        ScreenCallback.Init.After.EVENT.register(this::onInitGui);
     }
 
     public void onInitGui(Screen screen) {

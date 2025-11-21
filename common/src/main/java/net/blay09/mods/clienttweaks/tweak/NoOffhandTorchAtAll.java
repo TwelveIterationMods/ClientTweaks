@@ -2,6 +2,7 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
+import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
@@ -18,16 +19,16 @@ public class NoOffhandTorchAtAll extends AbstractClientTweak {
         ClientItemCallback.Use.EVENT.register(this::onRightClick);
     }
 
-    public InteractionResult onRightClick(Player player, InteractionHand hand) {
+    public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled() && hand == InteractionHand.OFF_HAND) {
             final var client = Minecraft.getInstance();
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
-                return InteractionResult.FAIL;
+                return InteractionEventResult.FAIL;
             }
         }
 
-        return InteractionResult.PASS;
+        return InteractionEventResult.DEFAULT;
     }
 
     @Override

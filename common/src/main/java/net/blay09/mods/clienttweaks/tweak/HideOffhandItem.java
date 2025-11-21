@@ -2,7 +2,6 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
-import net.blay09.mods.balm.platform.event.EventHandling;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
@@ -17,17 +16,17 @@ public class HideOffhandItem extends AbstractClientTweak {
         RenderCallback.Hand.EVENT.register(EventPhases.HIGH, this::onRenderHand);
     }
 
-    public EventHandling onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
+    public boolean onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
         if (isEnabled()) {
             // TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
             if (hand == InteractionHand.OFF_HAND) {
                 if (swingProgress <= 0f) {
-                    return EventHandling.CANCEL;
+                    return false;
                 }
             }
         }
 
-        return EventHandling.RESUME;
+        return true;
     }
 
     @Override

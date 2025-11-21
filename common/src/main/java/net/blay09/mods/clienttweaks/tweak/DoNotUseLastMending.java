@@ -3,6 +3,7 @@ package net.blay09.mods.clienttweaks.tweak;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.BlockCallback;
+import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
@@ -11,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -28,7 +28,7 @@ public class DoNotUseLastMending extends AbstractClientTweak {
         BlockCallback.DigSpeed.EVENT.register(this::onDigSpeed);
     }
 
-    public InteractionResult onRightClick(Player player, InteractionHand hand) {
+    public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled()) {
             final var minecraft = Minecraft.getInstance();
             final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(hand) : ItemStack.EMPTY;
@@ -38,11 +38,11 @@ public class DoNotUseLastMending extends AbstractClientTweak {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
                 minecraft.player.displayClientMessage(chatComponent, true);
-                return InteractionResult.FAIL;
+                return InteractionEventResult.FAIL;
             }
         }
 
-        return InteractionResult.PASS;
+        return InteractionEventResult.DEFAULT;
     }
 
     public float onDigSpeed(BlockGetter blockGetter, BlockPos pos, BlockState state, Player player, float speed) {

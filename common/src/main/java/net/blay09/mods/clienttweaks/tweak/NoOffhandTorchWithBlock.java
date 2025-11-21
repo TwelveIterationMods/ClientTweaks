@@ -2,11 +2,11 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
+import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -19,19 +19,19 @@ public class NoOffhandTorchWithBlock extends AbstractClientTweak {
         ClientItemCallback.Use.EVENT.register(this::onRightClick);
     }
 
-    public InteractionResult onRightClick(Player player, InteractionHand hand) {
+    public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled() && hand == InteractionHand.OFF_HAND) {
             final var client = Minecraft.getInstance();
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
                 final var mainItem = client.player.getMainHandItem();
                 if (!mainItem.isEmpty() && mainItem.getItem() instanceof BlockItem) {
-                    return InteractionResult.FAIL;
+                    return InteractionEventResult.FAIL;
                 }
             }
         }
 
-        return InteractionResult.PASS;
+        return InteractionEventResult.DEFAULT;
     }
 
     @Override

@@ -2,7 +2,6 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
-import net.blay09.mods.balm.platform.event.EventHandling;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
@@ -25,26 +24,26 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         RenderCallback.Hand.EVENT.register(EventPhases.HIGHEST, this::onRenderHand);
     }
 
-    public EventHandling onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
+    public boolean onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
         if (!isEnabled() || hand != InteractionHand.OFF_HAND) {
-            return EventHandling.RESUME;
+            return true;
         }
 
         final var player = Minecraft.getInstance().player;
         if (player == null) {
-            return EventHandling.RESUME;
+            return true;
         }
 
         final var isShield = itemStack.get(DataComponents.BLOCKS_ATTACKS) != null || ClientTweaksConfig.isShieldItem(itemStack);
         if (!isShield) {
-            return EventHandling.RESUME;
+            return true;
         }
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
         final var weaponInHand = hasWeaponInHand(player);
         wasWeaponInHand = weaponInHand;
         if (!weaponInHand && !isBlocking) {
-            return EventHandling.CANCEL;
+            return false;
         } else if (weaponInHand && !wasWeaponInHand) {
             ItemInHandRenderer itemInHandRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer();
             if (itemInHandRenderer instanceof ItemInHandRendererAccessor accessor) {
@@ -52,10 +51,10 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
                 accessor.setOffHandHeight(0f);
             }
             // we skip the first frame so the offset can update since this event fires after tick()
-            return EventHandling.CANCEL;
+            return false;
         }
 
-        return EventHandling.RESUME;
+        return true;
     }
 
     private boolean hasWeaponInHand(Player player) {
