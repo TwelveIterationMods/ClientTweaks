@@ -15,7 +15,9 @@
     "ShovelItemMixin",
     "ItemInHandRendererAccessor",
     "LivingEntityMixin",
-    "LivingEntityAccessor"
+    "LivingEntityAccessor",
+    "AbstractRecipeBookScreenAccessor",
+    "RecipeBookComponentAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
