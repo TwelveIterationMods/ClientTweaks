@@ -72,5 +72,7 @@
     "clienttweaks.configuration.customization.fireworkItems": "Firework Items",
     "clienttweaks.configuration.customization.fireworkItems.tooltip":  "Items that count as fireworks for the offhand-firework tweak options.",
     "clienttweaks.configuration.customization.fragileBlocks": "Fragile Blocks",
-    "clienttweaks.configuration.customization.fragileBlocks.tooltip": "Blocks that should be protected in the prevent accidental mining tweak."
+    "clienttweaks.configuration.customization.fragileBlocks.tooltip": "Blocks that should be protected in the prevent accidental mining tweak.",
+    "clienttweaks.configuration.customization.foodItems": "Food Items",
+    "clienttweaks.configuration.customization.foodItems.tooltip": "Items that count as food for the offhand-torchWithFood tweak options."
 }

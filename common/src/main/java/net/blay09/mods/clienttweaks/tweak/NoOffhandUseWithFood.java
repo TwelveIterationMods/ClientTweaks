@@ -21,7 +21,7 @@ public class NoOffhandUseWithFood extends AbstractClientTweak {
         if (isEnabled() && event.getHand() == InteractionHand.OFF_HAND) {
             Minecraft mc = Minecraft.getInstance();
             ItemStack mainItem = mc.player.getMainHandItem();
-            if (!mainItem.isEmpty() && mainItem.has(DataComponents.FOOD)) {
+            if (!mainItem.isEmpty() && (mainItem.has(DataComponents.FOOD) || ClientTweaksConfig.isFoodItem(mainItem))) {
                 event.setCanceled(true);
             }
         }
