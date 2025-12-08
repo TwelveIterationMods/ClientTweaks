@@ -1,32 +1,37 @@
 package net.blay09.mods.clienttweaks.tweak;
 
-import net.blay09.mods.balm.api.Balm;
-import net.blay09.mods.balm.api.event.client.screen.ScreenMouseEvent;
+import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.client.platform.event.callback.ScreenCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.AbstractRecipeBookScreenAccessor;
 import net.blay09.mods.clienttweaks.mixin.RecipeBookComponentAccessor;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 
 public class ClearRecipeBookSearch extends AbstractClientTweak {
 
     public ClearRecipeBookSearch() {
         super("clear_recipe_book_search");
 
-        Balm.getEvents().onEvent(ScreenMouseEvent.Click.Pre.class, this::onRightClick);
+        ScreenCallback.MousePress.Before.EVENT.register(this::onRightClick);
     }
 
-    public void onRightClick(ScreenMouseEvent.Click.Pre event) {
+    private boolean onRightClick(Screen screen, MouseButtonEvent event) {
         if (isEnabled()) {
-            if (event.getButton() == 1 && event.getScreen() instanceof AbstractRecipeBookScreen) {
-                var recipeBookComponent = ((AbstractRecipeBookScreenAccessor) event.getScreen()).getRecipeBookComponent();
+            if (event.isRight() && screen instanceof AbstractRecipeBookScreen) {
+                var recipeBookComponent = ((AbstractRecipeBookScreenAccessor) screen).getRecipeBookComponent();
                 var editBox = ((RecipeBookComponentAccessor) recipeBookComponent).getSearchBox();
-                if (editBox.isMouseOver(event.getMouseX(), event.getMouseY())) {
+                if (editBox.isMouseOver(event.x(), event.y())) {
                     editBox.setValue("");
                     ((RecipeBookComponentAccessor) recipeBookComponent).callCheckSearchStringUpdate();
+                    return true;
                 }
             }
         }
+
+        return false;
     }
     
     @Override
@@ -36,7 +41,7 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBookOnRightClick = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBookOnRightClick = enabled);
     }
 
 }
