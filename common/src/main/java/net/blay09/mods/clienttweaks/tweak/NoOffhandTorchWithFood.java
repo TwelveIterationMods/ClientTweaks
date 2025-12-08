@@ -25,7 +25,7 @@ public class NoOffhandTorchWithFood extends AbstractClientTweak {
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
                 final var mainItem = client.player.getMainHandItem();
-                if (!mainItem.isEmpty() && mainItem.has(DataComponents.FOOD)) {
+                if (!mainItem.isEmpty() && (mainItem.has(DataComponents.FOOD) || ClientTweaksConfig.isFoodItem(mainItem))) {
                     return InteractionEventResult.FAIL;
                 }
             }
