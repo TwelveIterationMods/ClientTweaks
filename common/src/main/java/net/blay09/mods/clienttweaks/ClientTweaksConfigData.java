@@ -87,7 +87,7 @@ public class ClientTweaksConfigData {
         public boolean creativeBreakingSupport = true;
 
         @Comment("This option makes right clicking the recipe book search bar clear it.")
-        public boolean clearRecipeBook = true;
+        public boolean clearRecipeBookOnRightClick = true;
     }
 
     public static class Customization {

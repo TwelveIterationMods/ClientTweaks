@@ -16,7 +16,7 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
         Balm.getEvents().onEvent(ScreenMouseEvent.Click.Pre.class, this::onRightClick);
     }
 
-    public void onRightClick(ScreenMouseEvent event) {
+    public void onRightClick(ScreenMouseEvent.Click.Pre event) {
         if (isEnabled()) {
             if (event.getButton() == 1 && event.getScreen() instanceof AbstractRecipeBookScreen) {
                 var recipeBookComponent = ((AbstractRecipeBookScreenAccessor) event.getScreen()).getRecipeBookComponent();
@@ -28,14 +28,14 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
             }
         }
     }
-
+    @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.clearRecipeBook;
+        return ClientTweaksConfig.getActive().tweaks.clearRecipeBookOnRightClick;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBook = enabled);
+        Balm.getConfig().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBookOnRightClick = enabled);
     }
 
 }
