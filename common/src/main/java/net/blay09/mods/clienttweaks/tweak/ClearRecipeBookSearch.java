@@ -28,6 +28,7 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
             }
         }
     }
+    
     @Override
     public boolean isEnabled() {
         return ClientTweaksConfig.getActive().tweaks.clearRecipeBookOnRightClick;
