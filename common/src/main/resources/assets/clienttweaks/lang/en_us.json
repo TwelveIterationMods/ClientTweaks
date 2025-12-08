@@ -58,5 +58,7 @@
     "config.clienttweaks.customization.shieldWeapons": "Shield Weapons",
     "config.clienttweaks.customization.shieldWeapons.tooltip":  "Items that count as weapons for the offhand-shield hiding tweak options.",
     "config.clienttweaks.customization.shieldItems": "Shield Items",
-    "config.clienttweaks.customization.shieldItems.tooltip":  "Items that count as shields for the offhand-shield hiding tweak options."
+    "config.clienttweaks.customization.shieldItems.tooltip":  "Items that count as shields for the offhand-shield hiding tweak options.",
+    "config.clienttweaks.customization.foodItems": "Food Items",
+    "config.clienttweaks.customization.foodItems.tooltip": "Items that count as food for the offhand-torch and -use tweak options."
 }

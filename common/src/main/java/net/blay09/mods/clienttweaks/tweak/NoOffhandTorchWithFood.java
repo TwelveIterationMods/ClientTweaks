@@ -23,7 +23,7 @@ public class NoOffhandTorchWithFood extends AbstractClientTweak {
             ItemStack heldItem = mc.player != null ? mc.player.getItemInHand(event.getHand()) : ItemStack.EMPTY;
             if (ClientTweaksConfig.isTorchItem(heldItem)) {
                 ItemStack mainItem = mc.player.getMainHandItem();
-                if (!mainItem.isEmpty() && mainItem.has(DataComponents.FOOD)) {
+                if (!mainItem.isEmpty() && (mainItem.has(DataComponents.FOOD) || ClientTweaksConfig.isFoodItem(mainItem))) {
                     event.setCanceled(true);
                 }
             }
