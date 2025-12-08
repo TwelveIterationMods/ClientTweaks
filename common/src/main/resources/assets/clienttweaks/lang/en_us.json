@@ -2,7 +2,7 @@
     "key.clienttweaks.disable_step_assist": "Toggle Disable Step Assist",
     "key.clienttweaks.disable_log_stripping": "Toggle Log Stripping",
     "key.clienttweaks.hide_offhand_item": "Toggle Hide Offhand Item",
-    "key.categories.clienttweaks.default": "Client Tweaks",
+    "key.category.clienttweaks.default": "Client Tweaks",
     "chat.clienttweaks.on": "ON",
     "chat.clienttweaks.off": "OFF",
     "chat.clienttweaks.lastTorch": "Out of Torches",
