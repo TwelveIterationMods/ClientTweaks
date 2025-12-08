@@ -141,5 +141,11 @@ public class ClientTweaksConfigData {
                 ResourceLocation.withDefaultNamespace("medium_amethyst_bud"),
                 ResourceLocation.withDefaultNamespace("large_amethyst_bud")
         );
+
+        @Comment("Items that count as food for the offhand-torch and -use tweak options.")
+        @NestedType(String.class)
+        public List<String> foodItems = Lists.newArrayList(
+                "supplementaries:lunch_basket"
+        );
     }
 }
