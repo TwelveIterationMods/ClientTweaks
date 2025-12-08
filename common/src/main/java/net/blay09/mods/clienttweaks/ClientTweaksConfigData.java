@@ -85,6 +85,9 @@ public class ClientTweaksConfigData {
 
         @Comment("This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.")
         public boolean creativeBreakingSupport = true;
+
+        @Comment("This option makes right clicking the recipe book search bar clear it.")
+        public boolean clearRecipeBookOnRightClick = true;
     }
 
     public static class Customization {
