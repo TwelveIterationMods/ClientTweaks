@@ -63,6 +63,7 @@ public class ClientTweaks {
         registerTweak(new PreventAccidentalMining());
         registerTweak(new NoOffhandUseWithFood());
         registerTweak(new DoNotUseLastMending());
+        registerTweak(new ClearRecipeBookSearch());
 
         ModKeyMappings.initialize(tweaks.values());
     }
