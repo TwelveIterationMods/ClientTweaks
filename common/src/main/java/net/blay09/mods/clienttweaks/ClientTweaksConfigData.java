@@ -133,5 +133,11 @@ public class ClientTweaksConfigData implements BalmConfigData {
                 new ResourceLocation("medium_amethyst_bud"),
                 new ResourceLocation("large_amethyst_bud")
         );
+
+        @Comment("Items that count as food for the offhand-torch and -use tweak options.")
+        @ExpectedType(String.class)
+        public List<String> foodItems = Lists.newArrayList(
+                "supplementaries:lunch_basket"
+        );
     }
 }

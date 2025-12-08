@@ -46,4 +46,8 @@ public class ClientTweaksConfig {
         final var tagPasses = itemStack.getTags().anyMatch(it -> items.contains("#" + it.location()));
         return itemPasses || tagPasses;
     }
+
+    public static boolean isFoodItem(ItemStack itemStack) {
+        return isItemConfiguredFor(itemStack, ClientTweaksConfig.getActive().customization.foodItems);
+    }
 }
