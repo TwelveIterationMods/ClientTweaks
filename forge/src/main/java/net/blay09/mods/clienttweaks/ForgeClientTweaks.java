@@ -1,6 +1,6 @@
 package net.blay09.mods.clienttweaks;
 
-import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.BalmClient;
 import net.blay09.mods.balm.forge.platform.runtime.ForgeLoadContext;
 import net.minecraftforge.fml.IExtensionPoint;
