@@ -2,6 +2,7 @@ package net.blay09.mods.clienttweaks;
 
 import net.blay09.mods.balm.api.Balm;
 import net.blay09.mods.balm.api.client.BalmClient;
+import net.blay09.mods.balm.common.config.ConfigLocalization;
 import net.blay09.mods.clienttweaks.tweak.*;
 import net.minecraft.sounds.SoundSource;
 
@@ -15,6 +16,7 @@ public class ClientTweaks {
     private static final Map<String, AbstractClientTweak> tweaks = new HashMap<>();
 
     public static void initializeCommon() {
+        ConfigLocalization.enableModernTranslationKeys(MOD_ID);
         ClientTweaksConfig.initialize();
     }
 
