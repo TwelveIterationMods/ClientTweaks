@@ -1,1 +1,2 @@
-- Fixed `Out of Torches` showing even when not aiming at a block
+- Added `foodItems` option to allow configuring additional items that should be treated as if they were food
+  - This applies to both the `noOffhandUseWithFood` and `noOffhandTorchWithFood` tweaks
