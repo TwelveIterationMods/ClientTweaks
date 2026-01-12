@@ -10,8 +10,8 @@
   ],
   "contact": {
     "homepage": "https://mods.twelveiterations.com/mc/clienttweaks",
-    "sources": "https://github.com/TwelveIterationMods/ClientTweaks",
-    "issues": "https://github.com/TwelveIterationMods/ClientTweaks/issues"
+    "sources": "https://github.com/TwelveIterations/ClientTweaks",
+    "issues": "https://github.com/TwelveIterations/ClientTweaks/issues"
   },
 
   "license": "All Rights Reserved",
