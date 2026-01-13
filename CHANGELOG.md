@@ -1,1 +1,2 @@
-- Fixed `Out of Torches` showing even when not aiming at a block
+- Added configuration for additional food items for food-related tweaks
+- Fixed translations in config screens
