@@ -1,1 +1,2 @@
-- Fixed right click not being detected for `clearRecipeBookOnRightClick` option
+- Fixed right click not being detected for clearRecipeBookOnRightClick tweak
+- Fixed translations in config screen
