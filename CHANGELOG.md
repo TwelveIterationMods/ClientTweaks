@@ -1,2 +1,1 @@
-- Fixed right click not being detected for clearRecipeBookOnRightClick tweak
-- Fixed translations in config screen
+- Fixed right click handling in inventory erroring and preventing other actions
