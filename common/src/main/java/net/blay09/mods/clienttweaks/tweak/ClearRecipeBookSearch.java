@@ -21,7 +21,7 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
             if (event.getButton() == 1 && event.getScreen() instanceof AbstractRecipeBookScreen) {
                 var recipeBookComponent = ((AbstractRecipeBookScreenAccessor) event.getScreen()).getRecipeBookComponent();
                 var editBox = ((RecipeBookComponentAccessor) recipeBookComponent).getSearchBox();
-                if (editBox.isMouseOver(event.getMouseX(), event.getMouseY())) {
+                if (editBox != null && editBox.isMouseOver(event.getMouseX(), event.getMouseY())) {
                     editBox.setValue("");
                     ((RecipeBookComponentAccessor) recipeBookComponent).callCheckSearchStringUpdate();
                 }
