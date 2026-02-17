@@ -60,6 +60,8 @@
     "clienttweaks.configuration.tweaks.creativeBreakingSupport.tooltip": "This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.",
     "clienttweaks.configuration.tweaks.clearRecipeBookOnRightClick": "Clear Recipe Book Search",
     "clienttweaks.configuration.tweaks.clearRecipeBookOnRightClick.tooltip": "This option makes right clicking the recipe book search bar clear it.",
+    "clienttweaks.configuration.tweaks.retainRecipeBookSearch": "Retain Recipe Book Search",
+    "clienttweaks.configuration.tweaks.retainRecipeBookSearch.tooltip": "This option retains recipe book search text when reopening the recipe book.",
     "clienttweaks.configuration.customization": "Customization",
     "clienttweaks.configuration.customization.torchItems": "Torch Items",
     "clienttweaks.configuration.customization.torchItems.tooltip":  "Items that count as torches for the offhand-torch tweak options.",

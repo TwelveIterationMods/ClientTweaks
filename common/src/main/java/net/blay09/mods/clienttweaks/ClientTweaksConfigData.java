@@ -88,6 +88,9 @@ public class ClientTweaksConfigData {
 
         @Comment("This option makes right clicking the recipe book search bar clear it.")
         public boolean clearRecipeBookOnRightClick = true;
+
+        @Comment("This option retains recipe book search text when reopening the recipe book.")
+        public boolean retainRecipeBookSearch = true;
     }
 
     public static class Customization {
