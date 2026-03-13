@@ -1,1 +1,1 @@
-- Fixed right click handling in inventory erroring and preventing other actions
+- Added `retainRecipeBookSearch` tweak to keep the contents of the recipe book search book when closing and reopening it
