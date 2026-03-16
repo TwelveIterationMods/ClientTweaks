@@ -29,6 +29,9 @@ public class ClientTweaksConfigData {
         @Comment("This option will hide your offhand item. It can be toggled via an optional key binding.")
         public boolean hideOffhandItem = false;
 
+        @Comment("This option will hide your empty main hand in first person.")
+        public boolean hideEmptyMainHand = false;
+
         @Comment("This option will hide your own potion particle effects for your client (other players will still see them).")
         public boolean hideOwnParticleEffects = false;
 

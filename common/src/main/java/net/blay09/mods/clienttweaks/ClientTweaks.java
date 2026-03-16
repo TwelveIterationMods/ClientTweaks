@@ -53,6 +53,7 @@ public class ClientTweaks {
         registerTweak(new OffhandTorchWithToolOnly());
         registerTweak(new HideOwnEffectParticles());
         registerTweak(new HideOffhandItem());
+        registerTweak(new HideEmptyMainHand());
         registerTweak(new StepAssistIsAnnoying());
         registerTweak(new AutoClimbLadder());
         registerTweak(new HideShieldUnlessHoldingWeapon());

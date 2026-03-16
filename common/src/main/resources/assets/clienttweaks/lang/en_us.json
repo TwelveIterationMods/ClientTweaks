@@ -20,6 +20,8 @@
     "clienttweaks.configuration.tweaks.doNotUseLastMending.tooltip":  "This prevents the last durability from being used up.",
     "clienttweaks.configuration.tweaks.hideOffhandItem": "Hide Offhand Item",
     "clienttweaks.configuration.tweaks.hideOffhandItem.tooltip":  "This option will hide your offhand item. It can be toggled via an optional key binding.",
+    "clienttweaks.configuration.tweaks.hideEmptyMainHand": "Hide Empty Main Hand",
+    "clienttweaks.configuration.tweaks.hideEmptyMainHand.tooltip":  "This option will hide your empty main hand in first person.",
     "clienttweaks.configuration.tweaks.hideOwnParticleEffects": "Hide Own Particle Effects",
     "clienttweaks.configuration.tweaks.hideOwnParticleEffects.tooltip":  "This option will hide your own potion particle effects for your client (other players will still see them).",
     "clienttweaks.configuration.tweaks.hideShieldUnlessHoldingWeapon": "Hide Shield Unless Holding Weapon",
