@@ -58,6 +58,7 @@ public class ClientTweaks {
         registerTweak(new HideShieldUnlessHoldingWeapon());
         registerTweak(new DoNotUseLastTorch());
         registerTweak(new DisableLogStripping());
+        registerTweak(new LogStrippingRequiresShift());
         registerTweak(new NoOffhandTorchWithFood());
         registerTweak(new NoOffhandFireworksWithElytra());
         registerTweak(new PreventAccidentalMining());
