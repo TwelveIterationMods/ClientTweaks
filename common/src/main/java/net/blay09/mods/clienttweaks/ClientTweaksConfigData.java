@@ -32,6 +32,9 @@ public class ClientTweaksConfigData {
         @Comment("This option will hide your empty main hand in first person.")
         public boolean hideEmptyMainHand = false;
 
+        @Comment("This option will hide both first person hands. It can be toggled via an optional key binding.")
+        public boolean hideHands = false;
+
         @Comment("This option will hide your own potion particle effects for your client (other players will still see them).")
         public boolean hideOwnParticleEffects = false;
 
