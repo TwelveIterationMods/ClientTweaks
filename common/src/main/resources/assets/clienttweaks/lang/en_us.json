@@ -3,6 +3,7 @@
     "key.clienttweaks.disable_log_stripping": "Toggle Log Stripping",
     "key.clienttweaks.hide_hands": "Toggle Hide Hands",
     "key.clienttweaks.hide_offhand_item": "Toggle Hide Offhand Item",
+    "key.clienttweaks.mine_single_block": "Mine Single Block",
     "key.category.clienttweaks.default": "Client Tweaks",
     "chat.clienttweaks.on": "ON",
     "chat.clienttweaks.off": "OFF",

@@ -70,6 +70,7 @@ public class ClientTweaks {
         registerTweak(new ClearRecipeBookSearch());
 
         ModKeyMappings.initialize(tweaks.values());
+        MineSingleBlockHandler.initialize();
     }
 
     private static void registerTweak(AbstractClientTweak tweak) {
