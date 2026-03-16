@@ -69,6 +69,8 @@
     "clienttweaks.configuration.tweaks.creativeBreakingSupport.tooltip": "This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.",
     "clienttweaks.configuration.tweaks.clearRecipeBookOnRightClick": "Clear Recipe Book Search",
     "clienttweaks.configuration.tweaks.clearRecipeBookOnRightClick.tooltip": "This option makes right clicking the recipe book search bar clear it.",
+    "clienttweaks.configuration.tweaks.navigateToGhostIngredients": "Navigate to Ghost Ingredients",
+    "clienttweaks.configuration.tweaks.navigateToGhostIngredients.tooltip": "This option makes clicking ghost ingredients in the crafting grid navigate to it in the recipe book.",
     "clienttweaks.configuration.tweaks.retainRecipeBookSearch": "Retain Recipe Book Search",
     "clienttweaks.configuration.tweaks.retainRecipeBookSearch.tooltip": "This option retains recipe book search text when reopening the recipe book.",
     "clienttweaks.configuration.tweaks.clearCreativeMenuSearchOnRightClick": "Clear Creative Menu Search",

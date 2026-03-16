@@ -68,6 +68,7 @@ public class ClientTweaks {
         registerTweak(new DoNotUseLastMending());
         registerTweak(new ClearCreativeMenuSearch());
         registerTweak(new ClearRecipeBookSearch());
+        registerTweak(new NavigateToGhostIngredients());
 
         ModKeyMappings.initialize(tweaks.values());
         MineSingleBlockHandler.initialize();

@@ -98,6 +98,9 @@ public class ClientTweaksConfigData {
         @Comment("This option makes right clicking the recipe book search bar clear it.")
         public boolean clearRecipeBookOnRightClick = true;
 
+        @Comment("This option makes clicking ghost ingredients in the crafting grid navigate to it in the recipe book.")
+        public boolean navigateToGhostIngredients = true;
+
         @Comment("This option retains recipe book search text when reopening the recipe book.")
         public boolean retainRecipeBookSearch = true;
 

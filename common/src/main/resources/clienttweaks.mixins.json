@@ -20,7 +20,9 @@
     "LivingEntityMixin",
     "LivingEntityAccessor",
     "AbstractRecipeBookScreenAccessor",
-    "RecipeBookComponentAccessor"
+    "RecipeBookComponentAccessor",
+    "GhostSlotsAccessor",
+    "GhostSlotAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
