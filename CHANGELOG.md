@@ -1,1 +1,10 @@
-- Added `retainRecipeBookSearch` tweak to keep the contents of the recipe book search book when closing and reopening it
+- Changed `chainBuildingSupport` to also trigger while holding an item tagged chains
+- Changed `chainBuildingSupport` to also trigger while holding any block and standing below
+- Added `navigateToGhostIngredients` tweak, allowing clicking of ghost items to fill in their recipe as if they were clicked in the recipe book
+- Added `Mine Single Block` keybind that allows breaking one block at a time while held
+- Added `hideHands` tweak, toggled with keybind
+- Added `hideEmptyMainHand` tweak
+- Added `clearCreativeMenuSearchOnRightClick` tweak to quickly clear the creative menu search
+- Added `retainCreativeMenuSearch` tweak to retain the creative menu search even when closing the menu
+- Added `logStrippingRequiresShift` tweak as a better alternative to the old keybind toggle
+- Fixed `Out of Torches` showing even if another tweak would have cancelled the torch placement anyway
