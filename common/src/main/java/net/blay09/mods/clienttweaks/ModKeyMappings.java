@@ -42,7 +42,7 @@ public class ModKeyMappings {
         if (player != null) {
             final var component = Component.translatable("chat.clienttweaks." + tweak.getName() + ".toggled",
                     Component.translatable(tweak.isEnabled() ? "chat.clienttweaks.on" : "chat.clienttweaks.off"));
-            player.displayClientMessage(component, true);
+            player.sendOverlayMessage(component);
         }
     }
 }

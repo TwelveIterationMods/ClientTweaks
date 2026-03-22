@@ -34,7 +34,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
                 if (heldItem.getCount() == 1) {
                     final var chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
                     chatComponent.withStyle(ChatFormatting.RED);
-                    client.player.displayClientMessage(chatComponent, true);
+                    client.player.sendOverlayMessage(chatComponent);
                     return InteractionEventResult.FAIL;
                 }
             }

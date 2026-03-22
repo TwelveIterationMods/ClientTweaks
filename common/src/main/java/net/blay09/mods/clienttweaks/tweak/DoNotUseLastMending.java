@@ -37,7 +37,7 @@ public class DoNotUseLastMending extends AbstractClientTweak {
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
-                minecraft.player.displayClientMessage(chatComponent, true);
+                minecraft.player.sendOverlayMessage(chatComponent);
                 return InteractionEventResult.FAIL;
             }
         }

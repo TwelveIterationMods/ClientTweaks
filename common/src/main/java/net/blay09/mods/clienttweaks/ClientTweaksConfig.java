@@ -46,7 +46,7 @@ public class ClientTweaksConfig {
 
         final var registryName = BuiltInRegistries.ITEM.getKey(itemStack.getItem());
         final var itemPasses = items.contains(registryName.toString());
-        final var tagPasses = itemStack.getTags().anyMatch(it -> items.contains("#" + it.location()));
+        final var tagPasses = itemStack.tags().anyMatch(it -> items.contains("#" + it.location()));
         return itemPasses || tagPasses;
     }
 
