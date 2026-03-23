@@ -18,7 +18,6 @@ public class HideOffhandItem extends AbstractClientTweak {
 
     public boolean onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
         if (isEnabled()) {
-            // TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
             if (hand == InteractionHand.OFF_HAND) {
                 if (swingProgress <= 0f) {
                     return false;
