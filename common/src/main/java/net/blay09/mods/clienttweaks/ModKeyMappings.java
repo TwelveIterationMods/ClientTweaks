@@ -12,7 +12,7 @@ import java.util.Collection;
 import static net.blay09.mods.clienttweaks.ClientTweaks.id;
 
 public class ModKeyMappings {
-    private static ManagedKeyMapping mineSingleBlockKeyMapping;
+    public static ManagedKeyMapping mineSingleBlockKeyMapping;
 
     public static void initialize(Collection<AbstractClientTweak> tweaks) {
         for (final var tweak : tweaks) {
@@ -29,10 +29,6 @@ public class ModKeyMappings {
         mineSingleBlockKeyMapping = Kuma.createKeyMapping(id("mine_single_block"))
                 .withContext(KeyConflictContext.WORLD)
                 .build();
-    }
-
-    public static ManagedKeyMapping getMineSingleBlockKeyMapping() {
-        return mineSingleBlockKeyMapping;
     }
 
     private static void toggleTweak(AbstractClientTweak tweak) {

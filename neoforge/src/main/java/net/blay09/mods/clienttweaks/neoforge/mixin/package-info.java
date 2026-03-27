@@ -1,4 +1,4 @@
 @NullMarked
-package net.blay09.mods.clienttweaks;
+package net.blay09.mods.clienttweaks.neoforge.mixin;
 
 import org.jspecify.annotations.NullMarked;

@@ -5,6 +5,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.RecipeBookType;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,7 +31,7 @@ public class RecipeBookComponentMixin {
     private boolean widthTooNarrow;
 
     @Shadow
-    private EditBox searchBox;
+    private @Nullable EditBox searchBox;
 
     @Final
     @Shadow
@@ -53,7 +54,7 @@ public class RecipeBookComponentMixin {
 
     @Inject(method = "initVisuals()V", at = @At("TAIL"))
     void restoreRetainedSearch(CallbackInfo callbackInfo) {
-        final var config = ClientTweaksConfig.getActive();
+        final var config = ClientTweaksConfig.getActiveOrNull();
         if (config == null || !config.tweaks.retainRecipeBookSearch) {
             return;
         }
@@ -70,7 +71,7 @@ public class RecipeBookComponentMixin {
 
     @Inject(method = "checkSearchStringUpdate()V", at = @At("TAIL"))
     void saveRetainedSearch(CallbackInfo callbackInfo) {
-        final var config = ClientTweaksConfig.getActive();
+        final var config = ClientTweaksConfig.getActiveOrNull();
         if (config == null || !config.tweaks.retainRecipeBookSearch) {
             return;
         }

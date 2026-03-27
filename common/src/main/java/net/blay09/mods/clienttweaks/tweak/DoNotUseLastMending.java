@@ -7,13 +7,11 @@ import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
@@ -30,14 +28,13 @@ public class DoNotUseLastMending extends AbstractClientTweak {
 
     public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled()) {
-            final var minecraft = Minecraft.getInstance();
-            final var heldItem = minecraft.player != null ? minecraft.player.getItemInHand(hand) : ItemStack.EMPTY;
-            final var enchantments = minecraft.player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            final var heldItem = player.getItemInHand(hand);
+            final var enchantments = player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             final var mending = enchantments.getOrThrow(Enchantments.MENDING);
             if (EnchantmentHelper.getItemEnchantmentLevel(mending, heldItem) > 0 && heldItem.getDamageValue() >= heldItem.getMaxDamage() - 1) {
                 final var chatComponent = Component.translatable("chat.clienttweaks.lastMending");
                 chatComponent.withStyle(ChatFormatting.RED);
-                minecraft.player.sendOverlayMessage(chatComponent);
+                player.sendOverlayMessage(chatComponent);
                 return InteractionEventResult.FAIL;
             }
         }

@@ -41,7 +41,8 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
         final var weaponInHand = hasWeaponInHand(player);
-        wasWeaponInHand = weaponInHand;
+        final var wasWeaponInHand = this.wasWeaponInHand;
+        this.wasWeaponInHand = weaponInHand;
         if (!weaponInHand && !isBlocking) {
             return false;
         } else if (weaponInHand && !wasWeaponInHand) {

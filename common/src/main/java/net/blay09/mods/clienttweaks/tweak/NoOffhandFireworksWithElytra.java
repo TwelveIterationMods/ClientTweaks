@@ -23,7 +23,7 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
     public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled() && hand == InteractionHand.OFF_HAND) {
             final var client = Minecraft.getInstance();
-            if (client.level == null || player == null || client.hitResult == null || client.hitResult.getType() != HitResult.Type.BLOCK) {
+            if (client.level == null || client.hitResult == null || client.hitResult.getType() != HitResult.Type.BLOCK) {
                 return InteractionEventResult.DEFAULT;
             }
 

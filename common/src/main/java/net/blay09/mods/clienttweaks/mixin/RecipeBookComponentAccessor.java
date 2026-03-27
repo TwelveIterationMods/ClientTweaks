@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screens.recipebook.RecipeBookPage;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.world.item.crafting.display.RecipeDisplayId;
 import net.minecraft.client.gui.screens.recipebook.RecipeCollection;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface RecipeBookComponentAccessor {
 
     @Accessor
-    EditBox getSearchBox();
+    @Nullable EditBox getSearchBox();
 
     @Accessor
     GhostSlots getGhostSlots();

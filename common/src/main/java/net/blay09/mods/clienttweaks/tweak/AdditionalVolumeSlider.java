@@ -10,13 +10,14 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.OptionsScreen;
 import net.minecraft.sounds.SoundSource;
+import org.jspecify.annotations.Nullable;
 
 public abstract class AdditionalVolumeSlider extends AbstractClientTweak {
 
     private final SoundSource soundSource;
     private final int column;
 
-    private AbstractWidget lastSlider;
+    private @Nullable AbstractWidget lastSlider;
 
     public AdditionalVolumeSlider(String name, SoundSource soundSource, int column) {
         super(name);

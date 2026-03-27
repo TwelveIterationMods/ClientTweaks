@@ -19,9 +19,7 @@ public class HideOffhandItem extends AbstractClientTweak {
     public boolean onRenderHand(InteractionHand hand, ItemStack itemStack, float swingProgress) {
         if (isEnabled()) {
             if (hand == InteractionHand.OFF_HAND) {
-                if (swingProgress <= 0f) {
-                    return false;
-                }
+                return !(swingProgress <= 0f);
             }
         }
 

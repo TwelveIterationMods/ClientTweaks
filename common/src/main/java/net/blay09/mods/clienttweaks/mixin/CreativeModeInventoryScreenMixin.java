@@ -2,6 +2,7 @@ package net.blay09.mods.clienttweaks.mixin;
 
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.util.StringUtil;
 import net.minecraft.world.item.CreativeModeTab;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -13,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CreativeModeInventoryScreenMixin {
 
     @Unique
-    private static String clienttweaks$retainedSearch;
+    private static String clienttweaks$retainedSearch = "";
 
     @Unique
     private boolean clienttweaks$selectingTab;
@@ -26,13 +27,13 @@ public class CreativeModeInventoryScreenMixin {
     @Inject(method = "selectTab(Lnet/minecraft/world/item/CreativeModeTab;)V", at = @At("TAIL"))
     void restoreRetainedSearch(CreativeModeTab creativeModeTab, CallbackInfo callbackInfo) {
         try {
-            final var config = ClientTweaksConfig.getActive();
+            final var config = ClientTweaksConfig.getActiveOrNull();
             if (config == null || !config.tweaks.retainCreativeMenuSearch || creativeModeTab.getType() != CreativeModeTab.Type.SEARCH) {
                 return;
             }
 
             final var searchBox = ((CreativeModeInventoryScreenAccessor) this).getSearchBox();
-            if (searchBox != null && clienttweaks$retainedSearch != null && !clienttweaks$retainedSearch.equals(searchBox.getValue())) {
+            if (searchBox != null && !StringUtil.isBlank(clienttweaks$retainedSearch) && !clienttweaks$retainedSearch.equals(searchBox.getValue())) {
                 searchBox.setValue(clienttweaks$retainedSearch);
                 ((CreativeModeInventoryScreenAccessor) this).callRefreshSearchResults();
             }
@@ -43,7 +44,7 @@ public class CreativeModeInventoryScreenMixin {
 
     @Inject(method = "refreshSearchResults()V", at = @At("TAIL"))
     void saveRetainedSearch(CallbackInfo callbackInfo) {
-        final var config = ClientTweaksConfig.getActive();
+        final var config = ClientTweaksConfig.getActiveOrNull();
         if (config == null || !config.tweaks.retainCreativeMenuSearch) {
             return;
         }

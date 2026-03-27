@@ -12,6 +12,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -33,7 +34,7 @@ public class CrossCollisionBlockMixin {
 
             final var isPillarSection = !state.getValue(CrossCollisionBlock.EAST) && !state.getValue(CrossCollisionBlock.WEST) && !state.getValue(
                     CrossCollisionBlock.NORTH) && !state.getValue(CrossCollisionBlock.SOUTH);
-            final var isThinSection = isOnlyOneTrue(state.getValue(CrossCollisionBlock.EAST),
+            final var isThinSection = clientTweaks$isOnlyOneTrue(state.getValue(CrossCollisionBlock.EAST),
                     state.getValue(CrossCollisionBlock.WEST),
                     state.getValue(CrossCollisionBlock.NORTH),
                     state.getValue(CrossCollisionBlock.SOUTH));
@@ -51,7 +52,8 @@ public class CrossCollisionBlockMixin {
         }
     }
 
-    private static boolean isOnlyOneTrue(boolean... args) {
+    @Unique
+    private static boolean clientTweaks$isOnlyOneTrue(boolean... args) {
         int trues = 0;
         for (boolean arg : args) {
             if (arg) {

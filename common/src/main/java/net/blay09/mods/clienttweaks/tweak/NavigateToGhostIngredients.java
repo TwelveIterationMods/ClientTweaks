@@ -74,7 +74,9 @@ public class NavigateToGhostIngredients extends AbstractClientTweak {
                             final var recipeBookPage = ((RecipeBookComponentAccessor) recipeBookComponent).getRecipeBookPage();
                             final var initialCollection = recipeBookPage.getLastClickedRecipeCollection();
                             final var initialRecipeId = recipeBookPage.getLastClickedRecipe();
-                            currentEntry = new HistoryEntry(initialCollection, initialRecipeId);
+                            if (initialCollection != null && initialRecipeId != null) {
+                                currentEntry = new HistoryEntry(initialCollection, initialRecipeId);
+                            }
                         }
                         history.add(currentEntry);
                         currentEntry = new HistoryEntry(collection, entry.id());

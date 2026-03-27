@@ -4,15 +4,21 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.platform.config.schema.BalmConfigSchema;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ClientTweaksConfig {
 
     public static BalmConfigSchema schema;
 
-    public static ClientTweaksConfigData getActive() {
+    public static @Nullable ClientTweaksConfigData getActiveOrNull() {
         return Balm.config().getActiveConfig(ClientTweaksConfigData.class);
+    }
+
+    public static ClientTweaksConfigData getActive() {
+        return Objects.requireNonNull(Balm.config().getActiveConfig(ClientTweaksConfigData.class));
     }
 
     public static void initialize() {

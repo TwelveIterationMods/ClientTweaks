@@ -5,7 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
@@ -24,7 +23,7 @@ public class ChainBlockMixin {
 
     @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
     void getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
-        final var config = ClientTweaksConfig.getActive();
+        final var config = ClientTweaksConfig.getActiveOrNull();
         if (config == null || !config.tweaks.chainBuildingSupport) {
             return;
         }

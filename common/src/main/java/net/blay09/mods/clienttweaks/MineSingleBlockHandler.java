@@ -36,8 +36,7 @@ public class MineSingleBlockHandler {
     }
 
     private static boolean isSafeMineHeld() {
-        final var keyMapping = ModKeyMappings.getMineSingleBlockKeyMapping();
-        return keyMapping != null && keyMapping.isDown();
+        return ModKeyMappings.mineSingleBlockKeyMapping.isDown();
     }
 
     private static boolean isMiningKeyHeld(Minecraft minecraft) {
