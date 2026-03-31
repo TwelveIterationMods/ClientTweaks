@@ -31,7 +31,7 @@
     "config.clienttweaks.tweaks.noOffhandTorchWithFood": "No Offhand Torch With Food",
     "config.clienttweaks.tweaks.noOffhandTorchWithFood.tooltip":  "This prevents torches from being placed from your offhand if you have food in your main hand.",
     "config.clienttweaks.tweaks.noOffhandTorchWithEmptyHand": "No Offhand Torch With Empty Hand",
-    "config.clienttweaks.tweaks.noOffhandTorchWithEmptyHand.tooltip":  "This prevents torches from being placed from your offhand if you have an empty main hand.",
+    "config.clienttweaks.tweaks.noOffhandTorchWithEmptyHand.tooltip":  "This prevents torches from being placed from your off hand if you have an empty main hand.",
     "config.clienttweaks.tweaks.noOffhandUseWithFood": "No Offhand Use With Food",
     "config.clienttweaks.tweaks.noOffhandUseWithFood.tooltip":  "This prevents items from being used from your offhand if you have food in your main hand.",
     "config.clienttweaks.tweaks.offhandTorchWithToolOnly": "Offhand Torch With Tool Only",
@@ -54,9 +54,9 @@
     "config.clienttweaks.customization.torchTools": "Torch Tools",
     "config.clienttweaks.customization.torchTools.tooltip":  "Items that are allowed to place torches from the offhand if offhandTorchWithToolOnly is enabled.",
     "config.clienttweaks.customization.shieldWeapons": "Shield Weapons",
-    "config.clienttweaks.customization.shieldWeapons.tooltip":  "Items that count as weapons for the offhand-shield hiding tweak options.",
+    "config.clienttweaks.customization.shieldWeapons.tooltip":  "Additional items that count as weapons for the offhand-shield hiding tweak options.",
     "config.clienttweaks.customization.shieldItems": "Shield Items",
-    "config.clienttweaks.customization.shieldItems.tooltip":  "Items that count as shields for the offhand-shield hiding tweak options.",
+    "config.clienttweaks.customization.shieldItems.tooltip":  "Additional items that count as shields for the offhand-shield hiding tweak options.",
     "config.clienttweaks.customization.foodItems": "Food Items",
-    "config.clienttweaks.customization.foodItems.tooltip": "Items that count as food for the offhand-torch and -use tweak options."
+    "config.clienttweaks.customization.foodItems.tooltip": "Additional items that count as food for the offhand-torch and -use tweak options."
 }
