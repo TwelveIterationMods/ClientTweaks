@@ -83,13 +83,13 @@
     "clienttweaks.configuration.customization.torchTools": "Torch Tools",
     "clienttweaks.configuration.customization.torchTools.tooltip":  "Items that are allowed to place torches from the offhand if offhandTorchWithToolOnly is enabled.",
     "clienttweaks.configuration.customization.shieldWeapons": "Shield Weapons",
-    "clienttweaks.configuration.customization.shieldWeapons.tooltip":  "Items that count as weapons for the offhand-shield hiding tweak options.",
+    "clienttweaks.configuration.customization.shieldWeapons.tooltip":  "Additional items that count as weapons for the offhand-shield hiding tweak options.",
     "clienttweaks.configuration.customization.shieldItems": "Shield Items",
-    "clienttweaks.configuration.customization.shieldItems.tooltip":  "Items that count as shields for the offhand-shield hiding tweak options.",
+    "clienttweaks.configuration.customization.shieldItems.tooltip":  "Additional items that count as shields for the offhand-shield hiding tweak options.",
     "clienttweaks.configuration.customization.fireworkItems": "Firework Items",
     "clienttweaks.configuration.customization.fireworkItems.tooltip":  "Items that count as fireworks for the offhand-firework tweak options.",
     "clienttweaks.configuration.customization.fragileBlocks": "Fragile Blocks",
     "clienttweaks.configuration.customization.fragileBlocks.tooltip": "Blocks that should be protected in the prevent accidental mining tweak.",
     "clienttweaks.configuration.customization.foodItems": "Food Items",
-    "clienttweaks.configuration.customization.foodItems.tooltip": "Items that count as food for the offhand-torch and -use tweak options."
+    "clienttweaks.configuration.customization.foodItems.tooltip": "Additional items that count as food for the offhand-torch and -use tweak options."
 }

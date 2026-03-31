@@ -133,13 +133,13 @@ public class ClientTweaksConfigData {
                 "tconstruct:hammer"
         );
 
-        @Comment("Items that count as weapons for the offhand-shield hiding tweak options.")
+        @Comment("Additional items that count as weapons for the offhand-shield hiding tweak options.")
         @NestedType(String.class)
         public List<String> shieldWeapons = Lists.newArrayList(
                 "tetra:modular_sword"
         );
 
-        @Comment("Items that count as shields for the offhand-shield hiding tweak options.")
+        @Comment("Additional items that count as shields for the offhand-shield hiding tweak options.")
         @NestedType(String.class)
         public List<String> shieldItems = Lists.newArrayList(
                 "basicshields:wooden_shield",
@@ -163,7 +163,7 @@ public class ClientTweaksConfigData {
                 Identifier.withDefaultNamespace("large_amethyst_bud")
         );
 
-        @Comment("Items that count as food for the offhand-torch and -use tweak options.")
+        @Comment("Additional items that count as food for the offhand-torch and -use tweak options.")
         @NestedType(String.class)
         public List<String> foodItems = Lists.newArrayList(
                 "supplementaries:lunch_basket"
