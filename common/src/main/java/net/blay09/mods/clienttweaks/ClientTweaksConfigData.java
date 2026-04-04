@@ -71,6 +71,9 @@ public class ClientTweaksConfigData {
         @Comment("This option will disable log stripping unless the player is holding shift.")
         public boolean logStrippingRequiresShift = false;
 
+        @Comment("This prevents sweet berries from being placed unless the player is holding shift or placing them on dirt or farmland.")
+        public boolean berryPlacementRequiresShiftOrDirt = false;
+
         @Comment("This option will disable paving when holding a block in your offhand.")
         public boolean disablePavingWithBlockInOffhand = true;
 

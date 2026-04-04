@@ -51,6 +51,8 @@
     "clienttweaks.configuration.tweaks.disableLogStripping.tooltip":  "This option will disable log stripping.",
     "clienttweaks.configuration.tweaks.logStrippingRequiresShift": "Log Stripping Requires Shift",
     "clienttweaks.configuration.tweaks.logStrippingRequiresShift.tooltip":  "This option will disable log stripping unless the player is holding shift.",
+    "clienttweaks.configuration.tweaks.berryPlacementRequiresShiftOrDirt": "Berry Placement Requires Shift or Dirt",
+    "clienttweaks.configuration.tweaks.berryPlacementRequiresShiftOrDirt.tooltip": "This prevents sweet berries from being placed unless the player is holding shift or placing them on dirt or farmland.",
     "clienttweaks.configuration.tweaks.disablePavingWithBlockInOffhand": "Disable Paving with Block in Offhand",
     "clienttweaks.configuration.tweaks.disablePavingWithBlockInOffhand.tooltip": "This option will disable paving when holding a block in your offhand.",
     "clienttweaks.configuration.tweaks.masterVolumeSlider": "Master Volume Slider",
