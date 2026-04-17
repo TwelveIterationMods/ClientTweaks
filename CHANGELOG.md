@@ -1,1 +1,3 @@
-- Updated to Minecraft 26.1
+- Added `berryPlacementRequiresShiftOrDirt` option
+- Changed `shieldWeapons`, `shieldItems` and `foodItems` config option comments for better clarity
+- Fixed creative search box not focusing when clearing it with right-click
