@@ -40,6 +40,9 @@ public class ClientTweaksConfig {
         @Comment("This option will hide your shield unless you are holding a weapon.")
         public boolean hideShieldUnlessHoldingWeapon = true;
 
+        @Comment("This option will hide your shield unless you are actively blocking.")
+        public boolean hideShieldUnlessBlocking = false;
+
         @Comment("This option will hide your offhand item. It can be toggled via an optional key binding.")
         public boolean hideOffhandItem = false;
 

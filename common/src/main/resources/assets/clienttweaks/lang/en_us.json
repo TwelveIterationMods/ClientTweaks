@@ -30,6 +30,8 @@
     "clienttweaks.configuration.rendering.hideOwnParticleEffects.tooltip":  "This option will hide your own potion particle effects for your client (other players will still see them).",
     "clienttweaks.configuration.rendering.hideShieldUnlessHoldingWeapon": "Hide Shield Unless Holding Weapon",
     "clienttweaks.configuration.rendering.hideShieldUnlessHoldingWeapon.tooltip":  "This option will hide your shield unless you are holding a weapon.",
+    "clienttweaks.configuration.rendering.hideShieldUnlessBlocking": "Hide Shield Unless Blocking",
+    "clienttweaks.configuration.rendering.hideShieldUnlessBlocking.tooltip":  "This option will hide your shield unless you are actively blocking.",
     "clienttweaks.configuration.torches": "Torches",
     "clienttweaks.configuration.torches.noOffhandTorchAtAll": "No Offhand Torch At All",
     "clienttweaks.configuration.torches.noOffhandTorchAtAll.tooltip":  "This prevents torches from being placed from your offhand at all.",
