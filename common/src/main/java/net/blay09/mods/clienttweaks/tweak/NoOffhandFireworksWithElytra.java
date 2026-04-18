@@ -4,7 +4,7 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.rules.Rules;
+import net.blay09.mods.clienttweaks.ClientTweaksRules;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,7 +28,7 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
             }
 
             final var heldItem = player.getItemInHand(hand);
-            if (Rules.isFireworkItem(heldItem)) {
+            if (ClientTweaksRules.isFireworkItem(heldItem)) {
                 final var wornChestItem = player.getItemBySlot(EquipmentSlot.CHEST);
                 if (wornChestItem.is(Items.ELYTRA) && !player.isFallFlying()) {
                     return InteractionEventResult.FAIL;

@@ -5,7 +5,7 @@ import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.rules.Rules;
+import net.blay09.mods.clienttweaks.ClientTweaksRules;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -30,7 +30,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
             }
 
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
-            if (Rules.isTorchItem(heldItem)) {
+            if (ClientTweaksRules.isTorchItem(heldItem)) {
                 if (heldItem.getCount() == 1) {
                     final var chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
                     chatComponent.withStyle(ChatFormatting.RED);

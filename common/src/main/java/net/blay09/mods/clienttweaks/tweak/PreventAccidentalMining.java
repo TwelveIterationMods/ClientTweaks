@@ -3,7 +3,7 @@ package net.blay09.mods.clienttweaks.tweak;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.platform.event.callback.BlockCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.rules.Rules;
+import net.blay09.mods.clienttweaks.ClientTweaksRules;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
@@ -19,7 +19,7 @@ public class PreventAccidentalMining extends AbstractClientTweak {
 
     public float onDigSpeed(BlockGetter blockGetter, BlockPos pos, BlockState state, Player player, float speed) {
         if (isEnabled() && !player.isShiftKeyDown()) {
-            if (Rules.requiresShiftToMine(state)) {
+            if (ClientTweaksRules.requiresShiftToMine(state)) {
                 return 0f;
             }
         }
