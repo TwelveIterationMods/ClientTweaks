@@ -46,6 +46,7 @@ public class ClientTweaks {
                 Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.ui.musicVolumeSlider = enabled);
             }
         });
+        registerTweak(new AlwaysPrioritizeExperienceBar());
 
         registerTweak(new NoOffhandTorchAtAll());
         registerTweak(new NoOffhandTorchWithBlock());

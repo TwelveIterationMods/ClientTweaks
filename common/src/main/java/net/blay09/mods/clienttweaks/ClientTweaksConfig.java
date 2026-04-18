@@ -26,6 +26,9 @@ public class ClientTweaksConfig {
 
         @Comment("This adds back the music volume slider to the options screen. Saves you a click!")
         public boolean musicVolumeSlider = true;
+
+        @Comment("Prioritizes the experience bar info to show instead of the locator bar. Best toggled with the keybind if you care about the locater bar.")
+        public boolean alwaysPrioritizeExperienceBar = false;
     }
 
     public static class Mobility {
