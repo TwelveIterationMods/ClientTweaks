@@ -4,7 +4,7 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.blay09.mods.clienttweaks.rules.Rules;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,7 +28,7 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
             }
 
             final var heldItem = player.getItemInHand(hand);
-            if (ClientTweaksConfig.isFireworkItem(heldItem)) {
+            if (Rules.isFireworkItem(heldItem)) {
                 final var wornChestItem = player.getItemBySlot(EquipmentSlot.CHEST);
                 if (wornChestItem.is(Items.ELYTRA) && !player.isFallFlying()) {
                     return InteractionEventResult.FAIL;
@@ -41,12 +41,12 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.noOffhandFireworksWithElytra;
+        return ClientTweaksConfig.getActive().interactions.noOffhandFireworksWithElytra;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandFireworksWithElytra = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.interactions.noOffhandFireworksWithElytra = enabled);
     }
 
 }

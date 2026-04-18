@@ -5,7 +5,6 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ScreenCallback;
 import net.blay09.mods.balm.mixin.AbstractContainerScreenAccessor;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.AbstractRecipeBookScreenAccessor;
 import net.blay09.mods.clienttweaks.mixin.GhostSlotAccessor;
 import net.blay09.mods.clienttweaks.mixin.GhostSlotsAccessor;
@@ -116,12 +115,12 @@ public class NavigateToGhostIngredients extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.navigateToGhostIngredients;
+        return ClientTweaksConfig.getActive().recipeBook.navigateToGhostIngredients;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.navigateToGhostIngredients = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.recipeBook.navigateToGhostIngredients = enabled);
     }
 
     private record HistoryEntry(RecipeCollection collection, RecipeDisplayId recipeDisplayId) {

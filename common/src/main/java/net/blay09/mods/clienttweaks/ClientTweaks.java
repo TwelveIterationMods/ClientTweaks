@@ -25,12 +25,12 @@ public class ClientTweaks {
             @Override
             public boolean isEnabled() {
                 final var config = ClientTweaksConfig.getActiveOrNull();
-                return config != null && config.tweaks.masterVolumeSlider;
+                return config != null && config.ui.masterVolumeSlider;
             }
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.masterVolumeSlider = enabled);
+                Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.ui.masterVolumeSlider = enabled);
             }
         });
 
@@ -38,12 +38,12 @@ public class ClientTweaks {
             @Override
             public boolean isEnabled() {
                 final var config = ClientTweaksConfig.getActiveOrNull();
-                return config != null && config.tweaks.musicVolumeSlider;
+                return config != null && config.ui.musicVolumeSlider;
             }
 
             @Override
             public void setEnabled(boolean enabled) {
-                Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.musicVolumeSlider = enabled);
+                Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.ui.musicVolumeSlider = enabled);
             }
         });
 

@@ -24,7 +24,7 @@ public class ChainBlockMixin {
     @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
     void getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
         final var config = ClientTweaksConfig.getActiveOrNull();
-        if (config == null || !config.tweaks.chainBuildingSupport) {
+        if (config == null || !config.building.chainBuildingSupport) {
             return;
         }
 

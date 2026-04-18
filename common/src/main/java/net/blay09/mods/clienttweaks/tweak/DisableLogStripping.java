@@ -4,7 +4,6 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.AxeItemAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
@@ -41,12 +40,12 @@ public class DisableLogStripping extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.disableLogStripping;
+        return ClientTweaksConfig.getActive().interactions.disableLogStripping;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.disableLogStripping = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.interactions.disableLogStripping = enabled);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class BlockStateBaseMixin {
         final var minecraft = Minecraft.getInstance();
         final var player = minecraft != null ? minecraft.player : null;
         final var isCreative = player != null && player.getAbilities().instabuild;
-        if (isCreative && ClientTweaksConfig.getActive().tweaks.creativeBreakingSupport && state.hasOffsetFunction()) {
+        if (isCreative && ClientTweaksConfig.getActive().creativeMode.creativeBreakingSupport && state.hasOffsetFunction()) {
             final var originalShape = callbackInfo.getReturnValue();
             if (!originalShape.isEmpty()) {
                 final var modifiedShape = Shapes.create(originalShape.bounds()

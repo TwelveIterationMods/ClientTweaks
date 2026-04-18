@@ -3,7 +3,6 @@ package net.blay09.mods.clienttweaks.tweak;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientTickCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
 
@@ -27,12 +26,12 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideOwnParticleEffects;
+        return ClientTweaksConfig.getActive().rendering.hideOwnParticleEffects;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideOwnParticleEffects = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.rendering.hideOwnParticleEffects = enabled);
     }
 
 }

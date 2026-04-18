@@ -39,7 +39,7 @@ public class RecipeBookComponentMixin {
 
     @Inject(method = "initVisuals()V", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/recipebook/RecipeBookComponent;xOffset:I", shift = At.Shift.AFTER))
     void initVisuals(CallbackInfo callbackInfo) {
-        if (ClientTweaksConfig.getActive().tweaks.noRecipeBookShifting) {
+        if (ClientTweaksConfig.getActive().recipeBook.noRecipeBookShifting) {
             widthTooNarrow = true;
             xOffset = 162;
         }
@@ -47,7 +47,7 @@ public class RecipeBookComponentMixin {
 
     @Inject(method = "isOffsetNextToMainGUI()Z", at = @At("HEAD"), cancellable = true)
     void isOffsetNextToMainGUI(CallbackInfoReturnable<Boolean> callbackInfo) {
-        if (ClientTweaksConfig.getActive().tweaks.noRecipeBookShifting) {
+        if (ClientTweaksConfig.getActive().recipeBook.noRecipeBookShifting) {
             callbackInfo.setReturnValue(true); // we pretend like we're not shifted to prevent the recipe book from being closed
         }
     }
@@ -55,7 +55,7 @@ public class RecipeBookComponentMixin {
     @Inject(method = "initVisuals()V", at = @At("TAIL"))
     void restoreRetainedSearch(CallbackInfo callbackInfo) {
         final var config = ClientTweaksConfig.getActiveOrNull();
-        if (config == null || !config.tweaks.retainRecipeBookSearch) {
+        if (config == null || !config.recipeBook.retainRecipeBookSearch) {
             return;
         }
 
@@ -72,7 +72,7 @@ public class RecipeBookComponentMixin {
     @Inject(method = "checkSearchStringUpdate()V", at = @At("TAIL"))
     void saveRetainedSearch(CallbackInfo callbackInfo) {
         final var config = ClientTweaksConfig.getActiveOrNull();
-        if (config == null || !config.tweaks.retainRecipeBookSearch) {
+        if (config == null || !config.recipeBook.retainRecipeBookSearch) {
             return;
         }
 

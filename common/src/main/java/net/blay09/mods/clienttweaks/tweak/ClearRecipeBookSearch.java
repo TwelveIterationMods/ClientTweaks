@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ScreenCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.AbstractRecipeBookScreenAccessor;
 import net.blay09.mods.clienttweaks.mixin.RecipeBookComponentAccessor;
 import net.minecraft.client.gui.screens.Screen;
@@ -38,12 +37,12 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
     
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.clearRecipeBookOnRightClick;
+        return ClientTweaksConfig.getActive().recipeBook.clearRecipeBookOnRightClick;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBookOnRightClick = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.recipeBook.clearRecipeBookOnRightClick = enabled);
     }
 
 }

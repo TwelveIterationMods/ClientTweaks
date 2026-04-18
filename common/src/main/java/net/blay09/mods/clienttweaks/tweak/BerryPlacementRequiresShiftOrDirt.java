@@ -4,7 +4,6 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -57,11 +56,11 @@ public class BerryPlacementRequiresShiftOrDirt extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.berryPlacementRequiresShiftOrDirt;
+        return ClientTweaksConfig.getActive().interactions.berryPlacementRequiresShiftOrDirt;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.berryPlacementRequiresShiftOrDirt = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.interactions.berryPlacementRequiresShiftOrDirt = enabled);
     }
 }

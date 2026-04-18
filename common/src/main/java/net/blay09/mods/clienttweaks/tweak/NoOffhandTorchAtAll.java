@@ -4,7 +4,7 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.blay09.mods.clienttweaks.rules.Rules;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -22,7 +22,7 @@ public class NoOffhandTorchAtAll extends AbstractClientTweak {
         if (isEnabled() && hand == InteractionHand.OFF_HAND) {
             final var client = Minecraft.getInstance();
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
-            if (ClientTweaksConfig.isTorchItem(heldItem)) {
+            if (Rules.isTorchItem(heldItem)) {
                 return InteractionEventResult.FAIL;
             }
         }
@@ -32,11 +32,11 @@ public class NoOffhandTorchAtAll extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.noOffhandTorchAtAll;
+        return ClientTweaksConfig.getActive().torches.noOffhandTorchAtAll;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandTorchAtAll = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.torches.noOffhandTorchAtAll = enabled);
     }
 }

@@ -1,7 +1,7 @@
 package net.blay09.mods.clienttweaks.mixin;
 
 import net.blay09.mods.balm.Balm;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
+import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,8 +15,8 @@ public class LivingEntityMixin {
     @SuppressWarnings("DataFlowIssue")
     @Inject(method = "maxUpStep", at = @At("RETURN"), cancellable = true)
     public void maxUpStep(CallbackInfoReturnable<Float> cir) {
-        final var config = Balm.config().getActiveConfig(ClientTweaksConfigData.class);
-        if (config != null && config.tweaks.disableStepAssist) {
+        final var config = Balm.config().getActiveConfig(ClientTweaksConfig.class);
+        if (config != null && config.mobility.disableStepAssist) {
             final var baseMaxStep = ((LivingEntity) (Object) this).getAttributeBaseValue(Attributes.STEP_HEIGHT);
             final var modifiedMaxStep = cir.getReturnValue();
             cir.setReturnValue((float) Math.min(baseMaxStep, modifiedMaxStep));

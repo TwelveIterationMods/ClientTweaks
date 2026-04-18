@@ -4,7 +4,6 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemInHandRenderer;
@@ -34,7 +33,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return true;
         }
 
-        final var isShield = itemStack.get(DataComponents.BLOCKS_ATTACKS) != null || ClientTweaksConfig.isShieldItem(itemStack);
+        final var isShield = itemStack.get(DataComponents.BLOCKS_ATTACKS) != null;
         if (!isShield) {
             return true;
         }
@@ -65,17 +64,17 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
             return true;
         }
 
-        return ClientTweaksConfig.isShieldWeapon(mainItem);
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideShieldUnlessHoldingWeapon;
+        return ClientTweaksConfig.getActive().rendering.hideShieldUnlessHoldingWeapon;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideShieldUnlessHoldingWeapon = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.rendering.hideShieldUnlessHoldingWeapon = enabled);
     }
 
 }

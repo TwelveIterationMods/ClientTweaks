@@ -5,7 +5,6 @@ import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.BlockCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -56,12 +55,12 @@ public class DoNotUseLastMending extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.doNotUseLastMending;
+        return ClientTweaksConfig.getActive().mining.doNotUseLastMending;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.mining.doNotUseLastMending = enabled);
     }
 
 }

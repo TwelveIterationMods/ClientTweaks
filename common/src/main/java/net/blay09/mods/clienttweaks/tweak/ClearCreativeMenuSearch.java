@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ScreenCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.blay09.mods.clienttweaks.mixin.CreativeModeInventoryScreenAccessor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
@@ -35,11 +34,11 @@ public class ClearCreativeMenuSearch extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.clearCreativeMenuSearchOnRightClick;
+        return ClientTweaksConfig.getActive().creativeMode.clearCreativeMenuSearchOnRightClick;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.config().updateLocalConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearCreativeMenuSearchOnRightClick = enabled);
+        Balm.config().updateLocalConfig(ClientTweaksConfig.class, it -> it.creativeMode.clearCreativeMenuSearchOnRightClick = enabled);
     }
 }

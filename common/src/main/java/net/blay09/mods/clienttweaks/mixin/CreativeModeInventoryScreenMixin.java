@@ -28,7 +28,7 @@ public class CreativeModeInventoryScreenMixin {
     void restoreRetainedSearch(CreativeModeTab creativeModeTab, CallbackInfo callbackInfo) {
         try {
             final var config = ClientTweaksConfig.getActiveOrNull();
-            if (config == null || !config.tweaks.retainCreativeMenuSearch || creativeModeTab.getType() != CreativeModeTab.Type.SEARCH) {
+            if (config == null || !config.creativeMode.retainCreativeMenuSearch || creativeModeTab.getType() != CreativeModeTab.Type.SEARCH) {
                 return;
             }
 
@@ -45,7 +45,7 @@ public class CreativeModeInventoryScreenMixin {
     @Inject(method = "refreshSearchResults()V", at = @At("TAIL"))
     void saveRetainedSearch(CallbackInfo callbackInfo) {
         final var config = ClientTweaksConfig.getActiveOrNull();
-        if (config == null || !config.tweaks.retainCreativeMenuSearch) {
+        if (config == null || !config.creativeMode.retainCreativeMenuSearch) {
             return;
         }
 
