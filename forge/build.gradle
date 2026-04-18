@@ -3,11 +3,20 @@ import net.darkhax.curseforgegradle.TaskPublishCurseForge
 plugins {
     id 'multiloader-loader'
     alias libs.plugins.forgeGradle
+    alias libs.plugins.forgeJarJar
     alias libs.plugins.curseForgeGradle
     alias libs.plugins.modrinthMinotaur
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+
+jarJar.register()
+tasks.named('jar') {
+    archiveClassifier = 'slim'
+}
+tasks.named('jarJar') {
+    archiveClassifier = null
+}
 
 
 minecraft {
