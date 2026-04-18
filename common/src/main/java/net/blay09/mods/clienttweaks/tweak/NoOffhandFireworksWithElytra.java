@@ -28,7 +28,7 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
             }
 
             final var heldItem = player.getItemInHand(hand);
-            if (ClientTweaksRules.isFireworkItem(heldItem)) {
+            if (ClientTweaksRules.isFirework(heldItem)) {
                 final var wornChestItem = player.getItemBySlot(EquipmentSlot.CHEST);
                 if (wornChestItem.is(Items.ELYTRA) && !player.isFallFlying()) {
                     return InteractionEventResult.FAIL;

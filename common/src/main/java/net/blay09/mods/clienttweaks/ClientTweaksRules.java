@@ -14,38 +14,43 @@ import java.util.List;
 public final class ClientTweaksRules {
     public static final ShogiScope SCOPE = Shogi.scope(ClientTweaks.id("rules"), scope -> scope.setDefaultNamespaces(List.of("clienttweaks", "shogi")));
 
-    public static final ShogiValue<ItemStack, Boolean> isTorchItem = SCOPE.booleanValue(ClientTweaks.id("is_torch_item"), itemStack ->
+    public static final ShogiValue<ItemStack, Boolean> isTorch = SCOPE.booleanValue(ClientTweaks.id("is_torch"), itemStack ->
             itemStack.is(Items.TORCH)
                     || itemStack.is(Items.COPPER_TORCH)
                     || itemStack.is(Items.REDSTONE_TORCH)
                     || itemStack.is(Items.SOUL_TORCH));
-    public static final ShogiValue<ItemStack, Boolean> isToolItem = SCOPE.booleanValue(ClientTweaks.id("is_tool_item"), itemStack ->
+    public static final ShogiValue<ItemStack, Boolean> isTool = SCOPE.booleanValue(ClientTweaks.id("is_tool"), itemStack ->
             itemStack.has(DataComponents.TOOL));
-    public static final ShogiValue<ItemStack, Boolean> isFoodItem = SCOPE.booleanValue(ClientTweaks.id("is_food_item"), itemStack ->
+    public static final ShogiValue<ItemStack, Boolean> isFood = SCOPE.booleanValue(ClientTweaks.id("is_food"), itemStack ->
             itemStack.has(DataComponents.FOOD));
-    public static final ShogiValue<ItemStack, Boolean> isFireworkItem = SCOPE.booleanValue(ClientTweaks.id("is_firework_item"), itemStack ->
+    public static final ShogiValue<ItemStack, Boolean> isFirework = SCOPE.booleanValue(ClientTweaks.id("is_firework"), itemStack ->
             itemStack.has(DataComponents.FIREWORKS));
-
+    public static final ShogiValue<ItemStack, Boolean> isWeapon = SCOPE.booleanValue(ClientTweaks.id("is_weapon"), itemStack ->
+            itemStack.has(DataComponents.WEAPON));
     public static final ShogiValue<BlockState, Boolean> requiresShiftToMine = SCOPE.booleanValue(ClientTweaks.id("requires_shift_to_mine"), state ->
             state.is(Blocks.BUDDING_AMETHYST)
                     || state.is(Blocks.SMALL_AMETHYST_BUD)
                     || state.is(Blocks.MEDIUM_AMETHYST_BUD)
                     || state.is(Blocks.LARGE_AMETHYST_BUD));
 
-    public static boolean isTorchItem(ItemStack itemStack) {
-        return isTorchItem.getOrDefault(itemStack);
+    public static boolean isTorch(ItemStack itemStack) {
+        return isTorch.getOrDefault(itemStack);
     }
 
-    public static boolean isToolItem(ItemStack itemStack) {
-        return isToolItem.getOrDefault(itemStack);
+    public static boolean isTool(ItemStack itemStack) {
+        return isTool.getOrDefault(itemStack);
     }
 
-    public static boolean isFoodItem(ItemStack itemStack) {
-        return isFoodItem.getOrDefault(itemStack);
+    public static boolean isFood(ItemStack itemStack) {
+        return isFood.getOrDefault(itemStack);
     }
 
-    public static boolean isFireworkItem(ItemStack itemStack) {
-        return isFireworkItem.getOrDefault(itemStack);
+    public static boolean isFirework(ItemStack itemStack) {
+        return isFirework.getOrDefault(itemStack);
+    }
+
+    public static boolean isWeapon(ItemStack itemStack) {
+        return isWeapon.getOrDefault(itemStack);
     }
 
     public static boolean requiresShiftToMine(BlockState state) {
@@ -54,4 +59,5 @@ public final class ClientTweaksRules {
 
     private ClientTweaksRules() {
     }
+
 }

@@ -4,13 +4,12 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
+import net.blay09.mods.clienttweaks.ClientTweaksRules;
 import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 
 public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
@@ -39,7 +38,7 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         }
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
-        final var weaponInHand = hasWeaponInHand(player);
+        final var weaponInHand = ClientTweaksRules.isWeapon(player.getMainHandItem());
         final var wasWeaponInHand = this.wasWeaponInHand;
         this.wasWeaponInHand = weaponInHand;
         if (!weaponInHand && !isBlocking) {
@@ -55,16 +54,6 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         }
 
         return true;
-    }
-
-    private boolean hasWeaponInHand(Player player) {
-        final var mainItem = player.getItemInHand(InteractionHand.MAIN_HAND);
-        final var weaponComponent = player.get(DataComponents.WEAPON);
-        if (weaponComponent != null || mainItem.getItem() instanceof AxeItem) {
-            return true;
-        }
-
-        return false;
     }
 
     @Override

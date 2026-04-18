@@ -18,7 +18,7 @@ public class NoOffhandTorchWithEmptyHand extends AbstractClientTweak {
 
     public InteractionEventResult onRightClick(Player player, InteractionHand hand) {
         if (isEnabled() && hand == InteractionHand.OFF_HAND) {
-            if (ClientTweaksRules.isTorchItem(player.getOffhandItem())) {
+            if (ClientTweaksRules.isTorch(player.getOffhandItem())) {
                 final var mainItem = player.getMainHandItem();
                 if (mainItem.isEmpty()) {
                     return InteractionEventResult.FAIL;

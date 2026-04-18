@@ -30,7 +30,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
             }
 
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
-            if (ClientTweaksRules.isTorchItem(heldItem)) {
+            if (ClientTweaksRules.isTorch(heldItem)) {
                 if (heldItem.getCount() == 1) {
                     final var chatComponent = Component.translatable("chat.clienttweaks.lastTorch");
                     chatComponent.withStyle(ChatFormatting.RED);
