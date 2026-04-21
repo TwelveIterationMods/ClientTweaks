@@ -1,6 +1,7 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.api.Balm;
+import net.blay09.mods.balm.api.event.EventPriority;
 import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
@@ -18,7 +19,7 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
     public DoNotUseLastTorch() {
         super("doNotUseLastTorch");
 
-        Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick);
+        Balm.getEvents().onEvent(UseItemInputEvent.class, this::onRightClick, EventPriority.Lowest);
     }
 
     public void onRightClick(UseItemInputEvent event) {
