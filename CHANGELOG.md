@@ -1,2 +1,3 @@
-- Added configuration for additional food items for food-related tweaks
-- Fixed translations in config screens
+- Fixed config translation keys
+- Fixed crash on blocks with empty shapes
+- Fixed `Out of Torches` showing up even if another tweak would have prevented the torch placement anyway
