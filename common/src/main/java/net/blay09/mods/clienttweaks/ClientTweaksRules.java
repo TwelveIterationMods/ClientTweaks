@@ -4,8 +4,8 @@ import net.blay09.mods.shogi.Shogi;
 import net.blay09.mods.shogi.ShogiValue;
 import net.blay09.mods.shogi.scope.ShogiScope;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -15,10 +15,7 @@ public final class ClientTweaksRules {
     public static final ShogiScope SCOPE = Shogi.scope(ClientTweaks.id("rules"), scope -> scope.setDefaultNamespaces(List.of("clienttweaks", "shogi")));
 
     public static final ShogiValue<ItemStack, Boolean> isTorch = SCOPE.booleanValue(ClientTweaks.id("is_torch"), itemStack ->
-            itemStack.is(Items.TORCH)
-                    || itemStack.is(Items.COPPER_TORCH)
-                    || itemStack.is(Items.REDSTONE_TORCH)
-                    || itemStack.is(Items.SOUL_TORCH));
+            itemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock().defaultBlockState().getLightEmission() > 0);
     public static final ShogiValue<ItemStack, Boolean> isTool = SCOPE.booleanValue(ClientTweaks.id("is_tool"), itemStack ->
             itemStack.has(DataComponents.TOOL));
     public static final ShogiValue<ItemStack, Boolean> isFood = SCOPE.booleanValue(ClientTweaks.id("is_food"), itemStack ->
