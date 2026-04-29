@@ -3,7 +3,7 @@ package net.blay09.mods.clienttweaks.mixin;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -34,7 +34,7 @@ public class ChainBlockMixin {
             return;
         }
 
-        if (player.getMainHandItem().is(ItemTags.CHAINS)
+        if (player.getMainHandItem().is(BlockItemTags.CHAINS.item())
                 || Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock
                 || (player.getBlockY() < pos.getY() - 1 && player.getMainHandItem().getItem() instanceof BlockItem)) {
             final var originalShape = callbackInfo.getReturnValue();
