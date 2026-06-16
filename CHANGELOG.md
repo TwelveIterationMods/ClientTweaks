@@ -1,1 +1,1 @@
-- Changed `is_torch` rule to consider all light-emitting block items instead of a hardcoded list of torches
+- Updated to Minecraft 26.2
