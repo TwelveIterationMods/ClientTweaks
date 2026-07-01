@@ -1,27 +1,24 @@
 package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.balm.Balm;
-import net.blay09.mods.balm.client.platform.event.callback.ClientTickCallback;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.mixin.LivingEntityAccessor;
 import net.minecraft.client.Minecraft;
-
-import java.util.Collections;
+import net.minecraft.world.entity.LivingEntity;
 
 public class HideOwnEffectParticles extends AbstractClientTweak {
 
     public HideOwnEffectParticles() {
         super("hide_own_particle_effects");
-
-        ClientTickCallback.AFTER.register(this::onClientTick);
     }
 
-    public void onClientTick(Minecraft client) {
-        final var player = client.player;
-        if (player != null && isEnabled()) {
-            player.getEntityData().set(LivingEntityAccessor.getDataEffectAmbienceId(), true);
-            player.getEntityData().set(LivingEntityAccessor.getDataEffectParticles(), Collections.emptyList());
-        }
+    public static boolean shouldSuppressFor(LivingEntity entity) {
+        final var client = Minecraft.getInstance();
+        final var config = ClientTweaksConfig.getActiveOrNull();
+        return config != null
+                && config.rendering.hideOwnParticleEffects
+                && client.player == entity
+                && client.getCameraEntity() == entity
+                && client.options.getCameraType().isFirstPerson();
     }
 
     @Override

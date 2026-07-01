@@ -18,7 +18,6 @@
     "CreativeModeInventoryScreenAccessor",
     "ItemInHandRendererAccessor",
     "LivingEntityMixin",
-    "LivingEntityAccessor",
     "AbstractRecipeBookScreenAccessor",
     "RecipeBookComponentAccessor",
     "GhostSlotsAccessor",
