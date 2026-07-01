@@ -57,6 +57,9 @@ public class ClientTweaksConfig {
 
         @Comment("This option will hide your own potion particle effects in first person (other players will still see them).")
         public boolean hideOwnParticleEffects = false;
+
+        @Comment("This option will hide your own potion particle effects in third person (other players will still see them).")
+        public boolean hideOwnParticleEffectsThirdPerson = false;
     }
 
     public static class RecipeBook {
