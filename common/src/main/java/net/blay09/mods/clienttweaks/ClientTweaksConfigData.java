@@ -102,6 +102,12 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.")
         public boolean creativeBreakingSupport = true;
 
+        @Comment("This option makes right clicking the creative menu search bar clear it.")
+        public boolean clearCreativeMenuSearchOnRightClick = true;
+
+        @Comment("This option retains creative menu search text when reopening the creative menu search tab.")
+        public boolean retainCreativeMenuSearch = true;
+
         @Comment("This option makes right clicking the recipe book search bar clear it.")
         public boolean clearRecipeBookOnRightClick = true;
 
