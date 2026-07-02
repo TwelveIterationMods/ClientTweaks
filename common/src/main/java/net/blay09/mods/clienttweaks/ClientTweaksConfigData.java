@@ -101,6 +101,15 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
         @Comment("This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.")
         public boolean creativeBreakingSupport = true;
+
+        @Comment("This option makes right clicking the recipe book search bar clear it.")
+        public boolean clearRecipeBookOnRightClick = true;
+
+        @Comment("This option makes clicking ghost ingredients in the crafting grid navigate to it in the recipe book.")
+        public boolean navigateToGhostIngredients = true;
+
+        @Comment("This option retains recipe book search text when reopening the recipe book.")
+        public boolean retainRecipeBookSearch = true;
     }
 
     public static class Customization {
