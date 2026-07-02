@@ -63,6 +63,8 @@
     "config.clienttweaks.tweaks.chainBuildingSupport.tooltip":  "This option will make chains have a bigger hitbox while placing them, making it easier to aim.",
     "config.clienttweaks.tweaks.noRecipeBookShifting": "No Recipe Book Shifting",
     "config.clienttweaks.tweaks.noRecipeBookShifting.tooltip":  "This option makes the recipe book not shift the inventory when opened. Works best with smaller GUI scales / bigger resolutions.",
+    "config.clienttweaks.tweaks.creativeBreakingSupport": "Creative Breaking Support",
+    "config.clienttweaks.tweaks.creativeBreakingSupport.tooltip": "This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.",
     "config.clienttweaks.tweaks.clearRecipeBookOnRightClick": "Clear Recipe Book Search",
     "config.clienttweaks.tweaks.clearRecipeBookOnRightClick.tooltip": "This option makes right clicking the recipe book search bar clear it.",
     "config.clienttweaks.tweaks.navigateToGhostIngredients": "Navigate to Ghost Ingredients",

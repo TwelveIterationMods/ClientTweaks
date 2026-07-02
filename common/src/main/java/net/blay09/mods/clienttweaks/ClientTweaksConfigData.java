@@ -99,6 +99,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("Prevents accidental mining of certain fragile blocks like budding amethysts.")
         public boolean preventAccidentalMining = false;
 
+        @Comment("This option will increase the hitbox of random-offset blocks in creative mode, making it easier to break them quickly.")
+        public boolean creativeBreakingSupport = true;
+
         @Comment("This option makes right clicking the creative menu search bar clear it.")
         public boolean clearCreativeMenuSearchOnRightClick = true;
 
