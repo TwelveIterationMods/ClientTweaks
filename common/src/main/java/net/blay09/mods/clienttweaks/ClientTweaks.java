@@ -66,6 +66,8 @@ public class ClientTweaks {
         registerTweak(new PreventAccidentalMining());
         registerTweak(new NoOffhandUseWithFood());
         registerTweak(new DoNotUseLastMending());
+        registerTweak(new ClearRecipeBookSearch());
+        registerTweak(new NavigateToGhostIngredients());
 
         ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
     }

@@ -12,7 +12,8 @@
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
     "ShovelItemMixin",
-    "ItemInHandRendererAccessor"
+    "ItemInHandRendererAccessor",
+    "RecipeBookComponentAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
