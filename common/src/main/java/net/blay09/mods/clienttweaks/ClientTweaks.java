@@ -57,6 +57,7 @@ public class ClientTweaks {
         registerTweak(new HideEmptyMainHand());
         registerTweak(new StepAssistIsAnnoying());
         registerTweak(new AutoClimbLadder());
+        registerTweak(new HideShieldUnlessBlocking());
         registerTweak(new HideShieldUnlessHoldingWeapon());
         registerTweak(new DoNotUseLastTorch());
         registerTweak(new DisableLogStripping());

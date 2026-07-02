@@ -42,6 +42,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will hide your shield unless you are holding a weapon.")
         public boolean hideShieldUnlessHoldingWeapon = true;
 
+        @Comment("This option will hide your shield unless you are actively blocking.")
+        public boolean hideShieldUnlessBlocking = false;
+
         @Comment("This prevents torches from being placed from your offhand at all.")
         public boolean noOffhandTorchAtAll = false;
 
