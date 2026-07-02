@@ -66,6 +66,7 @@ public class ClientTweaks {
         registerTweak(new PreventAccidentalMining());
         registerTweak(new NoOffhandUseWithFood());
         registerTweak(new DoNotUseLastMending());
+        registerTweak(new ClearCreativeMenuSearch());
         registerTweak(new ClearRecipeBookSearch());
         registerTweak(new NavigateToGhostIngredients());
 

@@ -96,6 +96,12 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("Prevents accidental mining of certain fragile blocks like budding amethysts.")
         public boolean preventAccidentalMining = false;
 
+        @Comment("This option makes right clicking the creative menu search bar clear it.")
+        public boolean clearCreativeMenuSearchOnRightClick = true;
+
+        @Comment("This option retains creative menu search text when reopening the creative menu search tab.")
+        public boolean retainCreativeMenuSearch = true;
+
         @Comment("This option makes right clicking the recipe book search bar clear it.")
         public boolean clearRecipeBookOnRightClick = true;
 
