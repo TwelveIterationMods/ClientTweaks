@@ -71,6 +71,7 @@ public class ClientTweaks {
         registerTweak(new NavigateToGhostIngredients());
 
         ModKeyMappings.initialize(BalmClient.getKeyMappings(), tweaks.values());
+        MineSingleBlockHandler.initialize();
     }
 
     private static void registerTweak(AbstractClientTweak tweak) {

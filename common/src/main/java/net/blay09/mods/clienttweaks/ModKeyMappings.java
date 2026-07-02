@@ -22,6 +22,7 @@ import java.util.Map;
 public class ModKeyMappings {
 
     private static final Map<KeyMapping, AbstractClientTweak> toggleableTweaks = new HashMap<>();
+    public static KeyMapping mineSingleBlockKeyMapping;
 
     public static void initialize(BalmKeyMappings keyMappings, Collection<AbstractClientTweak> tweaks) {
         for (AbstractClientTweak tweak : tweaks) {
@@ -30,6 +31,8 @@ public class ModKeyMappings {
                 toggleableTweaks.put(keyBinding, tweak);
             }
         }
+
+        mineSingleBlockKeyMapping = keyMappings.registerKeyMapping("key.clienttweaks.mineSingleBlock", KeyConflictContext.INGAME, KeyModifier.NONE, InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), "key.categories.clienttweaks");
 
         Balm.getEvents().onEvent(KeyInputEvent.class, ModKeyMappings::onKeyInput);
     }
