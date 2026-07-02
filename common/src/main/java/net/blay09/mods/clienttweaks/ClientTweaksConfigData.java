@@ -75,6 +75,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will disable paving when holding a block in your offhand.")
         public boolean disablePavingWithBlockInOffhand = true;
 
+        @Comment("This prevents sweet berries from being placed unless the player is holding shift or placing them on dirt or farmland.")
+        public boolean berryPlacementRequiresShiftOrDirt = false;
+
         @Comment("This adds back the master volume slider to the options screen. Saves you a click!")
         public boolean masterVolumeSlider = true;
 
