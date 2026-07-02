@@ -41,11 +41,11 @@ public class HideShieldUnlessBlocking extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideShieldUnlessBlocking;
+        return ClientTweaksConfig.getActive().rendering.hideShieldUnlessBlocking;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideShieldUnlessBlocking = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideShieldUnlessBlocking = enabled);
     }
 }

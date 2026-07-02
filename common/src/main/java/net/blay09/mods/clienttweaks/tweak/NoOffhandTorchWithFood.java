@@ -33,12 +33,12 @@ public class NoOffhandTorchWithFood extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.noOffhandTorchWithFood;
+        return ClientTweaksConfig.getActive().torches.noOffhandTorchWithFood;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandTorchWithFood = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.torches.noOffhandTorchWithFood = enabled);
     }
 
 }

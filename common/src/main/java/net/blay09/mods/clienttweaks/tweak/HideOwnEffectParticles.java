@@ -26,12 +26,12 @@ public class HideOwnEffectParticles extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideOwnParticleEffects;
+        return ClientTweaksConfig.getActive().rendering.hideOwnParticleEffects;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideOwnParticleEffects = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideOwnParticleEffects = enabled);
     }
 
 }

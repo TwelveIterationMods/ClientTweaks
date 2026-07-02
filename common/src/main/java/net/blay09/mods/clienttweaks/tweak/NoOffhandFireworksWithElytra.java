@@ -39,12 +39,12 @@ public class NoOffhandFireworksWithElytra extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.noOffhandFireworksWithElytra;
+        return ClientTweaksConfig.getActive().interactions.noOffhandFireworksWithElytra;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandFireworksWithElytra = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.interactions.noOffhandFireworksWithElytra = enabled);
     }
 
 }

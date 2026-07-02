@@ -23,11 +23,11 @@ public class HideEmptyMainHand extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideEmptyMainHand;
+        return ClientTweaksConfig.getActive().rendering.hideEmptyMainHand;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideEmptyMainHand = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideEmptyMainHand = enabled);
     }
 }

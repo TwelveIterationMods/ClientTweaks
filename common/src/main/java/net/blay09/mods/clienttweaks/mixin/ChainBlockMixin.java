@@ -24,14 +24,16 @@ public class ChainBlockMixin {
         final var minecraft = Minecraft.getInstance();
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         boolean isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
-        if (isHoldingChainBlock && ClientTweaksConfig.getActive().tweaks.chainBuildingSupport) {
-            VoxelShape originalShape = callbackInfo.getReturnValue();
-            VoxelShape modifiedShape = Shapes.create(originalShape.bounds()
-                    .expandTowards(0.25, 0.25, 0.25)
-                    .expandTowards(-0.25, -0.25, -0.25)
-                    .intersect(new AABB(0, 0, 0, 1, 1, 1))
-            );
-            callbackInfo.setReturnValue(modifiedShape);
+        if (isHoldingChainBlock && ClientTweaksConfig.getActive().building.chainBuildingSupport) {
+            final var originalShape = callbackInfo.getReturnValue();
+            if (!originalShape.isEmpty()) {
+                final var modifiedShape = Shapes.create(originalShape.bounds()
+                        .expandTowards(0.25, 0.25, 0.25)
+                        .expandTowards(-0.25, -0.25, -0.25)
+                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                );
+                callbackInfo.setReturnValue(modifiedShape);
+            }
         }
     }
 

@@ -32,12 +32,12 @@ public class NoOffhandTorchWithEmptyHand extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.noOffhandTorchWithEmptyHand;
+        return ClientTweaksConfig.getActive().torches.noOffhandTorchWithEmptyHand;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.noOffhandTorchWithEmptyHand = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.torches.noOffhandTorchWithEmptyHand = enabled);
     }
 
 }

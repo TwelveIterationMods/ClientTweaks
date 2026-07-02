@@ -39,12 +39,12 @@ public class DisableLogStripping extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.disableLogStripping;
+        return ClientTweaksConfig.getActive().interactions.disableLogStripping;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.disableLogStripping = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.interactions.disableLogStripping = enabled);
     }
 
     @Override

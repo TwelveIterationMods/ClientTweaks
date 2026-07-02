@@ -33,11 +33,11 @@ public class HideOffhandItem extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideOffhandItem;
+        return ClientTweaksConfig.getActive().rendering.hideOffhandItem;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideOffhandItem = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideOffhandItem = enabled);
     }
 }

@@ -31,11 +31,11 @@ public class OffhandTorchWithToolOnly extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.offhandTorchWithToolOnly;
+        return ClientTweaksConfig.getActive().torches.offhandTorchWithToolOnly;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.offhandTorchWithToolOnly = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.torches.offhandTorchWithToolOnly = enabled);
     }
 }

@@ -29,11 +29,11 @@ public class ClearCreativeMenuSearch extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.clearCreativeMenuSearchOnRightClick;
+        return ClientTweaksConfig.getActive().creativeMode.clearCreativeMenuSearchOnRightClick;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearCreativeMenuSearchOnRightClick = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.creativeMode.clearCreativeMenuSearchOnRightClick = enabled);
     }
 }

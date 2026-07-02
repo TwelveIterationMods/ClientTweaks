@@ -22,7 +22,7 @@ public class ShovelItemMixin {
 
         final var offhandItem = player.getItemInHand(InteractionHand.OFF_HAND);
         if (offhandItem.getItem() instanceof BlockItem) {
-            if (ClientTweaksConfig.getActive().tweaks.disablePavingWithBlockInOffhand) {
+            if (ClientTweaksConfig.getActive().interactions.disablePavingWithBlockInOffhand) {
                 cir.setReturnValue(InteractionResult.PASS);
             }
         }

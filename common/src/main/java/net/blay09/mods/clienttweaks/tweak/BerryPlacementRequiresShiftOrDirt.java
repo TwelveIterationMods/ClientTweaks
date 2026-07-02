@@ -59,11 +59,11 @@ public class BerryPlacementRequiresShiftOrDirt extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.berryPlacementRequiresShiftOrDirt;
+        return ClientTweaksConfig.getActive().interactions.berryPlacementRequiresShiftOrDirt;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.berryPlacementRequiresShiftOrDirt = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.interactions.berryPlacementRequiresShiftOrDirt = enabled);
     }
 }

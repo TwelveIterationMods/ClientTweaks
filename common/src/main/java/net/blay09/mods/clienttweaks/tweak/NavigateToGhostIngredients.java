@@ -127,12 +127,12 @@ public class NavigateToGhostIngredients extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.navigateToGhostIngredients;
+        return ClientTweaksConfig.getActive().recipeBook.navigateToGhostIngredients;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.navigateToGhostIngredients = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.recipeBook.navigateToGhostIngredients = enabled);
     }
 
     private record HistoryEntry(@Nullable RecipeCollection collection, @Nullable Recipe<?> recipe) {
