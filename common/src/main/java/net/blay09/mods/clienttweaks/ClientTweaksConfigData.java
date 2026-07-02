@@ -72,6 +72,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This option will disable log stripping.")
         public boolean disableLogStripping = false;
 
+        @Comment("This option will disable log stripping unless the player is holding shift.")
+        public boolean logStrippingRequiresShift = false;
+
         @Comment("This option will disable paving when holding a block in your offhand.")
         public boolean disablePavingWithBlockInOffhand = true;
 

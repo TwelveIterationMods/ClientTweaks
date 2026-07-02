@@ -50,6 +50,8 @@
   "clienttweaks.configuration.tweaks.disableStepAssist.tooltip":  "This option will disable step assist added by other mods.",
   "clienttweaks.configuration.tweaks.disableLogStripping": "Disable Log Stripping",
   "clienttweaks.configuration.tweaks.disableLogStripping.tooltip":  "This option will disable log stripping.",
+  "clienttweaks.configuration.tweaks.logStrippingRequiresShift": "Log Stripping Requires Shift",
+  "clienttweaks.configuration.tweaks.logStrippingRequiresShift.tooltip":  "This option will disable log stripping unless the player is holding shift.",
   "clienttweaks.configuration.tweaks.disablePavingWithBlockInOffhand": "Disable Paving with Block in Offhand",
   "clienttweaks.configuration.tweaks.disablePavingWithBlockInOffhand.tooltip": "This option will disable paving when holding a block in your offhand.",
   "clienttweaks.configuration.tweaks.berryPlacementRequiresShiftOrDirt": "Berry Placement Requires Shift or Dirt",
