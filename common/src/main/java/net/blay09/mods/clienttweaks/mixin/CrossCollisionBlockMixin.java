@@ -24,7 +24,8 @@ public class CrossCollisionBlockMixin {
 
     @Inject(method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"), cancellable = true)
     void getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> callbackInfo) {
-        Player player = Minecraft.getInstance().player;
+        final var minecraft = Minecraft.getInstance();
+        @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         boolean isHoldingCrossCollisionBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof CrossCollisionBlock;
         if (isHoldingCrossCollisionBlock && ClientTweaksConfig.getActive().tweaks.paneBuildingSupport) {
             // Exit out early if the block does not have the properties we use, to prevent crashes with mods that extend CrossCollisionBlock
