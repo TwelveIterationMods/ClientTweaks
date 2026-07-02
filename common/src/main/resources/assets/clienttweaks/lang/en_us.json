@@ -48,6 +48,8 @@
     "config.clienttweaks.tweaks.disableStepAssist.tooltip":  "This option will disable step assist added by other mods.",
     "config.clienttweaks.tweaks.disableLogStripping": "Disable Log Stripping",
     "config.clienttweaks.tweaks.disableLogStripping.tooltip":  "This option will disable log stripping.",
+    "config.clienttweaks.tweaks.logStrippingRequiresShift": "Log Stripping Requires Shift",
+    "config.clienttweaks.tweaks.logStrippingRequiresShift.tooltip":  "This option will disable log stripping unless the player is holding shift.",
     "config.clienttweaks.tweaks.berryPlacementRequiresShiftOrDirt": "Berry Placement Requires Shift or Dirt",
     "config.clienttweaks.tweaks.berryPlacementRequiresShiftOrDirt.tooltip": "This prevents sweet berries from being placed unless the player is holding shift or placing them on dirt or farmland.",
     "config.clienttweaks.tweaks.masterVolumeSlider": "Master Volume Slider",
