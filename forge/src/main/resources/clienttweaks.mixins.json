@@ -5,9 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "clienttweaks.refmap.json",
   "mixins": [
-    "LivingEntityAccessor"
   ],
   "client": [
+    "LivingEntityAccessor",
     "CrossCollisionBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",

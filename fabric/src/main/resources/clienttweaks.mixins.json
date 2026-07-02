@@ -4,9 +4,9 @@
   "package": "net.blay09.mods.clienttweaks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "LivingEntityAccessor"
   ],
   "client": [
+    "LivingEntityAccessor",
     "CrossCollisionBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
