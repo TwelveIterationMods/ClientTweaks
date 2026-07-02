@@ -16,7 +16,7 @@ public class LivingEntityMixin {
     @Inject(method = "maxUpStep", at = @At("RETURN"), cancellable = true)
     public void maxUpStep(CallbackInfoReturnable<Float> cir) {
         final var config = Balm.getConfig().getActive(ClientTweaksConfigData.class);
-        if (config != null && config.tweaks.disableStepAssist) {
+        if (config != null && config.mobility.disableStepAssist) {
             final var baseMaxStep = ((LivingEntity) (Object) this).getAttributeBaseValue(Attributes.STEP_HEIGHT);
             final var modifiedMaxStep = cir.getReturnValue();
             cir.setReturnValue((float) Math.min(baseMaxStep, modifiedMaxStep));

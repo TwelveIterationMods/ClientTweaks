@@ -24,7 +24,7 @@ public class ChainBlockMixin {
         final var minecraft = Minecraft.getInstance();
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         boolean isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
-        if (isHoldingChainBlock && ClientTweaksConfig.getActive().tweaks.chainBuildingSupport) {
+        if (isHoldingChainBlock && ClientTweaksConfig.getActive().building.chainBuildingSupport) {
             final var originalShape = callbackInfo.getReturnValue();
             if (!originalShape.isEmpty()) {
                 final var modifiedShape = Shapes.create(originalShape.bounds()

@@ -54,12 +54,12 @@ public class DoNotUseLastMending extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.doNotUseLastMending;
+        return ClientTweaksConfig.getActive().mining.doNotUseLastMending;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastMending = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.mining.doNotUseLastMending = enabled);
     }
 
 }

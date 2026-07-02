@@ -43,11 +43,11 @@ public class LogStrippingRequiresShift extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.logStrippingRequiresShift;
+        return ClientTweaksConfig.getActive().interactions.logStrippingRequiresShift;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.logStrippingRequiresShift = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.interactions.logStrippingRequiresShift = enabled);
     }
 }

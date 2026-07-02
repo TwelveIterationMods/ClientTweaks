@@ -27,11 +27,11 @@ public class HideHands extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideHands;
+        return ClientTweaksConfig.getActive().rendering.hideHands;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideHands = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideHands = enabled);
     }
 }

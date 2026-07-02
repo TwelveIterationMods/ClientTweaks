@@ -20,12 +20,12 @@ public class StepAssistIsAnnoying extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.disableStepAssist;
+        return ClientTweaksConfig.getActive().mobility.disableStepAssist;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.disableStepAssist = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.mobility.disableStepAssist = enabled);
     }
 
     @Override

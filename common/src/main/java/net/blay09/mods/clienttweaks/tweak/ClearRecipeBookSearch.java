@@ -30,12 +30,12 @@ public class ClearRecipeBookSearch extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.clearRecipeBookOnRightClick;
+        return ClientTweaksConfig.getActive().recipeBook.clearRecipeBookOnRightClick;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.clearRecipeBookOnRightClick = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.recipeBook.clearRecipeBookOnRightClick = enabled);
     }
 
 }

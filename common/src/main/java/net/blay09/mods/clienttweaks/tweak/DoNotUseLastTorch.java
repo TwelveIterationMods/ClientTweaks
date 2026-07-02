@@ -43,12 +43,12 @@ public class DoNotUseLastTorch extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.doNotUseLastTorch;
+        return ClientTweaksConfig.getActive().torches.doNotUseLastTorch;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.doNotUseLastTorch = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.torches.doNotUseLastTorch = enabled);
     }
 
 }

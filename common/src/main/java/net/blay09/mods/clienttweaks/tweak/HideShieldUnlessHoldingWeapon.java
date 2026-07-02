@@ -66,12 +66,12 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
 
     @Override
     public boolean isEnabled() {
-        return ClientTweaksConfig.getActive().tweaks.hideShieldUnlessHoldingWeapon;
+        return ClientTweaksConfig.getActive().rendering.hideShieldUnlessHoldingWeapon;
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.tweaks.hideShieldUnlessHoldingWeapon = enabled);
+        Balm.getConfig().updateConfig(ClientTweaksConfigData.class, it -> it.rendering.hideShieldUnlessHoldingWeapon = enabled);
     }
 
 }
