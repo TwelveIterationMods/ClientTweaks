@@ -8,6 +8,7 @@
   "client": [
     "LivingEntityAccessor",
     "CrossCollisionBlockMixin",
+    "ChainBlockMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
     "ShovelItemMixin",
