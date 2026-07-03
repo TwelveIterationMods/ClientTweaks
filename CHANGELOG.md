@@ -1,1 +1,2 @@
-- Updated to Minecraft 26.2
+- Changed `hideOwnParticleEffects` option to only hide first person particles
+- Added `hideOwnParticleEffectsThirdPerson` option to hide own potion particles even in 3rd person view
