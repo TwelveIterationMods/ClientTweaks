@@ -1,3 +1,10 @@
-- Fixed config translation keys
-- Fixed crash on blocks with empty shapes
-- Fixed `Out of Torches` showing up even if another tweak would have prevented the torch placement anyway
+- Restructured the config file
+  - You will have to reconfigure your tweaks, as all options but the `Customization` ones have moved elsewhere.
+  - This was overdue with how much the file has grown, and results in a much nicer configuration screen as well, with tweaks now being grouped under descriptive categories.
+- Added `Mine Single Block` key that, when held, will only allow breaking a single block until it's let go
+- Added creative menu tweaks for clearing the search bar and retaining its content when reopening
+- Added recipe book tweaks for clearing the search bar, retaining its content when reopening, and clicking ghost items to navigate to their recipes
+- Added `logStrippingRequiresShift` tweak for requiring shift to be held to strip logs
+- Added `berryPlacementRequiresShiftOrDirt` tweak to prevent Sweet Berries from being placed unless it's on Dirt or shift is being held
+- Added `hideShieldUnlessBlocking` tweak to hide the shield unless the player is actively blocking
+- Added `hideHands` (with optional keybind) and `hideEmptyMainHand` tweaks to hide hands in First Person view
