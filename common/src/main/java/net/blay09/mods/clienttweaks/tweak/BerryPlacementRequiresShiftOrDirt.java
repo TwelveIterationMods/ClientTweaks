@@ -50,7 +50,7 @@ public class BerryPlacementRequiresShiftOrDirt extends AbstractClientTweak {
         }
 
         final var supportState = mc.level.getBlockState(placementPos.below());
-        if (supportState.is(BlockTags.DIRT) || supportState.is(Blocks.FARMLAND)) {
+        if ((supportState.is(BlockTags.DIRT) && !supportState.is(Blocks.GRASS_BLOCK)) || supportState.is(Blocks.FARMLAND)) {
             return;
         }
 
