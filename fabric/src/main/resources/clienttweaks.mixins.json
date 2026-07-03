@@ -10,10 +10,14 @@
     "CrossCollisionBlockMixin",
     "BlockStateBaseMixin",
     "ChainBlockMixin",
+    "CreativeModeInventoryScreenMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
     "ShovelItemMixin",
-    "ItemInHandRendererAccessor"
+    "MultiPlayerGameModeMixin",
+    "CreativeModeInventoryScreenAccessor",
+    "ItemInHandRendererAccessor",
+    "RecipeBookComponentAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
