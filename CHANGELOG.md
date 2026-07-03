@@ -1,1 +1,2 @@
-- Changed `is_torch` rule to consider all light-emitting block items instead of a hardcoded list of torches
+- Changed `hideOwnParticleEffects` option to only hide first person particles
+- Added `hideOwnParticleEffectsThirdPerson` option to hide own potion particles even in 3rd person view
