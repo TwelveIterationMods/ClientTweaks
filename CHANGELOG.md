@@ -1,3 +1,7 @@
+- Hotfixed faces being culled below smaller blocks when `creativeBreakingSupport` was enabled
+
+---
+
 - Restructured the config file
   - You will have to reconfigure your tweaks, as all options but the `Customization` ones have moved elsewhere.
   - This was overdue with how much the file has grown, and results in a much nicer configuration screen as well, with tweaks now being grouped under descriptive categories.
@@ -14,3 +18,4 @@
 - Fixed some Mixins being loaded on servers too, despite this mod being client-only
 - Fixed crash if early setup accesses block shapes before Minecraft instance is set
 - Fixed master and music sliders not resetting properly on resize
+
