@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +25,8 @@ public class BlockStateBaseMixin {
         final var minecraft = Minecraft.getInstance();
         final var player = minecraft != null ? minecraft.player : null;
         boolean isCreative = player != null && player.getAbilities().instabuild;
-        if (isCreative && ClientTweaksConfig.getActive().creativeMode.creativeBreakingSupport && state.hasOffsetFunction()) {
+        boolean isPlayerShapeQuery = context instanceof EntityCollisionContext entityCollisionContext && entityCollisionContext.getEntity() == player;
+        if (isCreative && isPlayerShapeQuery && ClientTweaksConfig.getActive().creativeMode.creativeBreakingSupport && state.hasOffsetFunction()) {
             final var originalShape = callbackInfo.getReturnValue();
             if (!originalShape.isEmpty()) {
                 final var modifiedShape = Shapes.create(originalShape.bounds()
