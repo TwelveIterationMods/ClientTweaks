@@ -1,3 +1,7 @@
+- Hotfixed faces being culled below smaller blocks when `creativeBreakingSupport` was enabled
+
+---
+
 - Restructured the config file
   - You will have to reconfigure your tweaks, as all options but the `Customization` ones have moved elsewhere.
   - This was overdue with how much the file has grown, and results in a much nicer configuration screen as well, with tweaks now being grouped under descriptive categories.
@@ -8,3 +12,4 @@
 - Added `berryPlacementRequiresShiftOrDirt` tweak to prevent Sweet Berries from being placed unless it's on Dirt or shift is being held
 - Added `hideShieldUnlessBlocking` tweak to hide the shield unless the player is actively blocking
 - Added `hideHands` (with optional keybind) and `hideEmptyMainHand` tweaks to hide hands in First Person view
+
