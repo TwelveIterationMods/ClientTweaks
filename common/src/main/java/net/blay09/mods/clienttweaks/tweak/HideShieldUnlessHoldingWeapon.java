@@ -38,10 +38,11 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         }
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
+        final var isStartingToBlock = player.isUsingItem() && player.getUsedItemHand() == InteractionHand.OFF_HAND && player.getOffhandItem().has(DataComponents.BLOCKS_ATTACKS);
         final var weaponInHand = ClientTweaksRules.isWeapon(player.getMainHandItem());
         final var wasWeaponInHand = this.wasWeaponInHand;
         this.wasWeaponInHand = weaponInHand;
-        if (!weaponInHand && !isBlocking) {
+        if (!weaponInHand && !isBlocking && !isStartingToBlock) {
             return false;
         } else if (weaponInHand && !wasWeaponInHand) {
             ItemInHandRenderer itemInHandRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer();
