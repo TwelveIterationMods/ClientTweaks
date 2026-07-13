@@ -33,7 +33,7 @@ public class HideShieldUnlessBlocking extends AbstractClientTweak {
 
         final var isBlocking = player.getUsedItemHand() == InteractionHand.OFF_HAND && player.isBlocking();
         final var isStartingToBlock = player.isUsingItem() && player.getUsedItemHand() == InteractionHand.OFF_HAND && player.getOffhandItem().has(DataComponents.BLOCKS_ATTACKS);
-        return isBlocking || isStartingToBlock;
+        return !player.getOffhandItem().has(DataComponents.BLOCKS_ATTACKS) || isBlocking || isStartingToBlock;
     }
 
     @Override
