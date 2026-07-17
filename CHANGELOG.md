@@ -1,7 +1,2 @@
-- Hotfixed faces being culled below smaller blocks when creativeBreakingSupport was enabled
-
----
-
-- Changed `hideOwnParticleEffects` option to only hide first person particles
-- Added `hideOwnParticleEffectsThirdPerson` option to hide own potion particles even in 3rd person view
-
+- Fixed 'Hide Shield Unless Blocking' causing all offhand items to be hidden
+- Fixed 'Hide Shield Unless Holding Weapon' causing shield to pop out of nowhere when blocking
