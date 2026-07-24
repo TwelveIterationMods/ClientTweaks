@@ -58,6 +58,7 @@ public class ClientTweaks {
         registerTweak(new HideEmptyMainHand());
         registerTweak(new StepAssistIsAnnoying());
         registerTweak(new AutoClimbLadder());
+        registerTweak(new ReactiveSprintKey());
         registerTweak(new HideShieldUnlessBlocking());
         registerTweak(new HideShieldUnlessHoldingWeapon());
         registerTweak(new DoNotUseLastTorch());
