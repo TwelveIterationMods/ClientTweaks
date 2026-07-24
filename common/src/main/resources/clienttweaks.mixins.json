@@ -18,6 +18,7 @@
     "CreativeModeInventoryScreenAccessor",
     "ItemInHandRendererAccessor",
     "LivingEntityMixin",
+    "LocalPlayerMixin",
     "AbstractRecipeBookScreenAccessor",
     "RecipeBookComponentAccessor",
     "GhostSlotsAccessor",
