@@ -4,8 +4,13 @@ import net.blay09.mods.shogi.Shogi;
 import net.blay09.mods.shogi.ShogiValue;
 import net.blay09.mods.shogi.scope.ShogiScope;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -13,9 +18,12 @@ import java.util.List;
 
 public final class ClientTweaksRules {
     public static final ShogiScope SCOPE = Shogi.scope(ClientTweaks.id("rules"), scope -> scope.setDefaultNamespaces(List.of("clienttweaks", "shogi")));
+    private static final TagKey<Item> BERRY_FOODS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "foods/berry"));
 
     public static final ShogiValue<ItemStack, Boolean> isTorch = SCOPE.booleanValue(ClientTweaks.id("is_torch"), itemStack ->
             itemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock().defaultBlockState().getLightEmission() > 0);
+    public static final ShogiValue<ItemStack, Boolean> isBerry = SCOPE.booleanValue(ClientTweaks.id("is_berry"), itemStack ->
+            itemStack.is(Items.SWEET_BERRIES) || itemStack.is(BERRY_FOODS));
     public static final ShogiValue<ItemStack, Boolean> isTool = SCOPE.booleanValue(ClientTweaks.id("is_tool"), itemStack ->
             itemStack.has(DataComponents.TOOL));
     public static final ShogiValue<ItemStack, Boolean> isFood = SCOPE.booleanValue(ClientTweaks.id("is_food"), itemStack ->
@@ -32,6 +40,10 @@ public final class ClientTweaksRules {
 
     public static boolean isTorch(ItemStack itemStack) {
         return isTorch.getOrDefault(itemStack);
+    }
+
+    public static boolean isBerry(ItemStack itemStack) {
+        return isBerry.getOrDefault(itemStack);
     }
 
     public static boolean isTool(ItemStack itemStack) {
