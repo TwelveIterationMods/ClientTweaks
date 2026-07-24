@@ -63,7 +63,7 @@ public class ClientTweaks {
         registerTweak(new DoNotUseLastTorch());
         registerTweak(new DisableLogStripping());
         registerTweak(new LogStrippingRequiresShift());
-        registerTweak(new BerryPlacementRequiresShiftOrDirt());
+        registerTweak(new BerryPlacementRequiresShift());
         registerTweak(new NoOffhandTorchWithFood());
         registerTweak(new NoOffhandFireworksWithElytra());
         registerTweak(new PreventAccidentalMining());
