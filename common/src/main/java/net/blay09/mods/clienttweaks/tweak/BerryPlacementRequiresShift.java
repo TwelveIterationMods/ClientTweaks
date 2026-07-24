@@ -14,7 +14,7 @@ import net.minecraft.world.phys.HitResult;
 
 public class BerryPlacementRequiresShift extends AbstractClientTweak {
 
-    private static final TagKey<Item> BERRY_FOODS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "foods/berry"));
+    private static final TagKey<Item> BERRY_FOODS = TagKey.create(Registries.ITEM, new ResourceLocation("c", "foods/berry"));
 
     public BerryPlacementRequiresShift() {
         super("berryPlacementRequiresShift");
