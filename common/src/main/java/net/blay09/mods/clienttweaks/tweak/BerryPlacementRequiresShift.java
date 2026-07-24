@@ -5,10 +5,16 @@ import net.blay09.mods.balm.api.event.client.UseItemInputEvent;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksConfigData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.HitResult;
 
 public class BerryPlacementRequiresShift extends AbstractClientTweak {
+
+    private static final TagKey<Item> BERRY_FOODS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "foods/berry"));
 
     public BerryPlacementRequiresShift() {
         super("berryPlacementRequiresShift");
@@ -28,7 +34,7 @@ public class BerryPlacementRequiresShift extends AbstractClientTweak {
         }
 
         final var heldItem = player.getItemInHand(event.getHand());
-        if (!heldItem.is(Items.SWEET_BERRIES)) {
+        if (!heldItem.is(Items.SWEET_BERRIES) && !heldItem.is(BERRY_FOODS)) {
             return;
         }
 
