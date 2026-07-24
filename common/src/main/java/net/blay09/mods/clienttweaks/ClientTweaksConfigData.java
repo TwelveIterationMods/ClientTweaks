@@ -138,8 +138,8 @@ public class ClientTweaksConfigData implements BalmConfigData {
         @Comment("This prevents fireworks from being launched from your offhand if you are wearing an Elytra, unless you're flying.")
         public boolean noOffhandFireworksWithElytra = true;
 
-        @Comment("This prevents sweet berries from being placed unless the player is holding shift or placing them on dirt or farmland.")
-        public boolean berryPlacementRequiresShiftOrDirt = false;
+        @Comment("This prevents sweet berries from being placed unless the player is holding shift.")
+        public boolean berryPlacementRequiresShift = false;
     }
 
     public static class Customization {
