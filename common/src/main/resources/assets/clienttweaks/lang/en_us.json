@@ -57,6 +57,8 @@
   "clienttweaks.configuration.torches.offhandTorchWithToolOnly.tooltip":  "This restricts torches to be placed from the offhand only when you're holding a tool in your main hand.",
   "clienttweaks.configuration.mobility.disableStepAssist": "Disable Step Assist",
   "clienttweaks.configuration.mobility.disableStepAssist.tooltip":  "This option will disable step assist added by other mods.",
+  "clienttweaks.configuration.mobility.reactiveSprintKey": "Reactive Sprint Key",
+  "clienttweaks.configuration.mobility.reactiveSprintKey.tooltip": "This option makes sprinting stop when the sprint key is released or sprinting is toggled off.",
   "clienttweaks.configuration.interactions.disableLogStripping": "Disable Log Stripping",
   "clienttweaks.configuration.interactions.disableLogStripping.tooltip":  "This option will disable log stripping.",
   "clienttweaks.configuration.interactions.logStrippingRequiresShift": "Log Stripping Requires Shift",

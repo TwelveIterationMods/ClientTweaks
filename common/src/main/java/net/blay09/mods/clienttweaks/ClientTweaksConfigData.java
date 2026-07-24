@@ -39,6 +39,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
 
         @Comment("This option will disable step assist added by other mods.")
         public boolean disableStepAssist = false;
+
+        @Comment("This option makes sprinting stop when the sprint key is released or sprinting is toggled off.")
+        public boolean reactiveSprintKey = false;
     }
 
     public static class Rendering {

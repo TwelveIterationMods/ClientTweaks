@@ -18,6 +18,7 @@
     "MultiPlayerGameModeMixin",
     "CreativeModeInventoryScreenAccessor",
     "ItemInHandRendererAccessor",
+    "LocalPlayerMixin",
     "RecipeBookComponentAccessor"
   ],
   "injectors": {
