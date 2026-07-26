@@ -27,7 +27,7 @@ public class CrossCollisionBlockMixin {
         if (isHoldingCrossCollisionBlock && ClientTweaksConfig.getActive().building.paneBuildingSupport) {
             // Exit out early if the block does not have the properties we use, to prevent crashes with mods that extend CrossCollisionBlock
             if (!state.hasProperty(CrossCollisionBlock.EAST) || !state.hasProperty(CrossCollisionBlock.WEST) || !state.hasProperty(CrossCollisionBlock.NORTH) || !state.hasProperty(
-                    CrossCollisionBlock.SOUTH)) {
+                    CrossCollisionBlock.SOUTH) || state.getProperties().size() > 6) {
                 return;
             }
 
