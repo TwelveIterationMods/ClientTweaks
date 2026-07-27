@@ -2,6 +2,8 @@ package net.blay09.mods.clienttweaks.tweak;
 
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,12 +19,13 @@ public class ChainBuildingSupport {
     private static final AABB MAX_BOUNDS = new AABB(0.01, 0.01, 0.01, 0.99, 0.99, 0.99);
 
     @Nullable
-    public static VoxelShape getShape(BlockState state, CollisionContext context, VoxelShape originalShape) {
+    public static VoxelShape getShape(BlockState state, BlockPos pos, CollisionContext context, VoxelShape originalShape) {
         final var minecraft = Minecraft.getInstance();
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         final var isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
+        final var isHoldingBlockFromBelow = player != null && player.getBlockY() < pos.getY() - 1 && player.getMainHandItem().getItem() instanceof BlockItem;
         final var isPlayerShapeQuery = context instanceof EntityCollisionContext entityCollisionContext && entityCollisionContext.getEntity() == player;
-        if (!isPlayerShapeQuery || !isHoldingChainBlock || !ClientTweaksConfig.getActive().building.chainBuildingSupport) {
+        if (!isPlayerShapeQuery || !(isHoldingChainBlock || isHoldingBlockFromBelow) || !ClientTweaksConfig.getActive().building.chainBuildingSupport) {
             return null;
         }
 
