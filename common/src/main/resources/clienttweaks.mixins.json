@@ -8,7 +8,6 @@
   ],
   "client": [
     "BlockStateBaseMixin",
-    "ChainBlockMixin",
     "CreativeModeInventoryScreenMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
