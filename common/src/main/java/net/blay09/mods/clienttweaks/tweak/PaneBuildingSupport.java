@@ -36,6 +36,10 @@ public class PaneBuildingSupport {
     }
 
     private static boolean isSupported(BlockState state) {
+        if (!(state.getBlock() instanceof CrossCollisionBlock)) {
+            return false;
+        }
+
         final var properties = state.getProperties();
         if (!properties.contains(CrossCollisionBlock.NORTH)
                 || !properties.contains(CrossCollisionBlock.EAST)
