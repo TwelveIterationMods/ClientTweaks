@@ -8,7 +8,6 @@
   "client": [
     "HudMixin",
     "BlockStateBaseMixin",
-    "ChainBlockMixin",
     "CreativeModeInventoryScreenMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
