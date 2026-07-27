@@ -14,6 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class PaneBuildingSupport {
 
+    private static final AABB MAX_BOUNDS = new AABB(0.01, 0.01, 0.01, 0.99, 0.99, 0.99);
+
     @Nullable
     public static VoxelShape getShape(BlockState state, CollisionContext context, VoxelShape originalShape) {
         final var minecraft = Minecraft.getInstance();
@@ -31,7 +33,7 @@ public class PaneBuildingSupport {
         return Shapes.create(originalShape.bounds()
                 .expandTowards(0.25, 0, 0.25)
                 .expandTowards(-0.25, 0, -0.25)
-                .intersect(new AABB(0.01, 0.01, 0.01, 0.99, 0.99, 0.99))
+                .intersect(MAX_BOUNDS)
         );
     }
 
