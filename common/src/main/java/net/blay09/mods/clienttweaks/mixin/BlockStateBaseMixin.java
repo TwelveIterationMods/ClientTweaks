@@ -32,7 +32,7 @@ public class BlockStateBaseMixin {
             return;
         }
 
-        final var chainBuildingSupportShape = ChainBuildingSupport.getShape(state, context, callbackInfo.getReturnValue());
+        final var chainBuildingSupportShape = ChainBuildingSupport.getShape(state, pos, context, callbackInfo.getReturnValue());
         if (chainBuildingSupportShape != null) {
             callbackInfo.setReturnValue(chainBuildingSupportShape);
             return;
