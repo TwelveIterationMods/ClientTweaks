@@ -7,7 +7,6 @@
   ],
   "client": [
     "GuiMixin",
-    "CrossCollisionBlockMixin",
     "BlockStateBaseMixin",
     "ChainBlockMixin",
     "CreativeModeInventoryScreenMixin",
