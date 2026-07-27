@@ -1,6 +1,7 @@
 package net.blay09.mods.clienttweaks.mixin;
 
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
+import net.blay09.mods.clienttweaks.tweak.PaneBuildingSupport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -36,6 +37,11 @@ public class BlockStateBaseMixin {
                 );
                 callbackInfo.setReturnValue(modifiedShape);
             }
+        }
+
+        final var paneBuildingSupportShape = PaneBuildingSupport.getShape(state, context, callbackInfo.getReturnValue());
+        if (paneBuildingSupportShape != null) {
+            callbackInfo.setReturnValue(paneBuildingSupportShape);
         }
     }
 }

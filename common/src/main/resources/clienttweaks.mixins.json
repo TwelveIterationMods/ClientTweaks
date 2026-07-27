@@ -7,7 +7,6 @@
   ],
   "client": [
     "HudMixin",
-    "CrossCollisionBlockMixin",
     "BlockStateBaseMixin",
     "ChainBlockMixin",
     "CreativeModeInventoryScreenMixin",
