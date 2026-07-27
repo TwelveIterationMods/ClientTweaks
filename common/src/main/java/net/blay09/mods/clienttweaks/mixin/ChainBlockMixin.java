@@ -42,7 +42,7 @@ public class ChainBlockMixin {
                 final var modifiedShape = Shapes.create(originalShape.bounds()
                         .expandTowards(0.25, 0.25, 0.25)
                         .expandTowards(-0.25, -0.25, -0.25)
-                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                        .intersect(new AABB(0.01, 0.01, 0.01, 0.99, 0.99, 0.99))
                 );
                 callbackInfo.setReturnValue(modifiedShape);
             }
