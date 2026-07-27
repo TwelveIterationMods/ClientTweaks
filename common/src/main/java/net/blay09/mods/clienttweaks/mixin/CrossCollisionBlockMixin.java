@@ -7,6 +7,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -15,6 +16,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Set;
 
 @Mixin(CrossCollisionBlock.class)
 public class CrossCollisionBlockMixin {
@@ -25,9 +28,10 @@ public class CrossCollisionBlockMixin {
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         boolean isHoldingCrossCollisionBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof CrossCollisionBlock;
         if (isHoldingCrossCollisionBlock && ClientTweaksConfig.getActive().building.paneBuildingSupport) {
-            // Exit out early if the block does not have the properties we use, to prevent crashes with mods that extend CrossCollisionBlock
-            if (!state.hasProperty(CrossCollisionBlock.EAST) || !state.hasProperty(CrossCollisionBlock.WEST) || !state.hasProperty(CrossCollisionBlock.NORTH) || !state.hasProperty(
-                    CrossCollisionBlock.SOUTH) || state.getProperties().size() > 6) {
+            // Only touch block states built from the properties this logic understands; anything else
+            // (e.g. diagonal connectors adding extra directional properties) is left alone
+            if (!state.getProperties().containsAll(Set.<Property<?>>of(CrossCollisionBlock.NORTH, CrossCollisionBlock.EAST, CrossCollisionBlock.SOUTH, CrossCollisionBlock.WEST))
+                    || !Set.<Property<?>>of(CrossCollisionBlock.NORTH, CrossCollisionBlock.EAST, CrossCollisionBlock.SOUTH, CrossCollisionBlock.WEST, CrossCollisionBlock.WATERLOGGED).containsAll(state.getProperties())) {
                 return;
             }
 
