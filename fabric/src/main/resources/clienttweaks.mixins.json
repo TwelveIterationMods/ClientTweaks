@@ -8,7 +8,6 @@
   "client": [
     "LivingEntityAccessor",
     "BlockStateBaseMixin",
-    "ChainBlockMixin",
     "CreativeModeInventoryScreenMixin",
     "RecipeBookComponentMixin",
     "AxeItemAccessor",
