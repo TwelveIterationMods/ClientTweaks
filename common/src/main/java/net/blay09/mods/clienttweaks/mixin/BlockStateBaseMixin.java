@@ -32,7 +32,7 @@ public class BlockStateBaseMixin {
                 final var modifiedShape = Shapes.create(originalShape.bounds()
                         .expandTowards(-1, 0, -1)
                         .expandTowards(1, 0, 1)
-                        .intersect(new AABB(0, 0, 0, 1, 1, 1))
+                        .intersect(new AABB(0.01, 0.01, 0.01, 0.99, 0.99, 0.99))
                 );
                 callbackInfo.setReturnValue(modifiedShape);
             }
