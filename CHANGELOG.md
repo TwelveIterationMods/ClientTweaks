@@ -1,15 +1,9 @@
-- Hotfixed faces being culled below smaller blocks when `creativeBreakingSupport` was enabled
-
----
-
-- Restructured the config file
-  - You will have to reconfigure your tweaks, as all options but the `Customization` ones have moved elsewhere.
-  - This was overdue with how much the file has grown, and results in a much nicer configuration screen as well, with tweaks now being grouped under descriptive categories.
-- Added `Mine Single Block` key that, when held, will only allow breaking a single block until it's let go
-- Added creative menu tweaks for clearing the search bar and retaining its content when reopening
-- Added recipe book tweaks for clearing the search bar, retaining its content when reopening, and clicking ghost items to navigate to their recipes
-- Added `logStrippingRequiresShift` tweak for requiring shift to be held to strip logs
-- Added `berryPlacementRequiresShiftOrDirt` tweak to prevent Sweet Berries from being placed unless it's on Dirt or shift is being held
-- Added `hideShieldUnlessBlocking` tweak to hide the shield unless the player is actively blocking
-- Added `hideHands` (with optional keybind) and `hideEmptyMainHand` tweaks to hide hands in First Person view
-
+- Added `reactiveSprintKey` tweak, which makes sprinting actually stop when the sprint key is let go or toggled off
+- Added support for all berry items tagged `c:foods/berry` in `berryPlacementRequiresShift` tweak
+- Changed `chainBuildingSupport` to also activate when holding a block below a chain
+- Removed the special-casing of dirt for the `berryPlacementRequiresShift` tweak
+- Fixed Chain Building Support not working when ModernFix is installed
+- Fixed Pane Building Support not working when ModernFix is installed
+- Fixed Pane Building Support incorrectly affecting Diagonal Walls / Windows / etc.
+  - For now, this means the option will not work at all when Diagonal Walls is instead, since it replaces the vanilla block
+- Fixed cases that could lead to accidentally xray rendering issues
