@@ -1,2 +1,8 @@
-- Fixed 'Hide Shield Unless Blocking' causing all offhand items to be hidden
-- Fixed 'Hide Shield Unless Holding Weapon' causing shield to pop out of nowhere when blocking
+- Added `reactiveSprintKey` tweak, which makes sprinting actually stop when the sprint key is let go or toggled off
+- Added support for all berry items tagged `c:foods/berry` in `berryPlacementRequiresShift` tweak
+- Removed the special-casing of dirt for the `berryPlacementRequiresShift` tweak
+- Fixed Chain Building Support not working when ModernFix is installed
+- Fixed Pane Building Support not working when ModernFix is installed
+- Fixed Pane Building Support incorrectly affecting Diagonal Walls / Windows / etc.
+  - For now, this means the option will not work at all when Diagonal Walls is instead, since it replaces the vanilla block
+- Fixed cases that could lead to accidentally xray rendering issues
