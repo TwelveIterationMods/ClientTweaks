@@ -194,7 +194,9 @@ public class ClientTweaksConfigData implements BalmConfigData {
                 ResourceLocation.withDefaultNamespace("budding_amethyst"),
                 ResourceLocation.withDefaultNamespace("small_amethyst_bud"),
                 ResourceLocation.withDefaultNamespace("medium_amethyst_bud"),
-                ResourceLocation.withDefaultNamespace("large_amethyst_bud")
+                ResourceLocation.withDefaultNamespace("large_amethyst_bud"),
+                ResourceLocation.withDefaultNamespace("suspicious_sand"),
+                ResourceLocation.withDefaultNamespace("suspicious_gravel")
         );
 
         @Comment("Additional items that count as food for the offhand-torch and -use tweak options.")
