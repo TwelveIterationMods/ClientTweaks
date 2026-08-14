@@ -36,7 +36,9 @@ public final class ClientTweaksRules {
             state.is(Blocks.BUDDING_AMETHYST)
                     || state.is(Blocks.SMALL_AMETHYST_BUD)
                     || state.is(Blocks.MEDIUM_AMETHYST_BUD)
-                    || state.is(Blocks.LARGE_AMETHYST_BUD));
+                    || state.is(Blocks.LARGE_AMETHYST_BUD)
+                    || state.is(Blocks.SUSPICIOUS_SAND)
+                    || state.is(Blocks.SUSPICIOUS_GRAVEL));
 
     public static boolean isTorch(ItemStack itemStack) {
         return isTorch.getOrDefault(itemStack);
