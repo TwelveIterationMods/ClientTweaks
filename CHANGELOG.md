@@ -1,1 +1,2 @@
-- Fixed crash on startup due to Mixin not being loaded on Fabric
+- Added Suspicious Sand and Suspicious Gravel to fragile blocks by default
+  - Existing configs must be changed manually or reset for this to apply
