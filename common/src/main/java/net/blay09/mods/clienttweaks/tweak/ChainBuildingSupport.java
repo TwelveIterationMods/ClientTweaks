@@ -20,6 +20,10 @@ public class ChainBuildingSupport {
 
     @Nullable
     public static VoxelShape getShape(BlockState state, BlockPos pos, CollisionContext context, VoxelShape originalShape) {
+        if (state == null || pos == null || context == null || originalShape == null) {
+            return null;
+        }
+
         final var minecraft = Minecraft.getInstance();
         @SuppressWarnings("ConstantValue") final var player = minecraft != null ? minecraft.player : null;
         final var isHoldingChainBlock = player != null && Block.byItem(player.getMainHandItem().getItem()) instanceof ChainBlock;
