@@ -1,1 +1,2 @@
-- Added Suspicious Sand and Suspicious Gravel to the blocks that require shift to break by default
+- Added Suspicious Sand and Gravel in fragile blocks by default
+- Fixed crash when getShape is called with abnormal parameters (e.g. Create Ponder)
