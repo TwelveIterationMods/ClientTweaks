@@ -1,2 +1,2 @@
-- Added Suspicious Sand and Suspicious Gravel to fragile blocks by default
-  - Existing configs must be changed manually or reset for this to apply
+- Added Suspicious Sand and Gravel in fragile blocks by default
+- Fixed crash when getShape is called with abnormal parameters (e.g. Create Ponder)
