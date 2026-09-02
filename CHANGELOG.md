@@ -1,2 +1,1 @@
-- Added Suspicious Sand and Gravel in fragile blocks by default
-- Fixed crash when getShape is called with abnormal parameters (e.g. Create Ponder)
+- Updated to Minecraft 26.3
