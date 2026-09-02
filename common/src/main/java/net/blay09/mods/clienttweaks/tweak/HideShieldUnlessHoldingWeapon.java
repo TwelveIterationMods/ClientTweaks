@@ -5,9 +5,8 @@ import net.blay09.mods.balm.client.platform.event.callback.RenderCallback;
 import net.blay09.mods.balm.platform.event.EventPhases;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
 import net.blay09.mods.clienttweaks.ClientTweaksRules;
-import net.blay09.mods.clienttweaks.mixin.ItemInHandRendererAccessor;
+import net.blay09.mods.clienttweaks.mixin.FirstPersonHandsAndItemsAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
@@ -45,8 +44,8 @@ public class HideShieldUnlessHoldingWeapon extends AbstractClientTweak {
         if (!weaponInHand && !isBlocking && !isStartingToBlock) {
             return false;
         } else if (weaponInHand && !wasWeaponInHand) {
-            ItemInHandRenderer itemInHandRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer();
-            if (itemInHandRenderer instanceof ItemInHandRendererAccessor accessor) {
+            final var firstPersonHandsAndItems = player.firstPersonHandsAndItems();
+            if (firstPersonHandsAndItems instanceof FirstPersonHandsAndItemsAccessor accessor) {
                 accessor.setOOffHandHeight(0f);
                 accessor.setOffHandHeight(0f);
             }

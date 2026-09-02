@@ -14,7 +14,7 @@
     "ShovelItemMixin",
     "MultiPlayerGameModeMixin",
     "CreativeModeInventoryScreenAccessor",
-    "ItemInHandRendererAccessor",
+    "FirstPersonHandsAndItemsAccessor",
     "LivingEntityMixin",
     "LocalPlayerMixin",
     "AbstractRecipeBookScreenAccessor",
