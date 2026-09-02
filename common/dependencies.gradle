@@ -1,5 +1,4 @@
 dependencies {
-    compileOnly libs.mixinExtras
     implementation(libs.balmCommon) {
         changing = libs.versions.balm.get().endsWith("SNAPSHOT")
     }
