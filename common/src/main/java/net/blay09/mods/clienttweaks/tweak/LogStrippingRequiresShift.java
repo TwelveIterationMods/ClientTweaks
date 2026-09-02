@@ -4,7 +4,7 @@ import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.client.platform.event.callback.ClientItemCallback;
 import net.blay09.mods.balm.platform.event.callback.InteractionEventResult;
 import net.blay09.mods.clienttweaks.ClientTweaksConfig;
-import net.blay09.mods.clienttweaks.mixin.AxeItemAccessor;
+import net.blay09.mods.clienttweaks.ClientTweaksRules;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -28,9 +28,8 @@ public class LogStrippingRequiresShift extends AbstractClientTweak {
             }
 
             final var blockHitResult = (BlockHitResult) client.hitResult;
-            final var targetState = client.level.getBlockState(blockHitResult.getBlockPos());
             final var heldItem = client.player != null ? client.player.getItemInHand(hand) : ItemStack.EMPTY;
-            if (!heldItem.isEmpty() && heldItem.getItem() instanceof AxeItemAccessor axeItem && axeItem.callGetStripped(targetState).isPresent() && !player.isShiftKeyDown()) {
+            if (ClientTweaksRules.canStripLog(heldItem, client.level, blockHitResult.getBlockPos()) && !player.isShiftKeyDown()) {
                 return InteractionEventResult.FAIL;
             }
         }

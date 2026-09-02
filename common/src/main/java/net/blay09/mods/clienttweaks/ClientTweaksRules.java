@@ -4,6 +4,7 @@ import net.blay09.mods.shogi.Shogi;
 import net.blay09.mods.shogi.ShogiValue;
 import net.blay09.mods.shogi.scope.ShogiScope;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
@@ -11,6 +12,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.BlockTransformers;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -62,6 +65,16 @@ public final class ClientTweaksRules {
 
     public static boolean isWeapon(ItemStack itemStack) {
         return isWeapon.getOrDefault(itemStack);
+    }
+
+    public static boolean canStripLog(ItemStack itemStack, Level level, BlockPos pos) {
+        final var blockTransformer = itemStack.get(DataComponents.BLOCK_TRANSFORMER);
+        if (blockTransformer == null || !blockTransformer.is(BlockTransformers.AXE)) {
+            return false;
+        }
+
+        final var strippingTransform = blockTransformer.value().transforms().get(0);
+        return strippingTransform.blockStateProvider().value().getOptionalState(level, level.getRandom(), pos) != null;
     }
 
     public static boolean requiresShiftToMine(BlockState state) {
